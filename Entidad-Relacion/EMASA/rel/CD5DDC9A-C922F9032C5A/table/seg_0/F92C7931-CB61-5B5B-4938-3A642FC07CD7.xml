@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F92C7931-CB61-5B5B-4938-3A642FC07CD7" name="CANTIDAD">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>62FCF6B4-86B6-FAEB-7B83-B9468B5BB42C</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cantidad" id="DE0A965E-8B85-DD75-41CB-8B4475F6D2B1">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>1EF867B3-65C6-2614-7FE6-F0E9F3BE88BC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REPUESTO_Codigo" id="510D0D6D-59DC-FD3E-C53D-054576030AA1">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>F3FB2F6D-BF82-3CB5-E1FE-CF7C7D40DEE6</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="911CF567-809F-B4B9-D731-F27F12D26074" referredColumn="4AB37977-99B4-18B5-8D7E-BA9661AC8F1E"/>
+</associations>
+</Column>
+<Column name="ACT_Fecha" id="669E5461-6E6D-2DD3-A57A-EC345331456E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>317DA2E8-DED0-CE2F-33F3-3317F2FB42D3</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B22F277E-0D30-6533-4610-9D8F4C4DD441" referredColumn="04E420E5-2A76-F15C-E806-B75ED29B001F"/>
+</associations>
+</Column>
+<Column name="ACT_ORD_TRABAJO_Identificador" id="AF1A5B43-483D-A9C7-794A-E78CA2E9C410">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>10805107-8123-87D2-621B-BE6C29F6947E</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B22F277E-0D30-6533-4610-9D8F4C4DD441" referredColumn="47503F7C-AE28-4689-84FF-AA3DCC977A56"/>
+</associations>
+</Column>
+<Column name="ACT_BRIGADA_Num_Brigada" id="8B883D0D-DD9C-F553-76D9-84AA8F8F3639">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>CB7269FF-A03B-1D3D-3AC1-1F8119AC6058</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B22F277E-0D30-6533-4610-9D8F4C4DD441" referredColumn="21AC4C8D-8767-8D0D-B434-C7970C88A1CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="58B44730-3FB5-AF20-7416-9806AC6DE1BC" name="CANTIDAD_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>0B9F1B20-A6EC-EE87-834C-BB525FE24989</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE0A965E-8B85-DD75-41CB-8B4475F6D2B1"/>
+<colUsage columnID="510D0D6D-59DC-FD3E-C53D-054576030AA1"/>
+<colUsage columnID="669E5461-6E6D-2DD3-A57A-EC345331456E"/>
+<colUsage columnID="AF1A5B43-483D-A9C7-794A-E78CA2E9C410"/>
+<colUsage columnID="8B883D0D-DD9C-F553-76D9-84AA8F8F3639"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30EB8FEA-7984-C52C-F0EA-077F8F5C6DE1" name="CANTIDAD_REPUESTO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>02291AF9-A9E1-B899-5771-60B774E3F4C9</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="510D0D6D-59DC-FD3E-C53D-054576030AA1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56B51234-B7C1-786A-CB0B-F42C37C79687" name="CANTIDAD_ACTUACIONES_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>A8B585EA-6DBE-6692-CED4-657F027B9891</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="669E5461-6E6D-2DD3-A57A-EC345331456E"/>
+<colUsage columnID="AF1A5B43-483D-A9C7-794A-E78CA2E9C410"/>
+<colUsage columnID="8B883D0D-DD9C-F553-76D9-84AA8F8F3639"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

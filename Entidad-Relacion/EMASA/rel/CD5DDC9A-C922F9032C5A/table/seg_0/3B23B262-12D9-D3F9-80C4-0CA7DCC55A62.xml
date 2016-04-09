@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B23B262-12D9-D3F9-80C4-0CA7DCC55A62" name="ACTUACIONES">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>779E4EE7-31FA-7EC0-0EE6-821B66D8613C</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha" id="04E420E5-2A76-F15C-E806-B75ED29B001F">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>CFFA9A22-412A-9E73-EBA0-328FA53C6AC7</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Operaciones_realizadas" id="8BA0E476-65D5-3ABC-A09D-17588668A321">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>D171E7E0-060B-876B-CE55-3141B45C6B17</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Observaciones" id="6263BC6D-5D7B-DB8B-6C9C-92DA1855A602">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>B31F5853-44ED-57F3-FAC6-D599ACB0C5E3</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORD_TRABAJO_Identificador" id="47503F7C-AE28-4689-84FF-AA3DCC977A56">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>AF34780D-6B32-7347-3230-6387A8C61AF5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9C11BA2-7A79-0337-E73E-270810A8E8EF" referredColumn="D4742F94-DFDD-0D6A-587F-AD2552AB0980"/>
+</associations>
+</Column>
+<Column name="BRIGADA_Num_Brigada" id="21AC4C8D-8767-8D0D-B434-C7970C88A1CF">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>3EEEC83E-CC3E-B378-27E7-2E0D9A174634</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E0D2830-F108-CD48-80E8-48A6B822B852" referredColumn="A638A2F7-C9F3-342C-41CB-EC8B74953D94"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8FE9A9B9-15D9-71D7-9841-B615DA2C30E3" name="ACTUACIONES_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>E1B86003-20EE-DBC0-6903-3DACA676FFF4</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04E420E5-2A76-F15C-E806-B75ED29B001F"/>
+<colUsage columnID="47503F7C-AE28-4689-84FF-AA3DCC977A56"/>
+<colUsage columnID="21AC4C8D-8767-8D0D-B434-C7970C88A1CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29F8E08E-32DB-42C8-22D8-990B9B3A39DC" name="ACTUACIONES_ORD_TRABAJO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>4A8C3D47-61DC-DBFC-1433-2313D71B2A37</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47503F7C-AE28-4689-84FF-AA3DCC977A56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="161943F5-B869-3878-F44D-6A4046DE9F0A" name="ACTUACIONES_BRIGADA_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 23:00:28 UTC</createdTime>
+<generatorID>FD1C1D1A-31F8-C8A3-9128-95008CE3E491</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21AC4C8D-8767-8D0D-B434-C7970C88A1CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

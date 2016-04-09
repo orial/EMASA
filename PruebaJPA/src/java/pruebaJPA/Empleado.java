@@ -80,6 +80,8 @@ public class Empleado implements Serializable {
     @JoinColumn(name = "BRIGADA_NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
     @ManyToOne
     private Brigada brigadaNumBrigada;
+    @OneToMany(mappedBy = "empleadoIdEmpleado")
+    private Collection<Aviso> avisoCollection;
 
     public Empleado() {
     }
@@ -175,6 +177,15 @@ public class Empleado implements Serializable {
 
     public void setBrigadaNumBrigada(Brigada brigadaNumBrigada) {
         this.brigadaNumBrigada = brigadaNumBrigada;
+    }
+
+    @XmlTransient
+    public Collection<Aviso> getAvisoCollection() {
+        return avisoCollection;
+    }
+
+    public void setAvisoCollection(Collection<Aviso> avisoCollection) {
+        this.avisoCollection = avisoCollection;
     }
 
     @Override

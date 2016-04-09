@@ -6,11 +6,9 @@
 package pruebaJPA;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -32,7 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id"),
     @NamedQuery(name = "Cliente.findByDni", query = "SELECT c FROM Cliente c WHERE c.dni = :dni"),
     @NamedQuery(name = "Cliente.findByNombre", query = "SELECT c FROM Cliente c WHERE c.nombre = :nombre"),
     @NamedQuery(name = "Cliente.findByPoliza", query = "SELECT c FROM Cliente c WHERE c.poliza = :poliza"),
@@ -41,13 +38,10 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private BigDecimal id;
-    @Size(max = 12)
+    @Size(min = 1, max = 12)
     @Column(name = "DNI")
     private String dni;
     @Basic(optional = false)
@@ -63,27 +57,19 @@ public class Cliente implements Serializable {
     @Size(max = 40)
     @Column(name = "e-mail")
     private String eMail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteId")
+    @OneToMany(mappedBy = "clienteDni")
     private Collection<Aviso> avisoCollection;
 
     public Cliente() {
     }
 
-    public Cliente(BigDecimal id) {
-        this.id = id;
+    public Cliente(String dni) {
+        this.dni = dni;
     }
 
-    public Cliente(BigDecimal id, String nombre) {
-        this.id = id;
+    public Cliente(String dni, String nombre) {
+        this.dni = dni;
         this.nombre = nombre;
-    }
-
-    public BigDecimal getId() {
-        return id;
-    }
-
-    public void setId(BigDecimal id) {
-        this.id = id;
     }
 
     public String getDni() {
@@ -138,7 +124,7 @@ public class Cliente implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (dni != null ? dni.hashCode() : 0);
         return hash;
     }
 
@@ -149,7 +135,7 @@ public class Cliente implements Serializable {
             return false;
         }
         Cliente other = (Cliente) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.dni == null && other.dni != null) || (this.dni != null && !this.dni.equals(other.dni))) {
             return false;
         }
         return true;
@@ -157,7 +143,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Cliente[ id=" + id + " ]";
+        return "pruebaJPA.Cliente[ dni=" + dni + " ]";
     }
     
 }

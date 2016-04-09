@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -37,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Aviso.findAll", query = "SELECT a FROM Aviso a"),
     @NamedQuery(name = "Aviso.findByCodigo", query = "SELECT a FROM Aviso a WHERE a.codigo = :codigo"),
     @NamedQuery(name = "Aviso.findByFechaEntrada", query = "SELECT a FROM Aviso a WHERE a.fechaEntrada = :fechaEntrada"),
-    @NamedQuery(name = "Aviso.findBySat", query = "SELECT a FROM Aviso a WHERE a.sat = :sat")})
+    @NamedQuery(name = "Aviso.findByOrigen", query = "SELECT a FROM Aviso a WHERE a.origen = :origen")})
 public class Aviso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +55,9 @@ public class Aviso implements Serializable {
     private Date fechaEntrada;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "SAT")
-    private Character sat;
+    @Size(min = 1, max = 15)
+    @Column(name = "ORIGEN")
+    private String origen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
     private Collection<Historico> historicoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
@@ -67,9 +69,12 @@ public class Aviso implements Serializable {
     @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO")
     @ManyToOne
     private Aviso avisoCodigo;
-    @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private Cliente clienteId;
+    @JoinColumn(name = "CLIENTE_DNI", referencedColumnName = "DNI")
+    @ManyToOne
+    private Cliente clienteDni;
+    @JoinColumn(name = "EMPLEADO_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
+    @ManyToOne
+    private Empleado empleadoIdEmpleado;
 
     public Aviso() {
     }
@@ -78,10 +83,10 @@ public class Aviso implements Serializable {
         this.codigo = codigo;
     }
 
-    public Aviso(BigDecimal codigo, Date fechaEntrada, Character sat) {
+    public Aviso(BigDecimal codigo, Date fechaEntrada, String origen) {
         this.codigo = codigo;
         this.fechaEntrada = fechaEntrada;
-        this.sat = sat;
+        this.origen = origen;
     }
 
     public BigDecimal getCodigo() {
@@ -100,12 +105,12 @@ public class Aviso implements Serializable {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public Character getSat() {
-        return sat;
+    public String getOrigen() {
+        return origen;
     }
 
-    public void setSat(Character sat) {
-        this.sat = sat;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
     @XmlTransient
@@ -152,12 +157,20 @@ public class Aviso implements Serializable {
         this.avisoCodigo = avisoCodigo;
     }
 
-    public Cliente getClienteId() {
-        return clienteId;
+    public Cliente getClienteDni() {
+        return clienteDni;
     }
 
-    public void setClienteId(Cliente clienteId) {
-        this.clienteId = clienteId;
+    public void setClienteDni(Cliente clienteDni) {
+        this.clienteDni = clienteDni;
+    }
+
+    public Empleado getEmpleadoIdEmpleado() {
+        return empleadoIdEmpleado;
+    }
+
+    public void setEmpleadoIdEmpleado(Empleado empleadoIdEmpleado) {
+        this.empleadoIdEmpleado = empleadoIdEmpleado;
     }
 
     @Override
