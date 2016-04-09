@@ -9,7 +9,17 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -27,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Actuaciones.findByFecha", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.fecha = :fecha"),
     @NamedQuery(name = "Actuaciones.findByOperacionesRealizadas", query = "SELECT a FROM Actuaciones a WHERE a.operacionesRealizadas = :operacionesRealizadas"),
     @NamedQuery(name = "Actuaciones.findByObservaciones", query = "SELECT a FROM Actuaciones a WHERE a.observaciones = :observaciones"),
-    @NamedQuery(name = "Actuaciones.findByOrdTrabId", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.ordTrabId = :ordTrabId"),
+    @NamedQuery(name = "Actuaciones.findByOrdTrabajoIdentificador", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.ordTrabajoIdentificador = :ordTrabajoIdentificador"),
     @NamedQuery(name = "Actuaciones.findByBrigadaNumBrigada", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.brigadaNumBrigada = :brigadaNumBrigada")})
 public class Actuaciones implements Serializable {
 
@@ -42,14 +52,14 @@ public class Actuaciones implements Serializable {
     @Size(max = 200)
     @Column(name = "OBSERVACIONES")
     private String observaciones;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actuaciones")
+    private Collection<ObjReparado> objReparadoCollection;
     @JoinColumn(name = "BRIGADA_NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Brigada brigada;
-    @JoinColumn(name = "ORD_TRAB_ID", referencedColumnName = "IDENTIFICADOR", insertable = false, updatable = false)
+    @JoinColumn(name = "ORD_TRABAJO_IDENTIFICADOR", referencedColumnName = "IDENTIFICADOR", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private OrdTrabajo ordTrabajo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actuaciones")
-    private Collection<ObjReparado> objReparadoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "actuaciones")
     private Collection<Cantidad> cantidadCollection;
 
@@ -65,8 +75,8 @@ public class Actuaciones implements Serializable {
         this.operacionesRealizadas = operacionesRealizadas;
     }
 
-    public Actuaciones(Date fecha, BigInteger ordTrabId, BigInteger brigadaNumBrigada) {
-        this.actuacionesPK = new ActuacionesPK(fecha, ordTrabId, brigadaNumBrigada);
+    public Actuaciones(Date fecha, BigInteger ordTrabajoIdentificador, BigInteger brigadaNumBrigada) {
+        this.actuacionesPK = new ActuacionesPK(fecha, ordTrabajoIdentificador, brigadaNumBrigada);
     }
 
     public ActuacionesPK getActuacionesPK() {
@@ -93,6 +103,15 @@ public class Actuaciones implements Serializable {
         this.observaciones = observaciones;
     }
 
+    @XmlTransient
+    public Collection<ObjReparado> getObjReparadoCollection() {
+        return objReparadoCollection;
+    }
+
+    public void setObjReparadoCollection(Collection<ObjReparado> objReparadoCollection) {
+        this.objReparadoCollection = objReparadoCollection;
+    }
+
     public Brigada getBrigada() {
         return brigada;
     }
@@ -107,15 +126,6 @@ public class Actuaciones implements Serializable {
 
     public void setOrdTrabajo(OrdTrabajo ordTrabajo) {
         this.ordTrabajo = ordTrabajo;
-    }
-
-    @XmlTransient
-    public Collection<ObjReparado> getObjReparadoCollection() {
-        return objReparadoCollection;
-    }
-
-    public void setObjReparadoCollection(Collection<ObjReparado> objReparadoCollection) {
-        this.objReparadoCollection = objReparadoCollection;
     }
 
     @XmlTransient

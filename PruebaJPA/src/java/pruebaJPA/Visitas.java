@@ -8,7 +8,13 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Visitas.findAll", query = "SELECT v FROM Visitas v"),
     @NamedQuery(name = "Visitas.findByFechaVisita", query = "SELECT v FROM Visitas v WHERE v.visitasPK.fechaVisita = :fechaVisita"),
-    @NamedQuery(name = "Visitas.findByIdOperario", query = "SELECT v FROM Visitas v WHERE v.visitasPK.idOperario = :idOperario"),
+    @NamedQuery(name = "Visitas.findByEmpleadoIdEmpleado", query = "SELECT v FROM Visitas v WHERE v.visitasPK.empleadoIdEmpleado = :empleadoIdEmpleado"),
     @NamedQuery(name = "Visitas.findByAvisoCodigo", query = "SELECT v FROM Visitas v WHERE v.visitasPK.avisoCodigo = :avisoCodigo")})
 public class Visitas implements Serializable {
 
@@ -31,9 +37,9 @@ public class Visitas implements Serializable {
     @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Aviso aviso;
-    @JoinColumn(name = "SUPERVISOR_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
+    @JoinColumn(name = "EMPLEADO_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Supervisor supervisorIdEmpleado;
+    private Empleado empleado;
 
     public Visitas() {
     }
@@ -42,8 +48,8 @@ public class Visitas implements Serializable {
         this.visitasPK = visitasPK;
     }
 
-    public Visitas(Date fechaVisita, BigInteger idOperario, BigInteger avisoCodigo) {
-        this.visitasPK = new VisitasPK(fechaVisita, idOperario, avisoCodigo);
+    public Visitas(Date fechaVisita, BigInteger empleadoIdEmpleado, BigInteger avisoCodigo) {
+        this.visitasPK = new VisitasPK(fechaVisita, empleadoIdEmpleado, avisoCodigo);
     }
 
     public VisitasPK getVisitasPK() {
@@ -62,12 +68,12 @@ public class Visitas implements Serializable {
         this.aviso = aviso;
     }
 
-    public Supervisor getSupervisorIdEmpleado() {
-        return supervisorIdEmpleado;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setSupervisorIdEmpleado(Supervisor supervisorIdEmpleado) {
-        this.supervisorIdEmpleado = supervisorIdEmpleado;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     @Override

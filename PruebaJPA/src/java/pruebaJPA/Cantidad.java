@@ -8,7 +8,14 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cantidad.findByCantidad", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.cantidad = :cantidad"),
     @NamedQuery(name = "Cantidad.findByRepuestoCodigo", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.repuestoCodigo = :repuestoCodigo"),
     @NamedQuery(name = "Cantidad.findByActFecha", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actFecha = :actFecha"),
-    @NamedQuery(name = "Cantidad.findByActOrdTrabId", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actOrdTrabId = :actOrdTrabId"),
+    @NamedQuery(name = "Cantidad.findByActOrdTrabajoIdentificador", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actOrdTrabajoIdentificador = :actOrdTrabajoIdentificador"),
     @NamedQuery(name = "Cantidad.findByActBrigadaNumBrigada", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actBrigadaNumBrigada = :actBrigadaNumBrigada")})
 public class Cantidad implements Serializable {
 
@@ -32,7 +39,7 @@ public class Cantidad implements Serializable {
     protected CantidadPK cantidadPK;
     @JoinColumns({
         @JoinColumn(name = "ACT_FECHA", referencedColumnName = "FECHA", insertable = false, updatable = false),
-        @JoinColumn(name = "ACT_ORD_TRAB_ID", referencedColumnName = "ORD_TRAB_ID", insertable = false, updatable = false),
+        @JoinColumn(name = "ACT_ORD_TRABAJO_IDENTIFICADOR", referencedColumnName = "ORD_TRABAJO_IDENTIFICADOR", insertable = false, updatable = false),
         @JoinColumn(name = "ACT_BRIGADA_NUM_BRIGADA", referencedColumnName = "BRIGADA_NUM_BRIGADA", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Actuaciones actuaciones;
@@ -47,8 +54,8 @@ public class Cantidad implements Serializable {
         this.cantidadPK = cantidadPK;
     }
 
-    public Cantidad(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabId, BigInteger actBrigadaNumBrigada) {
-        this.cantidadPK = new CantidadPK(cantidad, repuestoCodigo, actFecha, actOrdTrabId, actBrigadaNumBrigada);
+    public Cantidad(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabajoIdentificador, BigInteger actBrigadaNumBrigada) {
+        this.cantidadPK = new CantidadPK(cantidad, repuestoCodigo, actFecha, actOrdTrabajoIdentificador, actBrigadaNumBrigada);
     }
 
     public CantidadPK getCantidadPK() {

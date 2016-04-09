@@ -9,10 +9,20 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -27,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Aviso.findAll", query = "SELECT a FROM Aviso a"),
     @NamedQuery(name = "Aviso.findByCodigo", query = "SELECT a FROM Aviso a WHERE a.codigo = :codigo"),
     @NamedQuery(name = "Aviso.findByFechaEntrada", query = "SELECT a FROM Aviso a WHERE a.fechaEntrada = :fechaEntrada"),
-    @NamedQuery(name = "Aviso.findByMedioEntrada", query = "SELECT a FROM Aviso a WHERE a.medioEntrada = :medioEntrada")})
+    @NamedQuery(name = "Aviso.findBySat", query = "SELECT a FROM Aviso a WHERE a.sat = :sat")})
 public class Aviso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +54,8 @@ public class Aviso implements Serializable {
     private Date fechaEntrada;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 40)
-    @Column(name = "MEDIO_ENTRADA")
-    private String medioEntrada;
+    @Column(name = "SAT")
+    private Character sat;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
     private Collection<Historico> historicoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
@@ -61,11 +70,6 @@ public class Aviso implements Serializable {
     @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Cliente clienteId;
-    @JoinColumn(name = "SAT_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
-    @ManyToOne
-    private Sat satIdEmpleado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
-    private Collection<AvSuperv> avSupervCollection;
 
     public Aviso() {
     }
@@ -74,10 +78,10 @@ public class Aviso implements Serializable {
         this.codigo = codigo;
     }
 
-    public Aviso(BigDecimal codigo, Date fechaEntrada, String medioEntrada) {
+    public Aviso(BigDecimal codigo, Date fechaEntrada, Character sat) {
         this.codigo = codigo;
         this.fechaEntrada = fechaEntrada;
-        this.medioEntrada = medioEntrada;
+        this.sat = sat;
     }
 
     public BigDecimal getCodigo() {
@@ -96,12 +100,12 @@ public class Aviso implements Serializable {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public String getMedioEntrada() {
-        return medioEntrada;
+    public Character getSat() {
+        return sat;
     }
 
-    public void setMedioEntrada(String medioEntrada) {
-        this.medioEntrada = medioEntrada;
+    public void setSat(Character sat) {
+        this.sat = sat;
     }
 
     @XmlTransient
@@ -154,23 +158,6 @@ public class Aviso implements Serializable {
 
     public void setClienteId(Cliente clienteId) {
         this.clienteId = clienteId;
-    }
-
-    public Sat getSatIdEmpleado() {
-        return satIdEmpleado;
-    }
-
-    public void setSatIdEmpleado(Sat satIdEmpleado) {
-        this.satIdEmpleado = satIdEmpleado;
-    }
-
-    @XmlTransient
-    public Collection<AvSuperv> getAvSupervCollection() {
-        return avSupervCollection;
-    }
-
-    public void setAvSupervCollection(Collection<AvSuperv> avSupervCollection) {
-        this.avSupervCollection = avSupervCollection;
     }
 
     @Override

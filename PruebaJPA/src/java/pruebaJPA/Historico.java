@@ -8,7 +8,17 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,6 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Historico.findAll", query = "SELECT h FROM Historico h"),
     @NamedQuery(name = "Historico.findByAvisoCodigo", query = "SELECT h FROM Historico h WHERE h.historicoPK.avisoCodigo = :avisoCodigo"),
     @NamedQuery(name = "Historico.findByFechaActualizacion", query = "SELECT h FROM Historico h WHERE h.historicoPK.fechaActualizacion = :fechaActualizacion"),
+    @NamedQuery(name = "Historico.findByEmpleadoIdEmpleado", query = "SELECT h FROM Historico h WHERE h.historicoPK.empleadoIdEmpleado = :empleadoIdEmpleado"),
+    @NamedQuery(name = "Historico.findBySupervisor", query = "SELECT h FROM Historico h WHERE h.historicoPK.supervisor = :supervisor"),
     @NamedQuery(name = "Historico.findByDescripcion", query = "SELECT h FROM Historico h WHERE h.descripcion = :descripcion"),
     @NamedQuery(name = "Historico.findByDireccion", query = "SELECT h FROM Historico h WHERE h.direccion = :direccion"),
     @NamedQuery(name = "Historico.findByEstado", query = "SELECT h FROM Historico h WHERE h.estado = :estado"),
@@ -34,8 +46,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Historico.findByPeligrosidad", query = "SELECT h FROM Historico h WHERE h.peligrosidad = :peligrosidad"),
     @NamedQuery(name = "Historico.findByUbicacionGps", query = "SELECT h FROM Historico h WHERE h.ubicacionGps = :ubicacionGps"),
     @NamedQuery(name = "Historico.findByRedAgua", query = "SELECT h FROM Historico h WHERE h.redAgua = :redAgua"),
-    @NamedQuery(name = "Historico.findByDocAdjunto", query = "SELECT h FROM Historico h WHERE h.docAdjunto = :docAdjunto"),
-    @NamedQuery(name = "Historico.findByEmpleadoIdEmpleado", query = "SELECT h FROM Historico h WHERE h.historicoPK.empleadoIdEmpleado = :empleadoIdEmpleado")})
+    @NamedQuery(name = "Historico.findByDocAdjunto", query = "SELECT h FROM Historico h WHERE h.docAdjunto = :docAdjunto")})
 public class Historico implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -103,8 +114,8 @@ public class Historico implements Serializable {
         this.duplicado = duplicado;
     }
 
-    public Historico(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado) {
-        this.historicoPK = new HistoricoPK(avisoCodigo, fechaActualizacion, empleadoIdEmpleado);
+    public Historico(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado, BigInteger supervisor) {
+        this.historicoPK = new HistoricoPK(avisoCodigo, fechaActualizacion, empleadoIdEmpleado, supervisor);
     }
 
     public HistoricoPK getHistoricoPK() {

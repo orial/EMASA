@@ -8,7 +8,11 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -31,14 +35,19 @@ public class HistoricoPK implements Serializable {
     @NotNull
     @Column(name = "EMPLEADO_ID_EMPLEADO")
     private BigInteger empleadoIdEmpleado;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "SUPERVISOR")
+    private BigInteger supervisor;
 
     public HistoricoPK() {
     }
 
-    public HistoricoPK(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado) {
+    public HistoricoPK(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado, BigInteger supervisor) {
         this.avisoCodigo = avisoCodigo;
         this.fechaActualizacion = fechaActualizacion;
         this.empleadoIdEmpleado = empleadoIdEmpleado;
+        this.supervisor = supervisor;
     }
 
     public BigInteger getAvisoCodigo() {
@@ -65,12 +74,21 @@ public class HistoricoPK implements Serializable {
         this.empleadoIdEmpleado = empleadoIdEmpleado;
     }
 
+    public BigInteger getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(BigInteger supervisor) {
+        this.supervisor = supervisor;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (avisoCodigo != null ? avisoCodigo.hashCode() : 0);
         hash += (fechaActualizacion != null ? fechaActualizacion.hashCode() : 0);
         hash += (empleadoIdEmpleado != null ? empleadoIdEmpleado.hashCode() : 0);
+        hash += (supervisor != null ? supervisor.hashCode() : 0);
         return hash;
     }
 
@@ -90,12 +108,15 @@ public class HistoricoPK implements Serializable {
         if ((this.empleadoIdEmpleado == null && other.empleadoIdEmpleado != null) || (this.empleadoIdEmpleado != null && !this.empleadoIdEmpleado.equals(other.empleadoIdEmpleado))) {
             return false;
         }
+        if ((this.supervisor == null && other.supervisor != null) || (this.supervisor != null && !this.supervisor.equals(other.supervisor))) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "pruebaJPA.HistoricoPK[ avisoCodigo=" + avisoCodigo + ", fechaActualizacion=" + fechaActualizacion + ", empleadoIdEmpleado=" + empleadoIdEmpleado + " ]";
+        return "pruebaJPA.HistoricoPK[ avisoCodigo=" + avisoCodigo + ", fechaActualizacion=" + fechaActualizacion + ", empleadoIdEmpleado=" + empleadoIdEmpleado + ", supervisor=" + supervisor + " ]";
     }
     
 }

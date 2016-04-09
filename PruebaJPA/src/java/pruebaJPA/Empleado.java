@@ -9,7 +9,17 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -27,7 +37,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado"),
     @NamedQuery(name = "Empleado.findByDepartamento", query = "SELECT e FROM Empleado e WHERE e.departamento = :departamento"),
     @NamedQuery(name = "Empleado.findByTurno", query = "SELECT e FROM Empleado e WHERE e.turno = :turno"),
-    @NamedQuery(name = "Empleado.findByDni", query = "SELECT e FROM Empleado e WHERE e.dni = :dni")})
+    @NamedQuery(name = "Empleado.findByDni", query = "SELECT e FROM Empleado e WHERE e.dni = :dni"),
+    @NamedQuery(name = "Empleado.findByCargo", query = "SELECT e FROM Empleado e WHERE e.cargo = :cargo"),
+    @NamedQuery(name = "Empleado.findByZona", query = "SELECT e FROM Empleado e WHERE e.zona = :zona"),
+    @NamedQuery(name = "Empleado.findByEspecialidad", query = "SELECT e FROM Empleado e WHERE e.especialidad = :especialidad")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,17 +62,24 @@ public class Empleado implements Serializable {
     @Size(min = 1, max = 12)
     @Column(name = "DNI")
     private String dni;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "CARGO")
+    private String cargo;
+    @Size(max = 20)
+    @Column(name = "ZONA")
+    private String zona;
+    @Size(max = 20)
+    @Column(name = "ESPECIALIDAD")
+    private String especialidad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
     private Collection<Historico> historicoCollection;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "empleado")
-    private Sat sat;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
+    private Collection<Visitas> visitasCollection;
     @JoinColumn(name = "BRIGADA_NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
     @ManyToOne
     private Brigada brigadaNumBrigada;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "empleado")
-    private Supervisor supervisor;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "empleado")
-    private OpMov opMov;
 
     public Empleado() {
     }
@@ -68,10 +88,11 @@ public class Empleado implements Serializable {
         this.idEmpleado = idEmpleado;
     }
 
-    public Empleado(BigDecimal idEmpleado, String departamento, String dni) {
+    public Empleado(BigDecimal idEmpleado, String departamento, String dni, String cargo) {
         this.idEmpleado = idEmpleado;
         this.departamento = departamento;
         this.dni = dni;
+        this.cargo = cargo;
     }
 
     public BigDecimal getIdEmpleado() {
@@ -106,6 +127,30 @@ public class Empleado implements Serializable {
         this.dni = dni;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getZona() {
+        return zona;
+    }
+
+    public void setZona(String zona) {
+        this.zona = zona;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
     @XmlTransient
     public Collection<Historico> getHistoricoCollection() {
         return historicoCollection;
@@ -115,12 +160,13 @@ public class Empleado implements Serializable {
         this.historicoCollection = historicoCollection;
     }
 
-    public Sat getSat() {
-        return sat;
+    @XmlTransient
+    public Collection<Visitas> getVisitasCollection() {
+        return visitasCollection;
     }
 
-    public void setSat(Sat sat) {
-        this.sat = sat;
+    public void setVisitasCollection(Collection<Visitas> visitasCollection) {
+        this.visitasCollection = visitasCollection;
     }
 
     public Brigada getBrigadaNumBrigada() {
@@ -129,22 +175,6 @@ public class Empleado implements Serializable {
 
     public void setBrigadaNumBrigada(Brigada brigadaNumBrigada) {
         this.brigadaNumBrigada = brigadaNumBrigada;
-    }
-
-    public Supervisor getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(Supervisor supervisor) {
-        this.supervisor = supervisor;
-    }
-
-    public OpMov getOpMov() {
-        return opMov;
-    }
-
-    public void setOpMov(OpMov opMov) {
-        this.opMov = opMov;
     }
 
     @Override

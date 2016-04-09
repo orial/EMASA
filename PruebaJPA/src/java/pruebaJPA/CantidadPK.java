@@ -8,7 +8,11 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -33,8 +37,8 @@ public class CantidadPK implements Serializable {
     private Date actFecha;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ACT_ORD_TRAB_ID")
-    private BigInteger actOrdTrabId;
+    @Column(name = "ACT_ORD_TRABAJO_IDENTIFICADOR")
+    private BigInteger actOrdTrabajoIdentificador;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ACT_BRIGADA_NUM_BRIGADA")
@@ -43,11 +47,11 @@ public class CantidadPK implements Serializable {
     public CantidadPK() {
     }
 
-    public CantidadPK(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabId, BigInteger actBrigadaNumBrigada) {
+    public CantidadPK(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabajoIdentificador, BigInteger actBrigadaNumBrigada) {
         this.cantidad = cantidad;
         this.repuestoCodigo = repuestoCodigo;
         this.actFecha = actFecha;
-        this.actOrdTrabId = actOrdTrabId;
+        this.actOrdTrabajoIdentificador = actOrdTrabajoIdentificador;
         this.actBrigadaNumBrigada = actBrigadaNumBrigada;
     }
 
@@ -75,12 +79,12 @@ public class CantidadPK implements Serializable {
         this.actFecha = actFecha;
     }
 
-    public BigInteger getActOrdTrabId() {
-        return actOrdTrabId;
+    public BigInteger getActOrdTrabajoIdentificador() {
+        return actOrdTrabajoIdentificador;
     }
 
-    public void setActOrdTrabId(BigInteger actOrdTrabId) {
-        this.actOrdTrabId = actOrdTrabId;
+    public void setActOrdTrabajoIdentificador(BigInteger actOrdTrabajoIdentificador) {
+        this.actOrdTrabajoIdentificador = actOrdTrabajoIdentificador;
     }
 
     public BigInteger getActBrigadaNumBrigada() {
@@ -97,7 +101,7 @@ public class CantidadPK implements Serializable {
         hash += (cantidad != null ? cantidad.hashCode() : 0);
         hash += (repuestoCodigo != null ? repuestoCodigo.hashCode() : 0);
         hash += (actFecha != null ? actFecha.hashCode() : 0);
-        hash += (actOrdTrabId != null ? actOrdTrabId.hashCode() : 0);
+        hash += (actOrdTrabajoIdentificador != null ? actOrdTrabajoIdentificador.hashCode() : 0);
         hash += (actBrigadaNumBrigada != null ? actBrigadaNumBrigada.hashCode() : 0);
         return hash;
     }
@@ -118,7 +122,7 @@ public class CantidadPK implements Serializable {
         if ((this.actFecha == null && other.actFecha != null) || (this.actFecha != null && !this.actFecha.equals(other.actFecha))) {
             return false;
         }
-        if ((this.actOrdTrabId == null && other.actOrdTrabId != null) || (this.actOrdTrabId != null && !this.actOrdTrabId.equals(other.actOrdTrabId))) {
+        if ((this.actOrdTrabajoIdentificador == null && other.actOrdTrabajoIdentificador != null) || (this.actOrdTrabajoIdentificador != null && !this.actOrdTrabajoIdentificador.equals(other.actOrdTrabajoIdentificador))) {
             return false;
         }
         if ((this.actBrigadaNumBrigada == null && other.actBrigadaNumBrigada != null) || (this.actBrigadaNumBrigada != null && !this.actBrigadaNumBrigada.equals(other.actBrigadaNumBrigada))) {
@@ -129,7 +133,7 @@ public class CantidadPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.CantidadPK[ cantidad=" + cantidad + ", repuestoCodigo=" + repuestoCodigo + ", actFecha=" + actFecha + ", actOrdTrabId=" + actOrdTrabId + ", actBrigadaNumBrigada=" + actBrigadaNumBrigada + " ]";
+        return "pruebaJPA.CantidadPK[ cantidad=" + cantidad + ", repuestoCodigo=" + repuestoCodigo + ", actFecha=" + actFecha + ", actOrdTrabajoIdentificador=" + actOrdTrabajoIdentificador + ", actBrigadaNumBrigada=" + actBrigadaNumBrigada + " ]";
     }
     
 }

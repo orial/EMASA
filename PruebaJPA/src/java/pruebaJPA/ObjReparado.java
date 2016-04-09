@@ -8,7 +8,16 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -52,7 +61,7 @@ public class ObjReparado implements Serializable {
     private BigInteger presionNominal;
     @JoinColumns({
         @JoinColumn(name = "ACTUACIONES_FECHA", referencedColumnName = "FECHA"),
-        @JoinColumn(name = "ACTUACIONES_IDENTIFICADOR", referencedColumnName = "ORD_TRAB_ID"),
+        @JoinColumn(name = "ACTUACIONES_IDENTIFICADOR", referencedColumnName = "ORD_TRABAJO_IDENTIFICADOR"),
         @JoinColumn(name = "ACTUACIONES_NUM_BRIGADA", referencedColumnName = "BRIGADA_NUM_BRIGADA")})
     @ManyToOne(optional = false)
     private Actuaciones actuaciones;

@@ -8,7 +8,11 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -25,8 +29,8 @@ public class VisitasPK implements Serializable {
     private Date fechaVisita;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID_OPERARIO")
-    private BigInteger idOperario;
+    @Column(name = "EMPLEADO_ID_EMPLEADO")
+    private BigInteger empleadoIdEmpleado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "AVISO_CODIGO")
@@ -35,9 +39,9 @@ public class VisitasPK implements Serializable {
     public VisitasPK() {
     }
 
-    public VisitasPK(Date fechaVisita, BigInteger idOperario, BigInteger avisoCodigo) {
+    public VisitasPK(Date fechaVisita, BigInteger empleadoIdEmpleado, BigInteger avisoCodigo) {
         this.fechaVisita = fechaVisita;
-        this.idOperario = idOperario;
+        this.empleadoIdEmpleado = empleadoIdEmpleado;
         this.avisoCodigo = avisoCodigo;
     }
 
@@ -49,12 +53,12 @@ public class VisitasPK implements Serializable {
         this.fechaVisita = fechaVisita;
     }
 
-    public BigInteger getIdOperario() {
-        return idOperario;
+    public BigInteger getEmpleadoIdEmpleado() {
+        return empleadoIdEmpleado;
     }
 
-    public void setIdOperario(BigInteger idOperario) {
-        this.idOperario = idOperario;
+    public void setEmpleadoIdEmpleado(BigInteger empleadoIdEmpleado) {
+        this.empleadoIdEmpleado = empleadoIdEmpleado;
     }
 
     public BigInteger getAvisoCodigo() {
@@ -69,7 +73,7 @@ public class VisitasPK implements Serializable {
     public int hashCode() {
         int hash = 0;
         hash += (fechaVisita != null ? fechaVisita.hashCode() : 0);
-        hash += (idOperario != null ? idOperario.hashCode() : 0);
+        hash += (empleadoIdEmpleado != null ? empleadoIdEmpleado.hashCode() : 0);
         hash += (avisoCodigo != null ? avisoCodigo.hashCode() : 0);
         return hash;
     }
@@ -84,7 +88,7 @@ public class VisitasPK implements Serializable {
         if ((this.fechaVisita == null && other.fechaVisita != null) || (this.fechaVisita != null && !this.fechaVisita.equals(other.fechaVisita))) {
             return false;
         }
-        if ((this.idOperario == null && other.idOperario != null) || (this.idOperario != null && !this.idOperario.equals(other.idOperario))) {
+        if ((this.empleadoIdEmpleado == null && other.empleadoIdEmpleado != null) || (this.empleadoIdEmpleado != null && !this.empleadoIdEmpleado.equals(other.empleadoIdEmpleado))) {
             return false;
         }
         if ((this.avisoCodigo == null && other.avisoCodigo != null) || (this.avisoCodigo != null && !this.avisoCodigo.equals(other.avisoCodigo))) {
@@ -95,7 +99,7 @@ public class VisitasPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.VisitasPK[ fechaVisita=" + fechaVisita + ", idOperario=" + idOperario + ", avisoCodigo=" + avisoCodigo + " ]";
+        return "pruebaJPA.VisitasPK[ fechaVisita=" + fechaVisita + ", empleadoIdEmpleado=" + empleadoIdEmpleado + ", avisoCodigo=" + avisoCodigo + " ]";
     }
     
 }

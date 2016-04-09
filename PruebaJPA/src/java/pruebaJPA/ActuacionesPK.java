@@ -8,7 +8,11 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -25,8 +29,8 @@ public class ActuacionesPK implements Serializable {
     private Date fecha;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ORD_TRAB_ID")
-    private BigInteger ordTrabId;
+    @Column(name = "ORD_TRABAJO_IDENTIFICADOR")
+    private BigInteger ordTrabajoIdentificador;
     @Basic(optional = false)
     @NotNull
     @Column(name = "BRIGADA_NUM_BRIGADA")
@@ -35,9 +39,9 @@ public class ActuacionesPK implements Serializable {
     public ActuacionesPK() {
     }
 
-    public ActuacionesPK(Date fecha, BigInteger ordTrabId, BigInteger brigadaNumBrigada) {
+    public ActuacionesPK(Date fecha, BigInteger ordTrabajoIdentificador, BigInteger brigadaNumBrigada) {
         this.fecha = fecha;
-        this.ordTrabId = ordTrabId;
+        this.ordTrabajoIdentificador = ordTrabajoIdentificador;
         this.brigadaNumBrigada = brigadaNumBrigada;
     }
 
@@ -49,12 +53,12 @@ public class ActuacionesPK implements Serializable {
         this.fecha = fecha;
     }
 
-    public BigInteger getOrdTrabId() {
-        return ordTrabId;
+    public BigInteger getOrdTrabajoIdentificador() {
+        return ordTrabajoIdentificador;
     }
 
-    public void setOrdTrabId(BigInteger ordTrabId) {
-        this.ordTrabId = ordTrabId;
+    public void setOrdTrabajoIdentificador(BigInteger ordTrabajoIdentificador) {
+        this.ordTrabajoIdentificador = ordTrabajoIdentificador;
     }
 
     public BigInteger getBrigadaNumBrigada() {
@@ -69,7 +73,7 @@ public class ActuacionesPK implements Serializable {
     public int hashCode() {
         int hash = 0;
         hash += (fecha != null ? fecha.hashCode() : 0);
-        hash += (ordTrabId != null ? ordTrabId.hashCode() : 0);
+        hash += (ordTrabajoIdentificador != null ? ordTrabajoIdentificador.hashCode() : 0);
         hash += (brigadaNumBrigada != null ? brigadaNumBrigada.hashCode() : 0);
         return hash;
     }
@@ -84,7 +88,7 @@ public class ActuacionesPK implements Serializable {
         if ((this.fecha == null && other.fecha != null) || (this.fecha != null && !this.fecha.equals(other.fecha))) {
             return false;
         }
-        if ((this.ordTrabId == null && other.ordTrabId != null) || (this.ordTrabId != null && !this.ordTrabId.equals(other.ordTrabId))) {
+        if ((this.ordTrabajoIdentificador == null && other.ordTrabajoIdentificador != null) || (this.ordTrabajoIdentificador != null && !this.ordTrabajoIdentificador.equals(other.ordTrabajoIdentificador))) {
             return false;
         }
         if ((this.brigadaNumBrigada == null && other.brigadaNumBrigada != null) || (this.brigadaNumBrigada != null && !this.brigadaNumBrigada.equals(other.brigadaNumBrigada))) {
@@ -95,7 +99,7 @@ public class ActuacionesPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.ActuacionesPK[ fecha=" + fecha + ", ordTrabId=" + ordTrabId + ", brigadaNumBrigada=" + brigadaNumBrigada + " ]";
+        return "pruebaJPA.ActuacionesPK[ fecha=" + fecha + ", ordTrabajoIdentificador=" + ordTrabajoIdentificador + ", brigadaNumBrigada=" + brigadaNumBrigada + " ]";
     }
     
 }

@@ -9,7 +9,19 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -61,9 +73,6 @@ public class OrdTrabajo implements Serializable {
     @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO")
     @ManyToOne(optional = false)
     private Aviso avisoCodigo;
-    @JoinColumn(name = "SUPERVISOR_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
-    @ManyToOne(optional = false)
-    private Supervisor supervisorIdEmpleado;
 
     public OrdTrabajo() {
     }
@@ -134,14 +143,6 @@ public class OrdTrabajo implements Serializable {
 
     public void setAvisoCodigo(Aviso avisoCodigo) {
         this.avisoCodigo = avisoCodigo;
-    }
-
-    public Supervisor getSupervisorIdEmpleado() {
-        return supervisorIdEmpleado;
-    }
-
-    public void setSupervisorIdEmpleado(Supervisor supervisorIdEmpleado) {
-        this.supervisorIdEmpleado = supervisorIdEmpleado;
     }
 
     @Override
