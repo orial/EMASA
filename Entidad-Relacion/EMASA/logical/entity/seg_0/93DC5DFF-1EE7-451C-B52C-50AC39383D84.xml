@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="93DC5DFF-1EE7-451C-B52C-50AC39383D84" name="EMPLEADO">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:08:06 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_empleado" id="E1716D13-3716-01E2-7FB2-E8AE3064FB25">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 16:22:32 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Departamento" id="0D43A0DE-7955-D2A2-5900-122290F7458A">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:08:28 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Turno" id="94A1D218-B1CD-5C7F-951E-EE6FA2BE0F0E">
+<createdBy>micha</createdBy>
+<createdTime>2015-11-16 22:00:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Num_Brigada" id="30EF6782-20CB-B7AF-61E9-E453C18E37E2">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:09:30 UTC</createdTime>
+<generatorID>0A8F413D-2C34-E601-C716-2F42D4AB522D</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>CB0EB692-890B-D2E8-DA29-79123DEE2389</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DNI" id="B8F03838-8CF1-0D3A-B8CE-8CADA34A11CA">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-07 07:58:00 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cargo" id="9FD383DB-3F60-39E4-77D3-7AC8817A3DD4">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-08 19:09:55 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Zona" id="4890D771-39E2-9242-2EF3-7DB131474EF8">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 17:53:34 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Especialidad" id="31816DCE-B852-FBF7-2EB8-79B767C45035">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 17:58:16 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C6450DF3-7117-11C5-FB2F-38AEA39B06FD" name="EMPLEADO PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 16:22:40 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E1716D13-3716-01E2-7FB2-E8AE3064FB25</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

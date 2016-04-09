@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="71E780DF-17B0-1C3A-F56C-542F39B5A7C2" name="AVISO">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 17:21:49 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="097A1C10-2182-CDB4-20BC-75BFA44A9DE1">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 17:45:11 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Entrada" id="51612370-9B75-4390-BF56-D87A85980F44">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:38:10 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SAT" id="F6932E88-4846-875A-CBE6-8A6B9D748491">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:50:02 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo1" id="C653B8FA-CFB5-F4F0-4FED-9C14FAEB5E60">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 14:21:59 UTC</createdTime>
+<generatorID>AEC37E20-441E-D3C9-3F57-9C2A2DD96124</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id" id="B3914B19-70B5-ACB5-357F-31C0CC4E42B4">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 15:27:25 UTC</createdTime>
+<generatorID>29069B5F-D38E-EC9C-0883-E35A18D5EDBC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<referedAttribute>E7CEBECC-F185-33A0-81CE-312CC7A60ADC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E1E28A2C-C0F7-B09D-9D3F-F4C943D9B4DC" name="AVISO PK">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 17:48:13 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

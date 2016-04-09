@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="52F4DE0A-257B-33BF-BADB-728838CA159D" name="ORD_TRABAJO">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 17:22:18 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Identificador" id="512A0C07-7B31-7271-28FA-4FEA9B0BD9E5">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:33:46 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_creacion" id="6988B8A0-8E3C-EE29-B0B1-175FCA12FE57">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:37:21 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Trabajo a realizar" id="691A6D83-CBCF-FF3A-42F6-BEC5CDFBC046">
+<createdBy>micha</createdBy>
+<createdTime>2015-11-16 21:47:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Finalizacion" id="8FCFA724-918E-E470-0F5C-7876ABA62F9B">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:37:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="9A192C2A-0111-F575-87B5-58B6BF6D25C6">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:03:44 UTC</createdTime>
+<generatorID>C059D3C8-EA26-9579-29C0-32C69D5AF85F</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado" id="CD944E23-A0D2-3A04-3555-F9FBC0DFF850">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 17:05:11 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A33647CD-8090-AFA8-FB66-51EE36EB27B9" name="ORDEN DE TRABAJO PK">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:33:50 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>512A0C07-7B31-7271-28FA-4FEA9B0BD9E5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

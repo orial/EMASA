@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="generarv2" directorySegmentName="seg_0" id="C059D3C8-EA26-9579-29C0-32C69D5AF85F">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:03:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<sourcePk>E1E28A2C-C0F7-B09D-9D3F-F4C943D9B4DC</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>DERIVA EN</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>71E780DF-17B0-1C3A-F56C-542F39B5A7C2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>52F4DE0A-257B-33BF-BADB-728838CA159D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F2E9022-A81B-50D4-F6F8-15FAEB638F53" name="VISITAS">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>BE3824CA-66B8-9276-D8B5-5C3AEF0035DC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fecha_visita" id="A080D13F-B7F1-2905-1070-864FA45FD772">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>A1D8D594-3F04-579D-820F-28258661E18E</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMPLEADO_Id_empleado" id="4917BEB7-57A4-6DB9-8A96-84BC55B9C3BC">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>0653D9D7-BDA8-F92A-B5E7-CC471125405A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8803D708-7CEE-F4EE-E23B-619F000B386E" referredColumn="1ECC1E8A-E886-12FE-A14D-B873B97B6680"/>
+</associations>
+</Column>
+<Column name="AVISO_Codigo" id="53787E51-F9F6-BCF3-3314-A92E69B9FA5B">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>FE5F798E-19FE-D4FF-52A3-531AE726D493</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7CA73026-0C7B-7C2D-0DF2-3E69767DBED3" referredColumn="AB6735FE-FD4B-E404-D878-438510E91A2B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7F61CC46-AACD-DA94-F6A2-1DD8454FEBF0" name="VISITAS_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>65CF804D-3406-2FA2-27C4-94C7DFC56AF3</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A080D13F-B7F1-2905-1070-864FA45FD772"/>
+<colUsage columnID="4917BEB7-57A4-6DB9-8A96-84BC55B9C3BC"/>
+<colUsage columnID="53787E51-F9F6-BCF3-3314-A92E69B9FA5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="47054F32-9AE0-486F-9636-029443D219A2" name="VISITAS_EMPLEADO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>82B2FEF0-BEBF-5898-4433-60337AFF39D5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4917BEB7-57A4-6DB9-8A96-84BC55B9C3BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D622C301-FC41-6915-5915-F538FA5071C2" name="VISITAS_AVISO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:46 UTC</createdTime>
+<generatorID>D6D852D2-4B47-AFF3-8A08-2D7FFCDE9EC1</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="53787E51-F9F6-BCF3-3314-A92E69B9FA5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

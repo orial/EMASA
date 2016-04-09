@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="51CE9C1B-E8B9-47F1-C525-21DA8DA5E22B" name="BRIGADA">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 17:22:07 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Num_Brigada" id="CB0EB692-890B-D2E8-DA29-79123DEE2389">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:27:24 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Turno" id="A755A186-5ADD-772E-93AE-458B1E6EEE7F">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:27:30 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Contrata" id="1468FA7D-F1E3-48D6-E14D-8C37FF9C7A1C">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:29:38 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CD8008F4-3B2B-5AF9-5FF3-EA9FD650611A" name="BRIGADA PK">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:32:33 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CB0EB692-890B-D2E8-DA29-79123DEE2389</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

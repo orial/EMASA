@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Actua_sobre" directorySegmentName="seg_0" id="CCBB2C22-B8BB-23FE-F2F5-A39F08720096">
+<createdBy>micha</createdBy>
+<createdTime>2015-12-20 20:52:05 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<sourcePk>E1B86003-20EE-DBC0-6903-3DACA676FFF4</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>REPARA</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>779E4EE7-31FA-7EC0-0EE6-821B66D8613C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2C498EE8-D2BD-BDEE-EC96-0DA8EA990C5D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

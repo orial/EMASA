@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Utiliza" directorySegmentName="seg_0" id="A8B585EA-6DBE-6692-CED4-657F027B9891">
+<createdBy>micha</createdBy>
+<createdTime>2015-12-20 20:48:01 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<sourcePk>E1B86003-20EE-DBC0-6903-3DACA676FFF4</sourcePk>
+<identifying>true</identifying>
+<nameOnSource>UTILIZA</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>779E4EE7-31FA-7EC0-0EE6-821B66D8613C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>62FCF6B4-86B6-FAEB-7B83-B9468B5BB42C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

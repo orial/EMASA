@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F8941DB0-9976-8316-63A3-AB5AA41E2FBA" name="CLIENTE">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>57461385-3A98-6FDB-AE61-DCDB6152B53C</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="5883C6D4-317D-D106-03AD-A99FFF3A43E0">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>E7CEBECC-F185-33A0-81CE-312CC7A60ADC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNI" id="20FF698D-B0A7-F531-0824-C9F8F2CBC09E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>283B05E8-8EE9-7B4A-A3EB-5955064A08E5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="797356C7-51B3-E918-9577-DF33DF5D6F5B">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>2531E54B-8244-1FC0-1731-477079963F64</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Poliza" id="C0258FAD-AA97-A682-D849-E6CF4DE58448">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>571DE95C-ACC0-EF0F-43EF-E4EE070D671A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="34CE1F50-81CF-3BAB-D2C5-16DAF1C50E7C">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>8F651126-436D-EFEE-EF78-06D9901B5AC9</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="e-mail" id="473C8030-B87F-0EFF-5A1F-24835E039E5D">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>95A1F30E-6CDB-B23A-5F8D-DF61FE7C9259</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EF258507-8F5B-4B36-E724-F0C6E1612BBE" name="CLIENTE_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:57:45 UTC</createdTime>
+<generatorID>061FCF7D-3EDC-D7E9-6034-6AC987A3A4F5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5883C6D4-317D-D106-03AD-A99FFF3A43E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

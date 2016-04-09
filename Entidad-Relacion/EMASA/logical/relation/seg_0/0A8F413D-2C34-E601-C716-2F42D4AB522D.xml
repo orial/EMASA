@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="pertenece" directorySegmentName="seg_0" id="0A8F413D-2C34-E601-C716-2F42D4AB522D">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:08:13 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<sourcePk>CD8008F4-3B2B-5AF9-5FF3-EA9FD650611A</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>COMPUESTA POR</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>51CE9C1B-E8B9-47F1-C525-21DA8DA5E22B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>93DC5DFF-1EE7-451C-B52C-50AC39383D84</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

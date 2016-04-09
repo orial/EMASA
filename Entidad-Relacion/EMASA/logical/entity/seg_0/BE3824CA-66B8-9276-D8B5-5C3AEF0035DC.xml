@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BE3824CA-66B8-9276-D8B5-5C3AEF0035DC" name="VISITAS">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 16:34:29 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="fecha_visita" id="A1D8D594-3F04-579D-820F-28258661E18E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 16:34:38 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_empleado" id="0653D9D7-BDA8-F92A-B5E7-CC471125405A">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:38:08 UTC</createdTime>
+<generatorID>82B2FEF0-BEBF-5898-4433-60337AFF39D5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<referedAttribute>E1716D13-3716-01E2-7FB2-E8AE3064FB25</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="FE5F798E-19FE-D4FF-52A3-531AE726D493">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-09 18:43:10 UTC</createdTime>
+<generatorID>D6D852D2-4B47-AFF3-8A08-2D7FFCDE9EC1</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="65CF804D-3406-2FA2-27C4-94C7DFC56AF3" name="Visitas PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 16:35:04 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>A1D8D594-3F04-579D-820F-28258661E18E,82B2FEF0-BEBF-5898-4433-60337AFF39D5,D6D852D2-4B47-AFF3-8A08-2D7FFCDE9EC1</newElementsIDs>
+<usedAttributes>
+<attributeRef>A1D8D594-3F04-579D-820F-28258661E18E</attributeRef>
+<attributeRef>0653D9D7-BDA8-F92A-B5E7-CC471125405A</attributeRef>
+<attributeRef>FE5F798E-19FE-D4FF-52A3-531AE726D493</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

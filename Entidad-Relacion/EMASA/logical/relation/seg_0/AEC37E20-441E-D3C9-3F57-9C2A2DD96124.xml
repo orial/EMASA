@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relacionado" directorySegmentName="seg_0" id="AEC37E20-441E-D3C9-3F57-9C2A2DD96124">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-06 14:21:59 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+</engineerTo>
+<targetPk>E1E28A2C-C0F7-B09D-9D3F-F4C943D9B4DC</targetPk>
+<identifying>false</identifying>
+<nameOnSource>RELACIONADO</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>71E780DF-17B0-1C3A-F56C-542F39B5A7C2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>71E780DF-17B0-1C3A-F56C-542F39B5A7C2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
