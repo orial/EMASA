@@ -4,7 +4,7 @@
 <createdTime>2015-11-12 17:22:18 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,12 +15,12 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Identificador" id="512A0C07-7B31-7271-28FA-4FEA9B0BD9E5">
+<Attribute name="Id_orden" id="512A0C07-7B31-7271-28FA-4FEA9B0BD9E5">
 <createdBy>priyagurnani</createdBy>
 <createdTime>2015-11-12 18:33:46 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2015-11-12 18:37:21 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -44,7 +44,7 @@
 <createdTime>2015-11-16 21:47:44 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -52,45 +52,45 @@
 <dataTypeSize>200</dataTypeSize>
 <ownDataTypeParameters>200,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Fecha_Finalizacion" id="8FCFA724-918E-E470-0F5C-7876ABA62F9B">
-<createdBy>priyagurnani</createdBy>
-<createdTime>2015-11-12 18:37:44 UTC</createdTime>
-<ownerDesignName>EMASA</ownerDesignName>
-<engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Codigo" id="9A192C2A-0111-F575-87B5-58B6BF6D25C6">
-<createdBy>vanesa</createdBy>
-<createdTime>2015-11-16 12:03:44 UTC</createdTime>
-<generatorID>C059D3C8-EA26-9579-29C0-32C69D5AF85F</generatorID>
-<ownerDesignName>EMASA</ownerDesignName>
-<engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
-</engineerTo>
-<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Estado" id="CD944E23-A0D2-3A04-3555-F9FBC0DFF850">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-06 17:05:11 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Finalizacion" id="8FCFA724-918E-E470-0F5C-7876ABA62F9B">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:37:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_aviso" id="9A192C2A-0111-F575-87B5-58B6BF6D25C6">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:03:44 UTC</createdTime>
+<generatorID>C059D3C8-EA26-9579-29C0-32C69D5AF85F</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -99,7 +99,7 @@
 <createdTime>2015-11-12 18:33:50 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

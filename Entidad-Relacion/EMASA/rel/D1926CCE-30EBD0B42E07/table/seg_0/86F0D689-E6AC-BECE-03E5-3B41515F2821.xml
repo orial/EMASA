@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="86F0D689-E6AC-BECE-03E5-3B41515F2821" name="EMPLEADO">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>93DC5DFF-1EE7-451C-B52C-50AC39383D84</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_empleado" id="4676BBE7-41CC-7A02-CAAA-D5643ED54C0F">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>E1716D13-3716-01E2-7FB2-E8AE3064FB25</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNI" id="EC3CB77B-F151-0C42-5107-1C20CD83A1C5">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>B8F03838-8CF1-0D3A-B8CE-8CADA34A11CA</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="6700B749-74E7-40F9-7AFE-EC2D0D7317E3">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>FCD9CE40-8BB2-C83B-594C-FE66B88A604B</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellidos" id="BB14FF3D-5B97-3B7E-8A69-CD734118094C">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>B7A88457-7835-D34B-CD47-65DC47FBA7FB</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Departamento" id="4A6C8128-C910-65ED-F7F3-66BB69D8CBF2">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>0D43A0DE-7955-D2A2-5900-122290F7458A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cargo" id="7D77647B-B983-2849-854C-B22A9D365406">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>9FD383DB-3F60-39E4-77D3-7AC8817A3DD4</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Turno" id="13738C3B-0FC8-3413-1148-C185AE02F402">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>94A1D218-B1CD-5C7F-951E-EE6FA2BE0F0E</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zona" id="E19022FF-B8FD-366D-45CA-32DD45BC4975">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>4890D771-39E2-9242-2EF3-7DB131474EF8</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Especialidad" id="0D85D33B-6368-6832-30CC-BA67133B745A">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>31816DCE-B852-FBF7-2EB8-79B767C45035</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Num_Brigada" id="10BE68A1-DFB0-331D-DEFB-1BA1DEC607EE">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>30EF6782-20CB-B7AF-61E9-E453C18E37E2</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B7F7DEA6-6E8D-59B9-91F5-61A195E15493" referredColumn="C3534181-F89A-D279-EA00-61B71AA58C0D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="023A3F07-BBEB-6554-6D34-D055D68B18C3" name="EMPLEADO_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>C6450DF3-7117-11C5-FB2F-38AEA39B06FD</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4676BBE7-41CC-7A02-CAAA-D5643ED54C0F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="577510C1-0244-7B91-9478-4C4AD4877690" name="EMPLEADO_BRIGADA_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>0A8F413D-2C34-E601-C716-2F42D4AB522D</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="10BE68A1-DFB0-331D-DEFB-1BA1DEC607EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

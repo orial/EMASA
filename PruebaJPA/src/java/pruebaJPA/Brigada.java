@@ -6,21 +6,11 @@
 package pruebaJPA;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.math.*;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 
 /**
  *
@@ -53,7 +43,7 @@ public class Brigada implements Serializable {
     private Character contrata;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "brigada")
     private Collection<Actuaciones> actuacionesCollection;
-    @OneToMany(mappedBy = "brigadaNumBrigada")
+    @OneToMany(mappedBy = "numBrigada")
     private Collection<Empleado> empleadoCollection;
 
     public Brigada() {

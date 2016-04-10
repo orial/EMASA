@@ -4,7 +4,7 @@
 <createdTime>2015-11-12 18:08:06 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,49 +20,8 @@
 <createdTime>2016-04-06 16:22:32 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Departamento" id="0D43A0DE-7955-D2A2-5900-122290F7458A">
-<createdBy>priyagurnani</createdBy>
-<createdTime>2015-11-12 18:08:28 UTC</createdTime>
-<ownerDesignName>EMASA</ownerDesignName>
-<engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>40</dataTypeSize>
-<ownDataTypeParameters>40,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Turno" id="94A1D218-B1CD-5C7F-951E-EE6FA2BE0F0E">
-<createdBy>micha</createdBy>
-<createdTime>2015-11-16 22:00:44 UTC</createdTime>
-<ownerDesignName>EMASA</ownerDesignName>
-<engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Num_Brigada" id="30EF6782-20CB-B7AF-61E9-E453C18E37E2">
-<createdBy>vanesa</createdBy>
-<createdTime>2015-11-16 12:09:30 UTC</createdTime>
-<generatorID>0A8F413D-2C34-E601-C716-2F42D4AB522D</generatorID>
-<ownerDesignName>EMASA</ownerDesignName>
-<engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>CB0EB692-890B-D2E8-DA29-79123DEE2389</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -73,7 +32,7 @@
 <createdTime>2016-04-07 07:58:00 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -81,12 +40,51 @@
 <dataTypeSize>12</dataTypeSize>
 <ownDataTypeParameters>12,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Nombre" id="FCD9CE40-8BB2-C83B-594C-FE66B88A604B">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 09:41:46 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Apellidos" id="B7A88457-7835-D34B-CD47-65DC47FBA7FB">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 09:42:10 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Departamento" id="0D43A0DE-7955-D2A2-5900-122290F7458A">
+<createdBy>priyagurnani</createdBy>
+<createdTime>2015-11-12 18:08:28 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Cargo" id="9FD383DB-3F60-39E4-77D3-7AC8817A3DD4">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-08 19:09:55 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -94,12 +92,24 @@
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Turno" id="94A1D218-B1CD-5C7F-951E-EE6FA2BE0F0E">
+<createdBy>micha</createdBy>
+<createdTime>2015-11-16 22:00:44 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Zona" id="4890D771-39E2-9242-2EF3-7DB131474EF8">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-09 17:53:34 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -113,7 +123,7 @@
 <createdTime>2016-04-09 17:58:16 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -122,6 +132,21 @@
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Num_Brigada" id="30EF6782-20CB-B7AF-61E9-E453C18E37E2">
+<createdBy>vanesa</createdBy>
+<createdTime>2015-11-16 12:09:30 UTC</createdTime>
+<generatorID>0A8F413D-2C34-E601-C716-2F42D4AB522D</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>CB0EB692-890B-D2E8-DA29-79123DEE2389</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="C6450DF3-7117-11C5-FB2F-38AEA39B06FD" name="EMPLEADO PK">
@@ -129,7 +154,7 @@
 <createdTime>2016-04-06 16:22:40 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

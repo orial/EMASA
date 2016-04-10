@@ -7,25 +7,10 @@ package pruebaJPA;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
@@ -36,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Aviso.findAll", query = "SELECT a FROM Aviso a"),
-    @NamedQuery(name = "Aviso.findByCodigo", query = "SELECT a FROM Aviso a WHERE a.codigo = :codigo"),
+    @NamedQuery(name = "Aviso.findByIdAviso", query = "SELECT a FROM Aviso a WHERE a.idAviso = :idAviso"),
     @NamedQuery(name = "Aviso.findByFechaEntrada", query = "SELECT a FROM Aviso a WHERE a.fechaEntrada = :fechaEntrada"),
     @NamedQuery(name = "Aviso.findByOrigen", query = "SELECT a FROM Aviso a WHERE a.origen = :origen")})
 public class Aviso implements Serializable {
@@ -46,8 +31,8 @@ public class Aviso implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGO")
-    private BigDecimal codigo;
+    @Column(name = "ID_AVISO")
+    private BigDecimal idAviso;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_ENTRADA")
@@ -62,39 +47,39 @@ public class Aviso implements Serializable {
     private Collection<Historico> historicoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
     private Collection<Visitas> visitasCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "avisoCodigo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAviso")
     private Collection<OrdTrabajo> ordTrabajoCollection;
-    @OneToMany(mappedBy = "avisoCodigo")
+    @OneToMany(mappedBy = "relacionado")
     private Collection<Aviso> avisoCollection;
-    @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO")
+    @JoinColumn(name = "RELACIONADO", referencedColumnName = "ID_AVISO")
     @ManyToOne
-    private Aviso avisoCodigo;
+    private Aviso relacionado;
     @JoinColumn(name = "CLIENTE_DNI", referencedColumnName = "DNI")
     @ManyToOne
     private Cliente clienteDni;
-    @JoinColumn(name = "EMPLEADO_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne
-    private Empleado empleadoIdEmpleado;
+    private Empleado idEmpleado;
 
     public Aviso() {
     }
 
-    public Aviso(BigDecimal codigo) {
-        this.codigo = codigo;
+    public Aviso(BigDecimal idAviso) {
+        this.idAviso = idAviso;
     }
 
-    public Aviso(BigDecimal codigo, Date fechaEntrada, String origen) {
-        this.codigo = codigo;
+    public Aviso(BigDecimal idAviso, Date fechaEntrada, String origen) {
+        this.idAviso = idAviso;
         this.fechaEntrada = fechaEntrada;
         this.origen = origen;
     }
 
-    public BigDecimal getCodigo() {
-        return codigo;
+    public BigDecimal getIdAviso() {
+        return idAviso;
     }
 
-    public void setCodigo(BigDecimal codigo) {
-        this.codigo = codigo;
+    public void setIdAviso(BigDecimal idAviso) {
+        this.idAviso = idAviso;
     }
 
     public Date getFechaEntrada() {
@@ -149,12 +134,12 @@ public class Aviso implements Serializable {
         this.avisoCollection = avisoCollection;
     }
 
-    public Aviso getAvisoCodigo() {
-        return avisoCodigo;
+    public Aviso getRelacionado() {
+        return relacionado;
     }
 
-    public void setAvisoCodigo(Aviso avisoCodigo) {
-        this.avisoCodigo = avisoCodigo;
+    public void setRelacionado(Aviso relacionado) {
+        this.relacionado = relacionado;
     }
 
     public Cliente getClienteDni() {
@@ -165,18 +150,18 @@ public class Aviso implements Serializable {
         this.clienteDni = clienteDni;
     }
 
-    public Empleado getEmpleadoIdEmpleado() {
-        return empleadoIdEmpleado;
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setEmpleadoIdEmpleado(Empleado empleadoIdEmpleado) {
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash += (idAviso != null ? idAviso.hashCode() : 0);
         return hash;
     }
 
@@ -187,7 +172,7 @@ public class Aviso implements Serializable {
             return false;
         }
         Aviso other = (Aviso) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.idAviso == null && other.idAviso != null) || (this.idAviso != null && !this.idAviso.equals(other.idAviso))) {
             return false;
         }
         return true;
@@ -195,7 +180,7 @@ public class Aviso implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Aviso[ codigo=" + codigo + " ]";
+        return "pruebaJPA.Aviso[ idAviso=" + idAviso + " ]";
     }
     
 }

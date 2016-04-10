@@ -8,19 +8,9 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
@@ -31,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Repuesto.findAll", query = "SELECT r FROM Repuesto r"),
-    @NamedQuery(name = "Repuesto.findByCodigo", query = "SELECT r FROM Repuesto r WHERE r.codigo = :codigo"),
+    @NamedQuery(name = "Repuesto.findByIdRepuesto", query = "SELECT r FROM Repuesto r WHERE r.idRepuesto = :idRepuesto"),
     @NamedQuery(name = "Repuesto.findByNombre", query = "SELECT r FROM Repuesto r WHERE r.nombre = :nombre"),
     @NamedQuery(name = "Repuesto.findByDescripci\u00f3n", query = "SELECT r FROM Repuesto r WHERE r.descripci\u00f3n = :descripci\u00f3n")})
 public class Repuesto implements Serializable {
@@ -41,8 +31,8 @@ public class Repuesto implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGO")
-    private BigDecimal codigo;
+    @Column(name = "ID_REPUESTO")
+    private BigDecimal idRepuesto;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
@@ -57,21 +47,21 @@ public class Repuesto implements Serializable {
     public Repuesto() {
     }
 
-    public Repuesto(BigDecimal codigo) {
-        this.codigo = codigo;
+    public Repuesto(BigDecimal idRepuesto) {
+        this.idRepuesto = idRepuesto;
     }
 
-    public Repuesto(BigDecimal codigo, String nombre) {
-        this.codigo = codigo;
+    public Repuesto(BigDecimal idRepuesto, String nombre) {
+        this.idRepuesto = idRepuesto;
         this.nombre = nombre;
     }
 
-    public BigDecimal getCodigo() {
-        return codigo;
+    public BigDecimal getIdRepuesto() {
+        return idRepuesto;
     }
 
-    public void setCodigo(BigDecimal codigo) {
-        this.codigo = codigo;
+    public void setIdRepuesto(BigDecimal idRepuesto) {
+        this.idRepuesto = idRepuesto;
     }
 
     public String getNombre() {
@@ -102,7 +92,7 @@ public class Repuesto implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash += (idRepuesto != null ? idRepuesto.hashCode() : 0);
         return hash;
     }
 
@@ -113,7 +103,7 @@ public class Repuesto implements Serializable {
             return false;
         }
         Repuesto other = (Repuesto) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.idRepuesto == null && other.idRepuesto != null) || (this.idRepuesto != null && !this.idRepuesto.equals(other.idRepuesto))) {
             return false;
         }
         return true;
@@ -121,7 +111,7 @@ public class Repuesto implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Repuesto[ codigo=" + codigo + " ]";
+        return "pruebaJPA.Repuesto[ idRepuesto=" + idRepuesto + " ]";
     }
     
 }

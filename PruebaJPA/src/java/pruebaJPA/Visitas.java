@@ -8,13 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -27,17 +21,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Visitas.findAll", query = "SELECT v FROM Visitas v"),
     @NamedQuery(name = "Visitas.findByFechaVisita", query = "SELECT v FROM Visitas v WHERE v.visitasPK.fechaVisita = :fechaVisita"),
-    @NamedQuery(name = "Visitas.findByEmpleadoIdEmpleado", query = "SELECT v FROM Visitas v WHERE v.visitasPK.empleadoIdEmpleado = :empleadoIdEmpleado"),
-    @NamedQuery(name = "Visitas.findByAvisoCodigo", query = "SELECT v FROM Visitas v WHERE v.visitasPK.avisoCodigo = :avisoCodigo")})
+    @NamedQuery(name = "Visitas.findByIdEmpleado", query = "SELECT v FROM Visitas v WHERE v.visitasPK.idEmpleado = :idEmpleado"),
+    @NamedQuery(name = "Visitas.findByIdAviso", query = "SELECT v FROM Visitas v WHERE v.visitasPK.idAviso = :idAviso")})
 public class Visitas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected VisitasPK visitasPK;
-    @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Aviso aviso;
-    @JoinColumn(name = "EMPLEADO_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Empleado empleado;
 
@@ -48,8 +42,8 @@ public class Visitas implements Serializable {
         this.visitasPK = visitasPK;
     }
 
-    public Visitas(Date fechaVisita, BigInteger empleadoIdEmpleado, BigInteger avisoCodigo) {
-        this.visitasPK = new VisitasPK(fechaVisita, empleadoIdEmpleado, avisoCodigo);
+    public Visitas(Date fechaVisita, BigInteger idEmpleado, BigInteger idAviso) {
+        this.visitasPK = new VisitasPK(fechaVisita, idEmpleado, idAviso);
     }
 
     public VisitasPK getVisitasPK() {

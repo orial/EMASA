@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0CA21E19-E716-C85F-1178-26C0A4049471" name="VISITAS">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>BE3824CA-66B8-9276-D8B5-5C3AEF0035DC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha_visita" id="918D7CAC-219B-1C54-EBB1-A355D4713B1C">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>A1D8D594-3F04-579D-820F-28258661E18E</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Id_empleado" id="80F526E7-DCB8-8D3F-14AF-94B39E219244">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>0653D9D7-BDA8-F92A-B5E7-CC471125405A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5ACA05C1-0496-678A-59F3-B20D6EFF43AA" referredColumn="4676BBE7-41CC-7A02-CAAA-D5643ED54C0F"/>
+</associations>
+</Column>
+<Column name="Id_aviso" id="487506BF-2A29-8095-0F7E-FF0CA8F47AD8">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>FE5F798E-19FE-D4FF-52A3-531AE726D493</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2ACB04E1-D71B-C16E-38CE-F07D047A207D" referredColumn="66D93243-8B6E-D200-1F30-B2C5A46B8FCE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E42AD5DA-81F0-9615-C693-E85E63A02F0E" name="VISITAS_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>65CF804D-3406-2FA2-27C4-94C7DFC56AF3</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="918D7CAC-219B-1C54-EBB1-A355D4713B1C"/>
+<colUsage columnID="80F526E7-DCB8-8D3F-14AF-94B39E219244"/>
+<colUsage columnID="487506BF-2A29-8095-0F7E-FF0CA8F47AD8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B83AE248-64C6-F6AC-BD36-1D871E8DE44E" name="VISITAS_EMPLEADO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>82B2FEF0-BEBF-5898-4433-60337AFF39D5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80F526E7-DCB8-8D3F-14AF-94B39E219244"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00D22E80-F027-64F6-542B-4B6BCB9C8DD9" name="VISITAS_AVISO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>D6D852D2-4B47-AFF3-8A08-2D7FFCDE9EC1</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="487506BF-2A29-8095-0F7E-FF0CA8F47AD8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

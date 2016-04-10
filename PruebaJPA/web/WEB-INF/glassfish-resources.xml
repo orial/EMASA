@@ -8,5 +8,5 @@
         <property name="URL" value="jdbc:oracle:thin:@//localhost:1521/ABBDD"/>
         <property name="driverClass" value="oracle.jdbc.OracleDriver"/>
     </jdbc-connection-pool>
-    <jdbc-resource enabled="true" jndi-name="java:app/JPA Oracle" object-type="user" pool-name="oracle-thin_JPAPool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/JPA oracle" object-type="user" pool-name="oracle-thin_JPAPool"/>
 </resources>

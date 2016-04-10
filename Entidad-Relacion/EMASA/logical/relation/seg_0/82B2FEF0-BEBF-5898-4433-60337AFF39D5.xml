@@ -4,10 +4,11 @@
 <createdTime>2016-04-09 18:38:08 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <sourcePk>C6450DF3-7117-11C5-FB2F-38AEA39B06FD</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>OPERARIO ASIGNADO</nameOnSource>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

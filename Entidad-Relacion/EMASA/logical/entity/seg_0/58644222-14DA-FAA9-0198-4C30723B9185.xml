@@ -4,7 +4,7 @@
 <createdTime>2016-04-06 15:28:36 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,13 +15,13 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Codigo" id="48332E9F-A6AE-BCB0-45A1-C674AEC7C7F9">
+<Attribute name="Id_aviso" id="48332E9F-A6AE-BCB0-45A1-C674AEC7C7F9">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-06 15:28:53 UTC</createdTime>
 <generatorID>84BDCB55-90FE-B51F-2F07-F3C4798CDC00</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -34,7 +34,7 @@
 <createdTime>2016-04-06 15:30:12 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -47,7 +47,7 @@
 <generatorID>593DB26B-5A09-8288-9E9E-18417AFCA98B</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <referedAttribute>E1716D13-3716-01E2-7FB2-E8AE3064FB25</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -60,7 +60,7 @@
 <createdTime>2016-04-09 18:35:06 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -72,7 +72,7 @@
 <createdTime>2016-04-06 15:37:06 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -85,7 +85,7 @@
 <createdTime>2016-04-06 15:40:04 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -98,7 +98,7 @@
 <createdTime>2016-04-06 15:31:04 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -111,7 +111,7 @@
 <createdTime>2016-04-06 15:47:50 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -123,7 +123,7 @@
 <createdTime>2016-04-06 15:40:52 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -136,7 +136,7 @@
 <createdTime>2016-04-06 15:31:23 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -150,7 +150,7 @@
 <createdTime>2016-04-06 15:42:10 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -164,7 +164,7 @@
 <createdTime>2016-04-06 15:42:32 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -178,7 +178,7 @@
 <createdTime>2016-04-06 15:45:38 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -192,7 +192,7 @@
 <createdTime>2016-04-06 15:47:20 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -206,7 +206,7 @@
 <createdTime>2016-04-06 15:47:58 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -222,7 +222,7 @@
 <createdTime>2016-04-06 15:28:53 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="6E092A0B-F5FF-3874-F669-E864C922E497" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="45203836-677B-9F80-3F9A-4009D256A5AD" name="REPUESTO">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>7A21835F-117E-AB7E-71A8-351751B0DA02</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_repuesto" id="2CCEE0FE-E471-D648-6892-EC0D94527191">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>E7EC0A6F-7F0D-9ED3-37E9-A75F298D4CD5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="3E452DFA-B434-647A-D3EF-43BE75D8FC7F">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>3A57F6BD-48C9-D22F-7200-C9843B00E38D</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripción" id="F3AE3479-CA1F-3849-E4C7-A0223DD63EAB">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>AEEB8DD4-EBC2-0FE3-0372-93A5D28A56BE</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4840242C-AB21-76F5-8A1C-594CBDCABD47" name="REPUESTO_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-10 10:20:23 UTC</createdTime>
+<generatorID>7686F188-5CC4-6180-FE58-ADA203294881</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2CCEE0FE-E471-D648-6892-EC0D94527191"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

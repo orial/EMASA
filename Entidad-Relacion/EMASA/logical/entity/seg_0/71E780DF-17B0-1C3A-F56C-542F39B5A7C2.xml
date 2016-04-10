@@ -4,7 +4,7 @@
 <createdTime>2015-11-12 17:21:49 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,12 +15,12 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Codigo" id="097A1C10-2182-CDB4-20BC-75BFA44A9DE1">
+<Attribute name="Id_aviso" id="097A1C10-2182-CDB4-20BC-75BFA44A9DE1">
 <createdBy>priyagurnani</createdBy>
 <createdTime>2015-11-12 17:45:11 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2015-11-12 18:38:10 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -44,7 +44,7 @@
 <createdTime>2016-04-09 18:50:02 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -52,13 +52,13 @@
 <dataTypeSize>15</dataTypeSize>
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Codigo1" id="C653B8FA-CFB5-F4F0-4FED-9C14FAEB5E60">
+<Attribute name="Id_aviso1" id="C653B8FA-CFB5-F4F0-4FED-9C14FAEB5E60">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-06 14:21:59 UTC</createdTime>
 <generatorID>AEC37E20-441E-D3C9-3F57-9C2A2DD96124</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
@@ -73,7 +73,7 @@
 <generatorID>07450B3F-E661-B156-BC48-8F972EC0F959</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <referedAttribute>E1716D13-3716-01E2-7FB2-E8AE3064FB25</referedAttribute>
@@ -88,7 +88,7 @@
 <generatorID>29069B5F-D38E-EC9C-0883-E35A18D5EDBC</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <referedAttribute>283B05E8-8EE9-7B4A-A3EB-5955064A08E5</referedAttribute>
@@ -105,7 +105,7 @@
 <createdTime>2015-11-12 17:48:13 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="52EEB0B5-4834-1F75-921A-55E0CFB30458" value="true"/>
+<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -8,11 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -29,20 +25,20 @@ public class VisitasPK implements Serializable {
     private Date fechaVisita;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "EMPLEADO_ID_EMPLEADO")
-    private BigInteger empleadoIdEmpleado;
+    @Column(name = "ID_EMPLEADO")
+    private BigInteger idEmpleado;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "AVISO_CODIGO")
-    private BigInteger avisoCodigo;
+    @Column(name = "ID_AVISO")
+    private BigInteger idAviso;
 
     public VisitasPK() {
     }
 
-    public VisitasPK(Date fechaVisita, BigInteger empleadoIdEmpleado, BigInteger avisoCodigo) {
+    public VisitasPK(Date fechaVisita, BigInteger idEmpleado, BigInteger idAviso) {
         this.fechaVisita = fechaVisita;
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
-        this.avisoCodigo = avisoCodigo;
+        this.idEmpleado = idEmpleado;
+        this.idAviso = idAviso;
     }
 
     public Date getFechaVisita() {
@@ -53,28 +49,28 @@ public class VisitasPK implements Serializable {
         this.fechaVisita = fechaVisita;
     }
 
-    public BigInteger getEmpleadoIdEmpleado() {
-        return empleadoIdEmpleado;
+    public BigInteger getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setEmpleadoIdEmpleado(BigInteger empleadoIdEmpleado) {
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
+    public void setIdEmpleado(BigInteger idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
-    public BigInteger getAvisoCodigo() {
-        return avisoCodigo;
+    public BigInteger getIdAviso() {
+        return idAviso;
     }
 
-    public void setAvisoCodigo(BigInteger avisoCodigo) {
-        this.avisoCodigo = avisoCodigo;
+    public void setIdAviso(BigInteger idAviso) {
+        this.idAviso = idAviso;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (fechaVisita != null ? fechaVisita.hashCode() : 0);
-        hash += (empleadoIdEmpleado != null ? empleadoIdEmpleado.hashCode() : 0);
-        hash += (avisoCodigo != null ? avisoCodigo.hashCode() : 0);
+        hash += (idEmpleado != null ? idEmpleado.hashCode() : 0);
+        hash += (idAviso != null ? idAviso.hashCode() : 0);
         return hash;
     }
 
@@ -88,10 +84,10 @@ public class VisitasPK implements Serializable {
         if ((this.fechaVisita == null && other.fechaVisita != null) || (this.fechaVisita != null && !this.fechaVisita.equals(other.fechaVisita))) {
             return false;
         }
-        if ((this.empleadoIdEmpleado == null && other.empleadoIdEmpleado != null) || (this.empleadoIdEmpleado != null && !this.empleadoIdEmpleado.equals(other.empleadoIdEmpleado))) {
+        if ((this.idEmpleado == null && other.idEmpleado != null) || (this.idEmpleado != null && !this.idEmpleado.equals(other.idEmpleado))) {
             return false;
         }
-        if ((this.avisoCodigo == null && other.avisoCodigo != null) || (this.avisoCodigo != null && !this.avisoCodigo.equals(other.avisoCodigo))) {
+        if ((this.idAviso == null && other.idAviso != null) || (this.idAviso != null && !this.idAviso.equals(other.idAviso))) {
             return false;
         }
         return true;
@@ -99,7 +95,7 @@ public class VisitasPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.VisitasPK[ fechaVisita=" + fechaVisita + ", empleadoIdEmpleado=" + empleadoIdEmpleado + ", avisoCodigo=" + avisoCodigo + " ]";
+        return "pruebaJPA.VisitasPK[ fechaVisita=" + fechaVisita + ", idEmpleado=" + idEmpleado + ", idAviso=" + idAviso + " ]";
     }
     
 }

@@ -8,11 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,57 +20,57 @@ public class ActuacionesPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "FECHA")
+    @Column(name = "FECHA_ACTUACION")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha;
+    private Date fechaActuacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ORD_TRABAJO_IDENTIFICADOR")
-    private BigInteger ordTrabajoIdentificador;
+    @Column(name = "ID_ORDEN")
+    private BigInteger idOrden;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "BRIGADA_NUM_BRIGADA")
-    private BigInteger brigadaNumBrigada;
+    @Column(name = "NUM_BRIGADA")
+    private BigInteger numBrigada;
 
     public ActuacionesPK() {
     }
 
-    public ActuacionesPK(Date fecha, BigInteger ordTrabajoIdentificador, BigInteger brigadaNumBrigada) {
-        this.fecha = fecha;
-        this.ordTrabajoIdentificador = ordTrabajoIdentificador;
-        this.brigadaNumBrigada = brigadaNumBrigada;
+    public ActuacionesPK(Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
+        this.fechaActuacion = fechaActuacion;
+        this.idOrden = idOrden;
+        this.numBrigada = numBrigada;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaActuacion() {
+        return fechaActuacion;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaActuacion(Date fechaActuacion) {
+        this.fechaActuacion = fechaActuacion;
     }
 
-    public BigInteger getOrdTrabajoIdentificador() {
-        return ordTrabajoIdentificador;
+    public BigInteger getIdOrden() {
+        return idOrden;
     }
 
-    public void setOrdTrabajoIdentificador(BigInteger ordTrabajoIdentificador) {
-        this.ordTrabajoIdentificador = ordTrabajoIdentificador;
+    public void setIdOrden(BigInteger idOrden) {
+        this.idOrden = idOrden;
     }
 
-    public BigInteger getBrigadaNumBrigada() {
-        return brigadaNumBrigada;
+    public BigInteger getNumBrigada() {
+        return numBrigada;
     }
 
-    public void setBrigadaNumBrigada(BigInteger brigadaNumBrigada) {
-        this.brigadaNumBrigada = brigadaNumBrigada;
+    public void setNumBrigada(BigInteger numBrigada) {
+        this.numBrigada = numBrigada;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (fecha != null ? fecha.hashCode() : 0);
-        hash += (ordTrabajoIdentificador != null ? ordTrabajoIdentificador.hashCode() : 0);
-        hash += (brigadaNumBrigada != null ? brigadaNumBrigada.hashCode() : 0);
+        hash += (fechaActuacion != null ? fechaActuacion.hashCode() : 0);
+        hash += (idOrden != null ? idOrden.hashCode() : 0);
+        hash += (numBrigada != null ? numBrigada.hashCode() : 0);
         return hash;
     }
 
@@ -85,13 +81,13 @@ public class ActuacionesPK implements Serializable {
             return false;
         }
         ActuacionesPK other = (ActuacionesPK) object;
-        if ((this.fecha == null && other.fecha != null) || (this.fecha != null && !this.fecha.equals(other.fecha))) {
+        if ((this.fechaActuacion == null && other.fechaActuacion != null) || (this.fechaActuacion != null && !this.fechaActuacion.equals(other.fechaActuacion))) {
             return false;
         }
-        if ((this.ordTrabajoIdentificador == null && other.ordTrabajoIdentificador != null) || (this.ordTrabajoIdentificador != null && !this.ordTrabajoIdentificador.equals(other.ordTrabajoIdentificador))) {
+        if ((this.idOrden == null && other.idOrden != null) || (this.idOrden != null && !this.idOrden.equals(other.idOrden))) {
             return false;
         }
-        if ((this.brigadaNumBrigada == null && other.brigadaNumBrigada != null) || (this.brigadaNumBrigada != null && !this.brigadaNumBrigada.equals(other.brigadaNumBrigada))) {
+        if ((this.numBrigada == null && other.numBrigada != null) || (this.numBrigada != null && !this.numBrigada.equals(other.numBrigada))) {
             return false;
         }
         return true;
@@ -99,7 +95,7 @@ public class ActuacionesPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.ActuacionesPK[ fecha=" + fecha + ", ordTrabajoIdentificador=" + ordTrabajoIdentificador + ", brigadaNumBrigada=" + brigadaNumBrigada + " ]";
+        return "pruebaJPA.ActuacionesPK[ fechaActuacion=" + fechaActuacion + ", idOrden=" + idOrden + ", numBrigada=" + numBrigada + " ]";
     }
     
 }

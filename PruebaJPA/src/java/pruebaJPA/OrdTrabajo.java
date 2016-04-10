@@ -7,25 +7,10 @@ package pruebaJPA;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import java.util.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
@@ -36,11 +21,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "OrdTrabajo.findAll", query = "SELECT o FROM OrdTrabajo o"),
-    @NamedQuery(name = "OrdTrabajo.findByIdentificador", query = "SELECT o FROM OrdTrabajo o WHERE o.identificador = :identificador"),
+    @NamedQuery(name = "OrdTrabajo.findByIdOrden", query = "SELECT o FROM OrdTrabajo o WHERE o.idOrden = :idOrden"),
     @NamedQuery(name = "OrdTrabajo.findByFechaCreacion", query = "SELECT o FROM OrdTrabajo o WHERE o.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "OrdTrabajo.findByTrabajoARealizar", query = "SELECT o FROM OrdTrabajo o WHERE o.trabajoARealizar = :trabajoARealizar"),
-    @NamedQuery(name = "OrdTrabajo.findByFechaFinalizacion", query = "SELECT o FROM OrdTrabajo o WHERE o.fechaFinalizacion = :fechaFinalizacion"),
-    @NamedQuery(name = "OrdTrabajo.findByEstado", query = "SELECT o FROM OrdTrabajo o WHERE o.estado = :estado")})
+    @NamedQuery(name = "OrdTrabajo.findByEstado", query = "SELECT o FROM OrdTrabajo o WHERE o.estado = :estado"),
+    @NamedQuery(name = "OrdTrabajo.findByFechaFinalizacion", query = "SELECT o FROM OrdTrabajo o WHERE o.fechaFinalizacion = :fechaFinalizacion")})
 public class OrdTrabajo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,8 +33,8 @@ public class OrdTrabajo implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "IDENTIFICADOR")
-    private BigDecimal identificador;
+    @Column(name = "ID_ORDEN")
+    private BigDecimal idOrden;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_CREACION")
@@ -60,40 +45,40 @@ public class OrdTrabajo implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "TRABAJO_A_REALIZAR")
     private String trabajoARealizar;
-    @Column(name = "FECHA_FINALIZACION")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaFinalizacion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "ESTADO")
     private String estado;
+    @Column(name = "FECHA_FINALIZACION")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaFinalizacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordTrabajo")
     private Collection<Actuaciones> actuacionesCollection;
-    @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO")
+    @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO")
     @ManyToOne(optional = false)
-    private Aviso avisoCodigo;
+    private Aviso idAviso;
 
     public OrdTrabajo() {
     }
 
-    public OrdTrabajo(BigDecimal identificador) {
-        this.identificador = identificador;
+    public OrdTrabajo(BigDecimal idOrden) {
+        this.idOrden = idOrden;
     }
 
-    public OrdTrabajo(BigDecimal identificador, Date fechaCreacion, String trabajoARealizar, String estado) {
-        this.identificador = identificador;
+    public OrdTrabajo(BigDecimal idOrden, Date fechaCreacion, String trabajoARealizar, String estado) {
+        this.idOrden = idOrden;
         this.fechaCreacion = fechaCreacion;
         this.trabajoARealizar = trabajoARealizar;
         this.estado = estado;
     }
 
-    public BigDecimal getIdentificador() {
-        return identificador;
+    public BigDecimal getIdOrden() {
+        return idOrden;
     }
 
-    public void setIdentificador(BigDecimal identificador) {
-        this.identificador = identificador;
+    public void setIdOrden(BigDecimal idOrden) {
+        this.idOrden = idOrden;
     }
 
     public Date getFechaCreacion() {
@@ -112,20 +97,20 @@ public class OrdTrabajo implements Serializable {
         this.trabajoARealizar = trabajoARealizar;
     }
 
-    public Date getFechaFinalizacion() {
-        return fechaFinalizacion;
-    }
-
-    public void setFechaFinalizacion(Date fechaFinalizacion) {
-        this.fechaFinalizacion = fechaFinalizacion;
-    }
-
     public String getEstado() {
         return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Date getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(Date fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
     }
 
     @XmlTransient
@@ -137,18 +122,18 @@ public class OrdTrabajo implements Serializable {
         this.actuacionesCollection = actuacionesCollection;
     }
 
-    public Aviso getAvisoCodigo() {
-        return avisoCodigo;
+    public Aviso getIdAviso() {
+        return idAviso;
     }
 
-    public void setAvisoCodigo(Aviso avisoCodigo) {
-        this.avisoCodigo = avisoCodigo;
+    public void setIdAviso(Aviso idAviso) {
+        this.idAviso = idAviso;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (identificador != null ? identificador.hashCode() : 0);
+        hash += (idOrden != null ? idOrden.hashCode() : 0);
         return hash;
     }
 
@@ -159,7 +144,7 @@ public class OrdTrabajo implements Serializable {
             return false;
         }
         OrdTrabajo other = (OrdTrabajo) object;
-        if ((this.identificador == null && other.identificador != null) || (this.identificador != null && !this.identificador.equals(other.identificador))) {
+        if ((this.idOrden == null && other.idOrden != null) || (this.idOrden != null && !this.idOrden.equals(other.idOrden))) {
             return false;
         }
         return true;
@@ -167,7 +152,7 @@ public class OrdTrabajo implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.OrdTrabajo[ identificador=" + identificador + " ]";
+        return "pruebaJPA.OrdTrabajo[ idOrden=" + idOrden + " ]";
     }
     
 }

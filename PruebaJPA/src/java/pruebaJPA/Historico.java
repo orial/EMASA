@@ -8,19 +8,8 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -32,9 +21,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Historico.findAll", query = "SELECT h FROM Historico h"),
-    @NamedQuery(name = "Historico.findByAvisoCodigo", query = "SELECT h FROM Historico h WHERE h.historicoPK.avisoCodigo = :avisoCodigo"),
+    @NamedQuery(name = "Historico.findByIdAviso", query = "SELECT h FROM Historico h WHERE h.historicoPK.idAviso = :idAviso"),
     @NamedQuery(name = "Historico.findByFechaActualizacion", query = "SELECT h FROM Historico h WHERE h.historicoPK.fechaActualizacion = :fechaActualizacion"),
-    @NamedQuery(name = "Historico.findByEmpleadoIdEmpleado", query = "SELECT h FROM Historico h WHERE h.historicoPK.empleadoIdEmpleado = :empleadoIdEmpleado"),
+    @NamedQuery(name = "Historico.findByIdEmpleado", query = "SELECT h FROM Historico h WHERE h.historicoPK.idEmpleado = :idEmpleado"),
     @NamedQuery(name = "Historico.findBySupervisor", query = "SELECT h FROM Historico h WHERE h.historicoPK.supervisor = :supervisor"),
     @NamedQuery(name = "Historico.findByDescripcion", query = "SELECT h FROM Historico h WHERE h.descripcion = :descripcion"),
     @NamedQuery(name = "Historico.findByDireccion", query = "SELECT h FROM Historico h WHERE h.direccion = :direccion"),
@@ -92,10 +81,10 @@ public class Historico implements Serializable {
     @Size(max = 200)
     @Column(name = "DOC_ADJUNTO")
     private String docAdjunto;
-    @JoinColumn(name = "AVISO_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Aviso aviso;
-    @JoinColumn(name = "EMPLEADO_ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Empleado empleado;
 
@@ -114,8 +103,8 @@ public class Historico implements Serializable {
         this.duplicado = duplicado;
     }
 
-    public Historico(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado, BigInteger supervisor) {
-        this.historicoPK = new HistoricoPK(avisoCodigo, fechaActualizacion, empleadoIdEmpleado, supervisor);
+    public Historico(BigInteger idAviso, Date fechaActualizacion, BigInteger idEmpleado, BigInteger supervisor) {
+        this.historicoPK = new HistoricoPK(idAviso, fechaActualizacion, idEmpleado, supervisor);
     }
 
     public HistoricoPK getHistoricoPK() {

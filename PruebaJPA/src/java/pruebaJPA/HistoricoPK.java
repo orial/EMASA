@@ -8,11 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,8 +20,8 @@ public class HistoricoPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "AVISO_CODIGO")
-    private BigInteger avisoCodigo;
+    @Column(name = "ID_AVISO")
+    private BigInteger idAviso;
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_ACTUALIZACION")
@@ -33,8 +29,8 @@ public class HistoricoPK implements Serializable {
     private Date fechaActualizacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "EMPLEADO_ID_EMPLEADO")
-    private BigInteger empleadoIdEmpleado;
+    @Column(name = "ID_EMPLEADO")
+    private BigInteger idEmpleado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "SUPERVISOR")
@@ -43,19 +39,19 @@ public class HistoricoPK implements Serializable {
     public HistoricoPK() {
     }
 
-    public HistoricoPK(BigInteger avisoCodigo, Date fechaActualizacion, BigInteger empleadoIdEmpleado, BigInteger supervisor) {
-        this.avisoCodigo = avisoCodigo;
+    public HistoricoPK(BigInteger idAviso, Date fechaActualizacion, BigInteger idEmpleado, BigInteger supervisor) {
+        this.idAviso = idAviso;
         this.fechaActualizacion = fechaActualizacion;
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
+        this.idEmpleado = idEmpleado;
         this.supervisor = supervisor;
     }
 
-    public BigInteger getAvisoCodigo() {
-        return avisoCodigo;
+    public BigInteger getIdAviso() {
+        return idAviso;
     }
 
-    public void setAvisoCodigo(BigInteger avisoCodigo) {
-        this.avisoCodigo = avisoCodigo;
+    public void setIdAviso(BigInteger idAviso) {
+        this.idAviso = idAviso;
     }
 
     public Date getFechaActualizacion() {
@@ -66,12 +62,12 @@ public class HistoricoPK implements Serializable {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public BigInteger getEmpleadoIdEmpleado() {
-        return empleadoIdEmpleado;
+    public BigInteger getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setEmpleadoIdEmpleado(BigInteger empleadoIdEmpleado) {
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
+    public void setIdEmpleado(BigInteger idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public BigInteger getSupervisor() {
@@ -85,9 +81,9 @@ public class HistoricoPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (avisoCodigo != null ? avisoCodigo.hashCode() : 0);
+        hash += (idAviso != null ? idAviso.hashCode() : 0);
         hash += (fechaActualizacion != null ? fechaActualizacion.hashCode() : 0);
-        hash += (empleadoIdEmpleado != null ? empleadoIdEmpleado.hashCode() : 0);
+        hash += (idEmpleado != null ? idEmpleado.hashCode() : 0);
         hash += (supervisor != null ? supervisor.hashCode() : 0);
         return hash;
     }
@@ -99,13 +95,13 @@ public class HistoricoPK implements Serializable {
             return false;
         }
         HistoricoPK other = (HistoricoPK) object;
-        if ((this.avisoCodigo == null && other.avisoCodigo != null) || (this.avisoCodigo != null && !this.avisoCodigo.equals(other.avisoCodigo))) {
+        if ((this.idAviso == null && other.idAviso != null) || (this.idAviso != null && !this.idAviso.equals(other.idAviso))) {
             return false;
         }
         if ((this.fechaActualizacion == null && other.fechaActualizacion != null) || (this.fechaActualizacion != null && !this.fechaActualizacion.equals(other.fechaActualizacion))) {
             return false;
         }
-        if ((this.empleadoIdEmpleado == null && other.empleadoIdEmpleado != null) || (this.empleadoIdEmpleado != null && !this.empleadoIdEmpleado.equals(other.empleadoIdEmpleado))) {
+        if ((this.idEmpleado == null && other.idEmpleado != null) || (this.idEmpleado != null && !this.idEmpleado.equals(other.idEmpleado))) {
             return false;
         }
         if ((this.supervisor == null && other.supervisor != null) || (this.supervisor != null && !this.supervisor.equals(other.supervisor))) {
@@ -116,7 +112,7 @@ public class HistoricoPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.HistoricoPK[ avisoCodigo=" + avisoCodigo + ", fechaActualizacion=" + fechaActualizacion + ", empleadoIdEmpleado=" + empleadoIdEmpleado + ", supervisor=" + supervisor + " ]";
+        return "pruebaJPA.HistoricoPK[ idAviso=" + idAviso + ", fechaActualizacion=" + fechaActualizacion + ", idEmpleado=" + idEmpleado + ", supervisor=" + supervisor + " ]";
     }
     
 }

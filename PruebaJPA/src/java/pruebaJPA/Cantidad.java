@@ -8,14 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -28,22 +21,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Cantidad.findAll", query = "SELECT c FROM Cantidad c"),
     @NamedQuery(name = "Cantidad.findByCantidad", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.cantidad = :cantidad"),
-    @NamedQuery(name = "Cantidad.findByRepuestoCodigo", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.repuestoCodigo = :repuestoCodigo"),
-    @NamedQuery(name = "Cantidad.findByActFecha", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actFecha = :actFecha"),
-    @NamedQuery(name = "Cantidad.findByActOrdTrabajoIdentificador", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actOrdTrabajoIdentificador = :actOrdTrabajoIdentificador"),
-    @NamedQuery(name = "Cantidad.findByActBrigadaNumBrigada", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.actBrigadaNumBrigada = :actBrigadaNumBrigada")})
+    @NamedQuery(name = "Cantidad.findByIdRepuesto", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.idRepuesto = :idRepuesto"),
+    @NamedQuery(name = "Cantidad.findByFechaActuacion", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.fechaActuacion = :fechaActuacion"),
+    @NamedQuery(name = "Cantidad.findByIdOrden", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.idOrden = :idOrden"),
+    @NamedQuery(name = "Cantidad.findByNumBrigada", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.numBrigada = :numBrigada")})
 public class Cantidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected CantidadPK cantidadPK;
     @JoinColumns({
-        @JoinColumn(name = "ACT_FECHA", referencedColumnName = "FECHA", insertable = false, updatable = false),
-        @JoinColumn(name = "ACT_ORD_TRABAJO_IDENTIFICADOR", referencedColumnName = "ORD_TRABAJO_IDENTIFICADOR", insertable = false, updatable = false),
-        @JoinColumn(name = "ACT_BRIGADA_NUM_BRIGADA", referencedColumnName = "BRIGADA_NUM_BRIGADA", insertable = false, updatable = false)})
+        @JoinColumn(name = "FECHA_ACTUACION", referencedColumnName = "FECHA_ACTUACION", insertable = false, updatable = false),
+        @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN", insertable = false, updatable = false),
+        @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Actuaciones actuaciones;
-    @JoinColumn(name = "REPUESTO_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_REPUESTO", referencedColumnName = "ID_REPUESTO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Repuesto repuesto;
 
@@ -54,8 +47,8 @@ public class Cantidad implements Serializable {
         this.cantidadPK = cantidadPK;
     }
 
-    public Cantidad(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabajoIdentificador, BigInteger actBrigadaNumBrigada) {
-        this.cantidadPK = new CantidadPK(cantidad, repuestoCodigo, actFecha, actOrdTrabajoIdentificador, actBrigadaNumBrigada);
+    public Cantidad(BigInteger cantidad, BigInteger idRepuesto, Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
+        this.cantidadPK = new CantidadPK(cantidad, idRepuesto, fechaActuacion, idOrden, numBrigada);
     }
 
     public CantidadPK getCantidadPK() {

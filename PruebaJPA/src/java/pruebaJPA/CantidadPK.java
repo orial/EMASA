@@ -8,11 +8,7 @@ package pruebaJPA;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -28,31 +24,31 @@ public class CantidadPK implements Serializable {
     private BigInteger cantidad;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "REPUESTO_CODIGO")
-    private BigInteger repuestoCodigo;
+    @Column(name = "ID_REPUESTO")
+    private BigInteger idRepuesto;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ACT_FECHA")
+    @Column(name = "FECHA_ACTUACION")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date actFecha;
+    private Date fechaActuacion;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ACT_ORD_TRABAJO_IDENTIFICADOR")
-    private BigInteger actOrdTrabajoIdentificador;
+    @Column(name = "ID_ORDEN")
+    private BigInteger idOrden;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ACT_BRIGADA_NUM_BRIGADA")
-    private BigInteger actBrigadaNumBrigada;
+    @Column(name = "NUM_BRIGADA")
+    private BigInteger numBrigada;
 
     public CantidadPK() {
     }
 
-    public CantidadPK(BigInteger cantidad, BigInteger repuestoCodigo, Date actFecha, BigInteger actOrdTrabajoIdentificador, BigInteger actBrigadaNumBrigada) {
+    public CantidadPK(BigInteger cantidad, BigInteger idRepuesto, Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
         this.cantidad = cantidad;
-        this.repuestoCodigo = repuestoCodigo;
-        this.actFecha = actFecha;
-        this.actOrdTrabajoIdentificador = actOrdTrabajoIdentificador;
-        this.actBrigadaNumBrigada = actBrigadaNumBrigada;
+        this.idRepuesto = idRepuesto;
+        this.fechaActuacion = fechaActuacion;
+        this.idOrden = idOrden;
+        this.numBrigada = numBrigada;
     }
 
     public BigInteger getCantidad() {
@@ -63,46 +59,46 @@ public class CantidadPK implements Serializable {
         this.cantidad = cantidad;
     }
 
-    public BigInteger getRepuestoCodigo() {
-        return repuestoCodigo;
+    public BigInteger getIdRepuesto() {
+        return idRepuesto;
     }
 
-    public void setRepuestoCodigo(BigInteger repuestoCodigo) {
-        this.repuestoCodigo = repuestoCodigo;
+    public void setIdRepuesto(BigInteger idRepuesto) {
+        this.idRepuesto = idRepuesto;
     }
 
-    public Date getActFecha() {
-        return actFecha;
+    public Date getFechaActuacion() {
+        return fechaActuacion;
     }
 
-    public void setActFecha(Date actFecha) {
-        this.actFecha = actFecha;
+    public void setFechaActuacion(Date fechaActuacion) {
+        this.fechaActuacion = fechaActuacion;
     }
 
-    public BigInteger getActOrdTrabajoIdentificador() {
-        return actOrdTrabajoIdentificador;
+    public BigInteger getIdOrden() {
+        return idOrden;
     }
 
-    public void setActOrdTrabajoIdentificador(BigInteger actOrdTrabajoIdentificador) {
-        this.actOrdTrabajoIdentificador = actOrdTrabajoIdentificador;
+    public void setIdOrden(BigInteger idOrden) {
+        this.idOrden = idOrden;
     }
 
-    public BigInteger getActBrigadaNumBrigada() {
-        return actBrigadaNumBrigada;
+    public BigInteger getNumBrigada() {
+        return numBrigada;
     }
 
-    public void setActBrigadaNumBrigada(BigInteger actBrigadaNumBrigada) {
-        this.actBrigadaNumBrigada = actBrigadaNumBrigada;
+    public void setNumBrigada(BigInteger numBrigada) {
+        this.numBrigada = numBrigada;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (cantidad != null ? cantidad.hashCode() : 0);
-        hash += (repuestoCodigo != null ? repuestoCodigo.hashCode() : 0);
-        hash += (actFecha != null ? actFecha.hashCode() : 0);
-        hash += (actOrdTrabajoIdentificador != null ? actOrdTrabajoIdentificador.hashCode() : 0);
-        hash += (actBrigadaNumBrigada != null ? actBrigadaNumBrigada.hashCode() : 0);
+        hash += (idRepuesto != null ? idRepuesto.hashCode() : 0);
+        hash += (fechaActuacion != null ? fechaActuacion.hashCode() : 0);
+        hash += (idOrden != null ? idOrden.hashCode() : 0);
+        hash += (numBrigada != null ? numBrigada.hashCode() : 0);
         return hash;
     }
 
@@ -116,16 +112,16 @@ public class CantidadPK implements Serializable {
         if ((this.cantidad == null && other.cantidad != null) || (this.cantidad != null && !this.cantidad.equals(other.cantidad))) {
             return false;
         }
-        if ((this.repuestoCodigo == null && other.repuestoCodigo != null) || (this.repuestoCodigo != null && !this.repuestoCodigo.equals(other.repuestoCodigo))) {
+        if ((this.idRepuesto == null && other.idRepuesto != null) || (this.idRepuesto != null && !this.idRepuesto.equals(other.idRepuesto))) {
             return false;
         }
-        if ((this.actFecha == null && other.actFecha != null) || (this.actFecha != null && !this.actFecha.equals(other.actFecha))) {
+        if ((this.fechaActuacion == null && other.fechaActuacion != null) || (this.fechaActuacion != null && !this.fechaActuacion.equals(other.fechaActuacion))) {
             return false;
         }
-        if ((this.actOrdTrabajoIdentificador == null && other.actOrdTrabajoIdentificador != null) || (this.actOrdTrabajoIdentificador != null && !this.actOrdTrabajoIdentificador.equals(other.actOrdTrabajoIdentificador))) {
+        if ((this.idOrden == null && other.idOrden != null) || (this.idOrden != null && !this.idOrden.equals(other.idOrden))) {
             return false;
         }
-        if ((this.actBrigadaNumBrigada == null && other.actBrigadaNumBrigada != null) || (this.actBrigadaNumBrigada != null && !this.actBrigadaNumBrigada.equals(other.actBrigadaNumBrigada))) {
+        if ((this.numBrigada == null && other.numBrigada != null) || (this.numBrigada != null && !this.numBrigada.equals(other.numBrigada))) {
             return false;
         }
         return true;
@@ -133,7 +129,7 @@ public class CantidadPK implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.CantidadPK[ cantidad=" + cantidad + ", repuestoCodigo=" + repuestoCodigo + ", actFecha=" + actFecha + ", actOrdTrabajoIdentificador=" + actOrdTrabajoIdentificador + ", actBrigadaNumBrigada=" + actBrigadaNumBrigada + " ]";
+        return "pruebaJPA.CantidadPK[ cantidad=" + cantidad + ", idRepuesto=" + idRepuesto + ", fechaActuacion=" + fechaActuacion + ", idOrden=" + idOrden + ", numBrigada=" + numBrigada + " ]";
     }
     
 }
