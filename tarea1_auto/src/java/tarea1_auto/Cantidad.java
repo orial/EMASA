@@ -8,7 +8,14 @@ package tarea1_auto;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,8 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cantidad.findByCantidad", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.cantidad = :cantidad"),
     @NamedQuery(name = "Cantidad.findByIdRepuesto", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.idRepuesto = :idRepuesto"),
     @NamedQuery(name = "Cantidad.findByFechaActuacion", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.fechaActuacion = :fechaActuacion"),
-    @NamedQuery(name = "Cantidad.findByIdOrden", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.idOrden = :idOrden"),
-    @NamedQuery(name = "Cantidad.findByNumBrigada", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.numBrigada = :numBrigada")})
+    @NamedQuery(name = "Cantidad.findByIdOrden", query = "SELECT c FROM Cantidad c WHERE c.cantidadPK.idOrden = :idOrden")})
 public class Cantidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,8 +38,7 @@ public class Cantidad implements Serializable {
     protected CantidadPK cantidadPK;
     @JoinColumns({
         @JoinColumn(name = "FECHA_ACTUACION", referencedColumnName = "FECHA_ACTUACION", insertable = false, updatable = false),
-        @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN", insertable = false, updatable = false),
-        @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA", insertable = false, updatable = false)})
+        @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Actuaciones actuaciones;
     @JoinColumn(name = "ID_REPUESTO", referencedColumnName = "ID_REPUESTO", insertable = false, updatable = false)
@@ -47,8 +52,8 @@ public class Cantidad implements Serializable {
         this.cantidadPK = cantidadPK;
     }
 
-    public Cantidad(BigInteger cantidad, BigInteger idRepuesto, Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
-        this.cantidadPK = new CantidadPK(cantidad, idRepuesto, fechaActuacion, idOrden, numBrigada);
+    public Cantidad(BigInteger cantidad, BigInteger idRepuesto, Date fechaActuacion, BigInteger idOrden) {
+        this.cantidadPK = new CantidadPK(cantidad, idRepuesto, fechaActuacion, idOrden);
     }
 
     public CantidadPK getCantidadPK() {
@@ -97,7 +102,7 @@ public class Cantidad implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Cantidad[ cantidadPK=" + cantidadPK + " ]";
+        return "tarea1_auto.Cantidad[ cantidadPK=" + cantidadPK + " ]";
     }
     
 }

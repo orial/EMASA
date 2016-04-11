@@ -7,10 +7,27 @@ package tarea1_auto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.*;
+import java.math.BigInteger;
+import java.util.Collection;
+import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -24,6 +41,7 @@ import javax.xml.bind.annotation.*;
     @NamedQuery(name = "OrdTrabajo.findByIdOrden", query = "SELECT o FROM OrdTrabajo o WHERE o.idOrden = :idOrden"),
     @NamedQuery(name = "OrdTrabajo.findByFechaCreacion", query = "SELECT o FROM OrdTrabajo o WHERE o.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "OrdTrabajo.findByTrabajoARealizar", query = "SELECT o FROM OrdTrabajo o WHERE o.trabajoARealizar = :trabajoARealizar"),
+    @NamedQuery(name = "OrdTrabajo.findByNumBrigada", query = "SELECT o FROM OrdTrabajo o WHERE o.numBrigada = :numBrigada"),
     @NamedQuery(name = "OrdTrabajo.findByEstado", query = "SELECT o FROM OrdTrabajo o WHERE o.estado = :estado"),
     @NamedQuery(name = "OrdTrabajo.findByFechaFinalizacion", query = "SELECT o FROM OrdTrabajo o WHERE o.fechaFinalizacion = :fechaFinalizacion")})
 public class OrdTrabajo implements Serializable {
@@ -47,6 +65,10 @@ public class OrdTrabajo implements Serializable {
     private String trabajoARealizar;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "NUM_BRIGADA")
+    private BigInteger numBrigada;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "ESTADO")
     private String estado;
@@ -55,9 +77,12 @@ public class OrdTrabajo implements Serializable {
     private Date fechaFinalizacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordTrabajo")
     private Collection<Actuaciones> actuacionesCollection;
-    @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO")
+    @JoinColumns({
+        @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO"),
+        @JoinColumn(name = "FECHA_ACTUALIZACION", referencedColumnName = "FECHA_ACTUALIZACION"),
+        @JoinColumn(name = "SUPERVISOR", referencedColumnName = "SUPERVISOR")})
     @ManyToOne(optional = false)
-    private Aviso idAviso;
+    private Historico historico;
 
     public OrdTrabajo() {
     }
@@ -66,10 +91,11 @@ public class OrdTrabajo implements Serializable {
         this.idOrden = idOrden;
     }
 
-    public OrdTrabajo(BigDecimal idOrden, Date fechaCreacion, String trabajoARealizar, String estado) {
+    public OrdTrabajo(BigDecimal idOrden, Date fechaCreacion, String trabajoARealizar, BigInteger numBrigada, String estado) {
         this.idOrden = idOrden;
         this.fechaCreacion = fechaCreacion;
         this.trabajoARealizar = trabajoARealizar;
+        this.numBrigada = numBrigada;
         this.estado = estado;
     }
 
@@ -97,6 +123,14 @@ public class OrdTrabajo implements Serializable {
         this.trabajoARealizar = trabajoARealizar;
     }
 
+    public BigInteger getNumBrigada() {
+        return numBrigada;
+    }
+
+    public void setNumBrigada(BigInteger numBrigada) {
+        this.numBrigada = numBrigada;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -122,12 +156,12 @@ public class OrdTrabajo implements Serializable {
         this.actuacionesCollection = actuacionesCollection;
     }
 
-    public Aviso getIdAviso() {
-        return idAviso;
+    public Historico getHistorico() {
+        return historico;
     }
 
-    public void setIdAviso(Aviso idAviso) {
-        this.idAviso = idAviso;
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
     }
 
     @Override
@@ -152,7 +186,7 @@ public class OrdTrabajo implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.OrdTrabajo[ idOrden=" + idOrden + " ]";
+        return "tarea1_auto.OrdTrabajo[ idOrden=" + idOrden + " ]";
     }
     
 }

@@ -3,16 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 package tarea1_auto;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.*;
+import java.util.Collection;
+import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -26,8 +37,7 @@ import javax.xml.bind.annotation.*;
     @NamedQuery(name = "Actuaciones.findByFechaActuacion", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.fechaActuacion = :fechaActuacion"),
     @NamedQuery(name = "Actuaciones.findByOperRealizadas", query = "SELECT a FROM Actuaciones a WHERE a.operRealizadas = :operRealizadas"),
     @NamedQuery(name = "Actuaciones.findByObservaciones", query = "SELECT a FROM Actuaciones a WHERE a.observaciones = :observaciones"),
-    @NamedQuery(name = "Actuaciones.findByIdOrden", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.idOrden = :idOrden"),
-    @NamedQuery(name = "Actuaciones.findByNumBrigada", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.numBrigada = :numBrigada")})
+    @NamedQuery(name = "Actuaciones.findByIdOrden", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.idOrden = :idOrden")})
 public class Actuaciones implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,9 +51,6 @@ public class Actuaciones implements Serializable {
     @Size(max = 200)
     @Column(name = "OBSERVACIONES")
     private String observaciones;
-    @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Brigada brigada;
     @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private OrdTrabajo ordTrabajo;
@@ -64,8 +71,8 @@ public class Actuaciones implements Serializable {
         this.operRealizadas = operRealizadas;
     }
 
-    public Actuaciones(Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
-        this.actuacionesPK = new ActuacionesPK(fechaActuacion, idOrden, numBrigada);
+    public Actuaciones(Date fechaActuacion, BigInteger idOrden) {
+        this.actuacionesPK = new ActuacionesPK(fechaActuacion, idOrden);
     }
 
     public ActuacionesPK getActuacionesPK() {
@@ -90,14 +97,6 @@ public class Actuaciones implements Serializable {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
-    }
-
-    public Brigada getBrigada() {
-        return brigada;
-    }
-
-    public void setBrigada(Brigada brigada) {
-        this.brigada = brigada;
     }
 
     public OrdTrabajo getOrdTrabajo() {
@@ -148,7 +147,7 @@ public class Actuaciones implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Actuaciones[ actuacionesPK=" + actuacionesPK + " ]";
+        return "tarea1_auto.Actuaciones[ actuacionesPK=" + actuacionesPK + " ]";
     }
     
 }

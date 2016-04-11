@@ -6,9 +6,21 @@
 package tarea1_auto;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -20,60 +32,61 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Visitas.findAll", query = "SELECT v FROM Visitas v"),
-    @NamedQuery(name = "Visitas.findByFechaVisita", query = "SELECT v FROM Visitas v WHERE v.visitasPK.fechaVisita = :fechaVisita"),
-    @NamedQuery(name = "Visitas.findByIdEmpleado", query = "SELECT v FROM Visitas v WHERE v.visitasPK.idEmpleado = :idEmpleado"),
-    @NamedQuery(name = "Visitas.findByIdAviso", query = "SELECT v FROM Visitas v WHERE v.visitasPK.idAviso = :idAviso")})
+    @NamedQuery(name = "Visitas.findByFechaVisita", query = "SELECT v FROM Visitas v WHERE v.fechaVisita = :fechaVisita")})
 public class Visitas implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected VisitasPK visitasPK;
-    @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "FECHA_VISITA")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaVisita;
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne(optional = false)
-    private Aviso aviso;
-    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Empleado empleado;
+    private Empleado idEmpleado;
+    @JoinColumns({
+        @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO"),
+        @JoinColumn(name = "FECHA_ACTUALIZACION", referencedColumnName = "FECHA_ACTUALIZACION"),
+        @JoinColumn(name = "SUPERVISOR", referencedColumnName = "SUPERVISOR")})
+    @OneToOne(optional = false)
+    private Historico historico;
 
     public Visitas() {
     }
 
-    public Visitas(VisitasPK visitasPK) {
-        this.visitasPK = visitasPK;
+    public Visitas(Date fechaVisita) {
+        this.fechaVisita = fechaVisita;
     }
 
-    public Visitas(Date fechaVisita, BigInteger idEmpleado, BigInteger idAviso) {
-        this.visitasPK = new VisitasPK(fechaVisita, idEmpleado, idAviso);
+    public Date getFechaVisita() {
+        return fechaVisita;
     }
 
-    public VisitasPK getVisitasPK() {
-        return visitasPK;
+    public void setFechaVisita(Date fechaVisita) {
+        this.fechaVisita = fechaVisita;
     }
 
-    public void setVisitasPK(VisitasPK visitasPK) {
-        this.visitasPK = visitasPK;
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public Aviso getAviso() {
-        return aviso;
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
-    public void setAviso(Aviso aviso) {
-        this.aviso = aviso;
+    public Historico getHistorico() {
+        return historico;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (visitasPK != null ? visitasPK.hashCode() : 0);
+        hash += (fechaVisita != null ? fechaVisita.hashCode() : 0);
         return hash;
     }
 
@@ -84,7 +97,7 @@ public class Visitas implements Serializable {
             return false;
         }
         Visitas other = (Visitas) object;
-        if ((this.visitasPK == null && other.visitasPK != null) || (this.visitasPK != null && !this.visitasPK.equals(other.visitasPK))) {
+        if ((this.fechaVisita == null && other.fechaVisita != null) || (this.fechaVisita != null && !this.fechaVisita.equals(other.fechaVisita))) {
             return false;
         }
         return true;
@@ -92,7 +105,7 @@ public class Visitas implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Visitas[ visitasPK=" + visitasPK + " ]";
+        return "tarea1_auto.Visitas[ fechaVisita=" + fechaVisita + " ]";
     }
     
 }

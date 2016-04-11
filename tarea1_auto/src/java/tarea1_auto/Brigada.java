@@ -6,11 +6,20 @@
 package tarea1_auto;
 
 import java.io.Serializable;
-import java.math.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -41,9 +50,7 @@ public class Brigada implements Serializable {
     @NotNull
     @Column(name = "CONTRATA")
     private Character contrata;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brigada")
-    private Collection<Actuaciones> actuacionesCollection;
-    @OneToMany(mappedBy = "numBrigada")
+    @OneToMany(mappedBy = "brigadaNumBrigada")
     private Collection<Empleado> empleadoCollection;
 
     public Brigada() {
@@ -84,15 +91,6 @@ public class Brigada implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Actuaciones> getActuacionesCollection() {
-        return actuacionesCollection;
-    }
-
-    public void setActuacionesCollection(Collection<Actuaciones> actuacionesCollection) {
-        this.actuacionesCollection = actuacionesCollection;
-    }
-
-    @XmlTransient
     public Collection<Empleado> getEmpleadoCollection() {
         return empleadoCollection;
     }
@@ -123,7 +121,7 @@ public class Brigada implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Brigada[ numBrigada=" + numBrigada + " ]";
+        return "tarea1_auto.Brigada[ numBrigada=" + numBrigada + " ]";
     }
     
 }

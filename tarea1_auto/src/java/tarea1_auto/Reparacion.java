@@ -6,9 +6,20 @@
 package tarea1_auto;
 
 import java.io.Serializable;
-import java.math.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -50,8 +61,7 @@ public class Reparacion implements Serializable {
     private BigInteger presionNominal;
     @JoinColumns({
         @JoinColumn(name = "FECHA_ACTUACION", referencedColumnName = "FECHA_ACTUACION"),
-        @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN"),
-        @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")})
+        @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN")})
     @ManyToOne(optional = false)
     private Actuaciones actuaciones;
 
@@ -145,7 +155,7 @@ public class Reparacion implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Reparacion[ idReparacion=" + idReparacion + " ]";
+        return "tarea1_auto.Reparacion[ idReparacion=" + idReparacion + " ]";
     }
     
 }

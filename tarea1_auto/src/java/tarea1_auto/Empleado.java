@@ -6,12 +6,24 @@
 package tarea1_auto;
 
 import java.io.Serializable;
-import java.math.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.*;
-
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -75,13 +87,13 @@ public class Empleado implements Serializable {
     @Size(max = 20)
     @Column(name = "ESPECIALIDAD")
     private String especialidad;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
     private Collection<Historico> historicoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
     private Collection<Visitas> visitasCollection;
-    @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
+    @JoinColumn(name = "BRIGADA_NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
     @ManyToOne
-    private Brigada numBrigada;
+    private Brigada brigadaNumBrigada;
     @OneToMany(mappedBy = "idEmpleado")
     private Collection<Aviso> avisoCollection;
 
@@ -192,12 +204,12 @@ public class Empleado implements Serializable {
         this.visitasCollection = visitasCollection;
     }
 
-    public Brigada getNumBrigada() {
-        return numBrigada;
+    public Brigada getBrigadaNumBrigada() {
+        return brigadaNumBrigada;
     }
 
-    public void setNumBrigada(Brigada numBrigada) {
-        this.numBrigada = numBrigada;
+    public void setBrigadaNumBrigada(Brigada brigadaNumBrigada) {
+        this.brigadaNumBrigada = brigadaNumBrigada;
     }
 
     @XmlTransient
@@ -231,7 +243,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Empleado[ idEmpleado=" + idEmpleado + " ]";
+        return "tarea1_auto.Empleado[ idEmpleado=" + idEmpleado + " ]";
     }
     
 }

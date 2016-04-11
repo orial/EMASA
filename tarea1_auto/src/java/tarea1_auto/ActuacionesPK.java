@@ -8,7 +8,11 @@ package tarea1_auto;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -27,18 +31,13 @@ public class ActuacionesPK implements Serializable {
     @NotNull
     @Column(name = "ID_ORDEN")
     private BigInteger idOrden;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "NUM_BRIGADA")
-    private BigInteger numBrigada;
 
     public ActuacionesPK() {
     }
 
-    public ActuacionesPK(Date fechaActuacion, BigInteger idOrden, BigInteger numBrigada) {
+    public ActuacionesPK(Date fechaActuacion, BigInteger idOrden) {
         this.fechaActuacion = fechaActuacion;
         this.idOrden = idOrden;
-        this.numBrigada = numBrigada;
     }
 
     public Date getFechaActuacion() {
@@ -57,20 +56,11 @@ public class ActuacionesPK implements Serializable {
         this.idOrden = idOrden;
     }
 
-    public BigInteger getNumBrigada() {
-        return numBrigada;
-    }
-
-    public void setNumBrigada(BigInteger numBrigada) {
-        this.numBrigada = numBrigada;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (fechaActuacion != null ? fechaActuacion.hashCode() : 0);
         hash += (idOrden != null ? idOrden.hashCode() : 0);
-        hash += (numBrigada != null ? numBrigada.hashCode() : 0);
         return hash;
     }
 
@@ -87,15 +77,12 @@ public class ActuacionesPK implements Serializable {
         if ((this.idOrden == null && other.idOrden != null) || (this.idOrden != null && !this.idOrden.equals(other.idOrden))) {
             return false;
         }
-        if ((this.numBrigada == null && other.numBrigada != null) || (this.numBrigada != null && !this.numBrigada.equals(other.numBrigada))) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "pruebaJPA.ActuacionesPK[ fechaActuacion=" + fechaActuacion + ", idOrden=" + idOrden + ", numBrigada=" + numBrigada + " ]";
+        return "tarea1_auto.ActuacionesPK[ fechaActuacion=" + fechaActuacion + ", idOrden=" + idOrden + " ]";
     }
     
 }

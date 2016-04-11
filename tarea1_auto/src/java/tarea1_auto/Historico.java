@@ -7,10 +7,26 @@ package tarea1_auto;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.Collection;
 import java.util.Date;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -23,7 +39,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Historico.findAll", query = "SELECT h FROM Historico h"),
     @NamedQuery(name = "Historico.findByIdAviso", query = "SELECT h FROM Historico h WHERE h.historicoPK.idAviso = :idAviso"),
     @NamedQuery(name = "Historico.findByFechaActualizacion", query = "SELECT h FROM Historico h WHERE h.historicoPK.fechaActualizacion = :fechaActualizacion"),
-    @NamedQuery(name = "Historico.findByIdEmpleado", query = "SELECT h FROM Historico h WHERE h.historicoPK.idEmpleado = :idEmpleado"),
     @NamedQuery(name = "Historico.findBySupervisor", query = "SELECT h FROM Historico h WHERE h.historicoPK.supervisor = :supervisor"),
     @NamedQuery(name = "Historico.findByDescripcion", query = "SELECT h FROM Historico h WHERE h.descripcion = :descripcion"),
     @NamedQuery(name = "Historico.findByDireccion", query = "SELECT h FROM Historico h WHERE h.direccion = :direccion"),
@@ -32,7 +47,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Historico.findByFechaCierre", query = "SELECT h FROM Historico h WHERE h.fechaCierre = :fechaCierre"),
     @NamedQuery(name = "Historico.findByTipoAviso", query = "SELECT h FROM Historico h WHERE h.tipoAviso = :tipoAviso"),
     @NamedQuery(name = "Historico.findByCausa", query = "SELECT h FROM Historico h WHERE h.causa = :causa"),
-    @NamedQuery(name = "Historico.findByPeligrosidad", query = "SELECT h FROM Historico h WHERE h.peligrosidad = :peligrosidad"),
+    @NamedQuery(name = "Historico.findByUrgencia", query = "SELECT h FROM Historico h WHERE h.urgencia = :urgencia"),
     @NamedQuery(name = "Historico.findByUbicacionGps", query = "SELECT h FROM Historico h WHERE h.ubicacionGps = :ubicacionGps"),
     @NamedQuery(name = "Historico.findByRedAgua", query = "SELECT h FROM Historico h WHERE h.redAgua = :redAgua"),
     @NamedQuery(name = "Historico.findByDocAdjunto", query = "SELECT h FROM Historico h WHERE h.docAdjunto = :docAdjunto")})
@@ -70,8 +85,8 @@ public class Historico implements Serializable {
     @Column(name = "CAUSA")
     private String causa;
     @Size(max = 20)
-    @Column(name = "PELIGROSIDAD")
-    private String peligrosidad;
+    @Column(name = "URGENCIA")
+    private String urgencia;
     @Size(max = 20)
     @Column(name = "UBICACION_GPS")
     private String ubicacionGps;
@@ -84,9 +99,13 @@ public class Historico implements Serializable {
     @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Aviso aviso;
-    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne(optional = false)
-    private Empleado empleado;
+    private Empleado idEmpleado;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "historico")
+    private Visitas visitas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "historico")
+    private Collection<OrdTrabajo> ordTrabajoCollection;
 
     public Historico() {
     }
@@ -103,8 +122,8 @@ public class Historico implements Serializable {
         this.duplicado = duplicado;
     }
 
-    public Historico(BigInteger idAviso, Date fechaActualizacion, BigInteger idEmpleado, BigInteger supervisor) {
-        this.historicoPK = new HistoricoPK(idAviso, fechaActualizacion, idEmpleado, supervisor);
+    public Historico(BigInteger idAviso, Date fechaActualizacion, BigInteger supervisor) {
+        this.historicoPK = new HistoricoPK(idAviso, fechaActualizacion, supervisor);
     }
 
     public HistoricoPK getHistoricoPK() {
@@ -171,12 +190,12 @@ public class Historico implements Serializable {
         this.causa = causa;
     }
 
-    public String getPeligrosidad() {
-        return peligrosidad;
+    public String getUrgencia() {
+        return urgencia;
     }
 
-    public void setPeligrosidad(String peligrosidad) {
-        this.peligrosidad = peligrosidad;
+    public void setUrgencia(String urgencia) {
+        this.urgencia = urgencia;
     }
 
     public String getUbicacionGps() {
@@ -211,12 +230,29 @@ public class Historico implements Serializable {
         this.aviso = aviso;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public Empleado getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setIdEmpleado(Empleado idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public Visitas getVisitas() {
+        return visitas;
+    }
+
+    public void setVisitas(Visitas visitas) {
+        this.visitas = visitas;
+    }
+
+    @XmlTransient
+    public Collection<OrdTrabajo> getOrdTrabajoCollection() {
+        return ordTrabajoCollection;
+    }
+
+    public void setOrdTrabajoCollection(Collection<OrdTrabajo> ordTrabajoCollection) {
+        this.ordTrabajoCollection = ordTrabajoCollection;
     }
 
     @Override
@@ -241,7 +277,7 @@ public class Historico implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Historico[ historicoPK=" + historicoPK + " ]";
+        return "tarea1_auto.Historico[ historicoPK=" + historicoPK + " ]";
     }
     
 }

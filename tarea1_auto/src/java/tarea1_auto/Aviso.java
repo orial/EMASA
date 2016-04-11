@@ -7,10 +7,25 @@ package tarea1_auto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.*;
+import java.util.Collection;
+import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -45,18 +60,14 @@ public class Aviso implements Serializable {
     private String origen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
     private Collection<Historico> historicoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
-    private Collection<Visitas> visitasCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAviso")
-    private Collection<OrdTrabajo> ordTrabajoCollection;
     @OneToMany(mappedBy = "relacionado")
     private Collection<Aviso> avisoCollection;
     @JoinColumn(name = "RELACIONADO", referencedColumnName = "ID_AVISO")
     @ManyToOne
     private Aviso relacionado;
-    @JoinColumn(name = "CLIENTE_DNI", referencedColumnName = "DNI")
+    @JoinColumn(name = "DNI", referencedColumnName = "DNI")
     @ManyToOne
-    private Cliente clienteDni;
+    private Cliente dni;
     @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne
     private Empleado idEmpleado;
@@ -108,24 +119,6 @@ public class Aviso implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Visitas> getVisitasCollection() {
-        return visitasCollection;
-    }
-
-    public void setVisitasCollection(Collection<Visitas> visitasCollection) {
-        this.visitasCollection = visitasCollection;
-    }
-
-    @XmlTransient
-    public Collection<OrdTrabajo> getOrdTrabajoCollection() {
-        return ordTrabajoCollection;
-    }
-
-    public void setOrdTrabajoCollection(Collection<OrdTrabajo> ordTrabajoCollection) {
-        this.ordTrabajoCollection = ordTrabajoCollection;
-    }
-
-    @XmlTransient
     public Collection<Aviso> getAvisoCollection() {
         return avisoCollection;
     }
@@ -142,12 +135,12 @@ public class Aviso implements Serializable {
         this.relacionado = relacionado;
     }
 
-    public Cliente getClienteDni() {
-        return clienteDni;
+    public Cliente getDni() {
+        return dni;
     }
 
-    public void setClienteDni(Cliente clienteDni) {
-        this.clienteDni = clienteDni;
+    public void setDni(Cliente dni) {
+        this.dni = dni;
     }
 
     public Empleado getIdEmpleado() {
@@ -180,7 +173,7 @@ public class Aviso implements Serializable {
 
     @Override
     public String toString() {
-        return "pruebaJPA.Aviso[ idAviso=" + idAviso + " ]";
+        return "tarea1_auto.Aviso[ idAviso=" + idAviso + " ]";
     }
     
 }
