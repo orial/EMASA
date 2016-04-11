@@ -4,7 +4,7 @@
 <createdTime>2015-11-12 17:22:18 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2015-11-12 18:33:46 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2015-11-12 18:37:21 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -44,7 +44,7 @@
 <createdTime>2015-11-16 21:47:44 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -52,12 +52,24 @@
 <dataTypeSize>200</dataTypeSize>
 <ownDataTypeParameters>200,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Num_Brigada" id="C3D636F6-8FD9-E3C5-8F99-D665C01B3865">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-11 12:02:51 UTC</createdTime>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Estado" id="CD944E23-A0D2-3A04-3555-F9FBC0DFF850">
 <createdBy>Lupi</createdBy>
 <createdTime>2016-04-06 17:05:11 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -70,7 +82,7 @@
 <createdTime>2015-11-12 18:37:44 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -78,15 +90,43 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Id_aviso" id="9A192C2A-0111-F575-87B5-58B6BF6D25C6">
-<createdBy>vanesa</createdBy>
-<createdTime>2015-11-16 12:03:44 UTC</createdTime>
-<generatorID>C059D3C8-EA26-9579-29C0-32C69D5AF85F</generatorID>
+<Attribute name="Id_aviso" id="6243647A-D507-A9D8-6783-A6A70C6EEC9E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-11 12:01:48 UTC</createdTime>
+<generatorID>F1BF7266-C6D7-B519-5075-E3CA521F14C5</generatorID>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
-<referedAttribute>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</referedAttribute>
+<referedAttribute>48332E9F-A6AE-BCB0-45A1-C674AEC7C7F9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_actualizacion" id="43AF5F82-71DD-E56C-E2C8-164DEE3946E4">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-11 12:01:48 UTC</createdTime>
+<generatorID>F1BF7266-C6D7-B519-5075-E3CA521F14C5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
+</engineerTo>
+<referedAttribute>0F0603C4-1C0A-E561-8B3A-B8110D5BCDD3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Supervisor" id="0811C11B-E5A7-AC63-79DB-FCA8F9F798B4">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-11 12:01:48 UTC</createdTime>
+<generatorID>F1BF7266-C6D7-B519-5075-E3CA521F14C5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<engineerTo>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
+</engineerTo>
+<referedAttribute>42ABBEE5-7525-8D1C-8342-E1C5676F0E7F</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -99,7 +139,7 @@
 <createdTime>2015-11-12 18:33:50 UTC</createdTime>
 <ownerDesignName>EMASA</ownerDesignName>
 <engineerTo>
-<item key="CD5DDC9A-5B9D-CB6B-DEEE-C922F9032C5A" value="true"/>
+<item key="D1926CCE-1868-FE68-A6E8-30EBD0B42E07" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
