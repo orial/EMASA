@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CEFBD62F-BF53-3CF6-B9BD-DFCF7DE7B9CF" name="CLIENTE">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>57461385-3A98-6FDB-AE61-DCDB6152B53C</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DNI" id="4DA93F03-125E-32B9-B9C7-E57469D68A13">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>283B05E8-8EE9-7B4A-A3EB-5955064A08E5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="EF5D24AA-FC14-E030-0554-40FAC5622325">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>2531E54B-8244-1FC0-1731-477079963F64</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Poliza" id="991C706F-E755-06A5-9637-37FADD4B5080">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>571DE95C-ACC0-EF0F-43EF-E4EE070D671A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="649ACA12-584E-89CA-2257-4BD2386794DF">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>8F651126-436D-EFEE-EF78-06D9901B5AC9</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="e-mail" id="C87B15EA-0B31-2ED7-7F55-1C59E1C0ED9D">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>95A1F30E-6CDB-B23A-5F8D-DF61FE7C9259</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C03DC3EA-8CD6-E177-F047-DE9C9455D4F5" name="CLIENTE_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>061FCF7D-3EDC-D7E9-6034-6AC987A3A4F5</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DA93F03-125E-32B9-B9C7-E57469D68A13"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

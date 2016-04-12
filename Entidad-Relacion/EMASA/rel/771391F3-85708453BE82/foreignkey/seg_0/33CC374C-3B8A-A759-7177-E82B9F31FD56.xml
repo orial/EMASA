@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="33CC374C-3B8A-A759-7177-E82B9F31FD56" containerWithKeyObject="9D82A2DB-3144-2C89-40CA-BBE488CB3E21" localFKIndex="389D69AF-BFAF-D7F3-BDEF-79BE2CB5BD70" name="REPARACION_ACTUACIONES_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 07:46:23 UTC</createdTime>
+<generatorID>CCBB2C22-B8BB-23FE-F2F5-A39F08720096</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>568E4B4C-7CCE-2A2D-2BF1-7178BADF118F</referredTableID>
+<keyObject>3FA64705-6BD9-8C98-C2AC-AB792DC976AC</keyObject>
+<referredKeyID>3FA64705-6BD9-8C98-C2AC-AB792DC976AC</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
