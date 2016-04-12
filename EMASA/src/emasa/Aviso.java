@@ -3,28 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tarea1_auto;
+package emasa;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -33,41 +17,39 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "AVISO")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Aviso.findAll", query = "SELECT a FROM Aviso a"),
-    @NamedQuery(name = "Aviso.findByIdAviso", query = "SELECT a FROM Aviso a WHERE a.idAviso = :idAviso"),
-    @NamedQuery(name = "Aviso.findByFechaEntrada", query = "SELECT a FROM Aviso a WHERE a.fechaEntrada = :fechaEntrada"),
-    @NamedQuery(name = "Aviso.findByOrigen", query = "SELECT a FROM Aviso a WHERE a.origen = :origen")})
 public class Aviso implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID_AVISO")
-    private BigDecimal idAviso;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idAviso;
+    
     @Basic(optional = false)
-    @NotNull
     @Column(name = "FECHA_ENTRADA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaEntrada;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 15)
     @Column(name = "ORIGEN")
     private String origen;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
-    private Collection<Historico> historicoCollection;
+    private Collection<Historico> historico;
+    
     @OneToMany(mappedBy = "relacionado")
-    private Collection<Aviso> avisoCollection;
+    private Collection<Aviso> avisosRelacionados;
+    
     @JoinColumn(name = "RELACIONADO", referencedColumnName = "ID_AVISO")
     @ManyToOne
     private Aviso relacionado;
+    
     @JoinColumn(name = "DNI", referencedColumnName = "DNI")
     @ManyToOne
     private Cliente dni;
+    
     @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne
     private Empleado idEmpleado;
@@ -75,21 +57,21 @@ public class Aviso implements Serializable {
     public Aviso() {
     }
 
-    public Aviso(BigDecimal idAviso) {
+    public Aviso(Integer idAviso) {
         this.idAviso = idAviso;
     }
 
-    public Aviso(BigDecimal idAviso, Date fechaEntrada, String origen) {
+    public Aviso(Integer idAviso, Date fechaEntrada, String origen) {
         this.idAviso = idAviso;
         this.fechaEntrada = fechaEntrada;
         this.origen = origen;
     }
 
-    public BigDecimal getIdAviso() {
+    public Integer getIdAviso() {
         return idAviso;
     }
 
-    public void setIdAviso(BigDecimal idAviso) {
+    public void setIdAviso(Integer idAviso) {
         this.idAviso = idAviso;
     }
 
@@ -111,20 +93,20 @@ public class Aviso implements Serializable {
 
     @XmlTransient
     public Collection<Historico> getHistoricoCollection() {
-        return historicoCollection;
+        return historico;
     }
 
     public void setHistoricoCollection(Collection<Historico> historicoCollection) {
-        this.historicoCollection = historicoCollection;
+        this.historico = historicoCollection;
     }
 
     @XmlTransient
     public Collection<Aviso> getAvisoCollection() {
-        return avisoCollection;
+        return avisosRelacionados;
     }
 
     public void setAvisoCollection(Collection<Aviso> avisoCollection) {
-        this.avisoCollection = avisoCollection;
+        this.avisosRelacionados = avisoCollection;
     }
 
     public Aviso getRelacionado() {
@@ -173,7 +155,6 @@ public class Aviso implements Serializable {
 
     @Override
     public String toString() {
-        return "tarea1_auto.Aviso[ idAviso=" + idAviso + " ]";
-    }
-    
+        return "Aviso{" + "idAviso=" + idAviso + ", fechaEntrada=" + fechaEntrada + ", origen=" + origen + '}';
+    }  
 }

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="08A2C1B0-8EA8-AFDE-F2C3-0840DFFEE8CA" name="BRIGADA">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>51CE9C1B-E8B9-47F1-C525-21DA8DA5E22B</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Num_Brigada" id="8B047DC0-A226-63A9-3D74-6432BDC0EA43">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>CB0EB692-890B-D2E8-DA29-79123DEE2389</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Turno" id="246D49A8-30D6-8F04-1DB6-798899166507">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>A755A186-5ADD-772E-93AE-458B1E6EEE7F</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contrata" id="3B413271-4CF7-39E2-0F4C-6DED2C25D145">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>1468FA7D-F1E3-48D6-E14D-8C37FF9C7A1C</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA5F64BF-5493-B6A5-D324-55D6DDC70A80" name="BRIGADA_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>CD8008F4-3B2B-5AF9-5FF3-EA9FD650611A</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B047DC0-A226-63A9-3D74-6432BDC0EA43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

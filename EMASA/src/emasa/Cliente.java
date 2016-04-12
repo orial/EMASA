@@ -3,22 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tarea1_auto;
+package emasa;
 
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -27,38 +17,30 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "CLIENTE")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByDni", query = "SELECT c FROM Cliente c WHERE c.dni = :dni"),
-    @NamedQuery(name = "Cliente.findByNombre", query = "SELECT c FROM Cliente c WHERE c.nombre = :nombre"),
-    @NamedQuery(name = "Cliente.findByPoliza", query = "SELECT c FROM Cliente c WHERE c.poliza = :poliza"),
-    @NamedQuery(name = "Cliente.findByTelefono", query = "SELECT c FROM Cliente c WHERE c.telefono = :telefono"),
-    @NamedQuery(name = "Cliente.findByEMail", query = "SELECT c FROM Cliente c WHERE c.eMail = :eMail")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 12)
     @Column(name = "DNI")
     private String dni;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
     @Column(name = "NOMBRE")
     private String nombre;
+    
     @Column(name = "POLIZA")
     private BigInteger poliza;
+    
     @Column(name = "TELEFONO")
     private BigInteger telefono;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 40)
-    @Column(name = "e-mail")
+    
+    @Column(name = "EMAIL")
     private String eMail;
+    
     @OneToMany(mappedBy = "dni")
-    private Collection<Aviso> avisoCollection;
+    private Collection<Aviso> avisos;
 
     public Cliente() {
     }
@@ -114,11 +96,11 @@ public class Cliente implements Serializable {
 
     @XmlTransient
     public Collection<Aviso> getAvisoCollection() {
-        return avisoCollection;
+        return avisos;
     }
 
     public void setAvisoCollection(Collection<Aviso> avisoCollection) {
-        this.avisoCollection = avisoCollection;
+        this.avisos = avisoCollection;
     }
 
     @Override
@@ -143,7 +125,6 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "tarea1_auto.Cliente[ dni=" + dni + " ]";
+        return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", poliza=" + poliza + ", telefono=" + telefono + ", eMail=" + eMail + '}';
     }
-    
 }

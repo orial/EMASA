@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 4.1.3.901
---   en:        2016-04-12 10:02:17 CEST
+--   en:        2016-04-12 18:04:26 CEST
 --   sitio:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -21,9 +21,9 @@ CREATE TABLE AVISO
     Id_aviso      NUMBER NOT NULL ,
     Fecha_Entrada DATE NOT NULL ,
     Origen        VARCHAR2 (15) NOT NULL ,
-    Relacionada   NUMBER ,
+    Relacionado   NUMBER ,
     Id_empleado   NUMBER ,
-    CLIENTE_DNI   VARCHAR2 (12)
+    DNI           VARCHAR2 (12)
   ) ;
 ALTER TABLE AVISO ADD CONSTRAINT AVISO_PK PRIMARY KEY ( Id_aviso ) ;
 
@@ -35,16 +35,6 @@ CREATE TABLE BRIGADA
     Contrata    CHAR (1) NOT NULL
   ) ;
 ALTER TABLE BRIGADA ADD CONSTRAINT BRIGADA_PK PRIMARY KEY ( Num_Brigada ) ;
-
-
-CREATE TABLE CANTIDAD
-  (
-    Cantidad        NUMBER NOT NULL ,
-    Id_repuesto     NUMBER NOT NULL ,
-    Fecha_actuacion DATE NOT NULL ,
-    Id_orden        NUMBER NOT NULL
-  ) ;
-ALTER TABLE CANTIDAD ADD CONSTRAINT CANTIDAD_PK PRIMARY KEY ( Cantidad, Id_repuesto, Fecha_actuacion, Id_orden ) ;
 
 
 CREATE TABLE CLIENTE
@@ -112,29 +102,6 @@ CREATE TABLE ORD_TRABAJO
 ALTER TABLE ORD_TRABAJO ADD CONSTRAINT ORD_TRABAJO_PK PRIMARY KEY ( Id_orden ) ;
 
 
-CREATE TABLE REPARACION
-  (
-    Id_reparacion     NUMBER NOT NULL ,
-    Ubicacion_tecnica VARCHAR2 (40) NOT NULL ,
-    Diametro          NUMBER ,
-    Profundidad       NUMBER ,
-    Longitud          NUMBER ,
-    Presion_nominal   NUMBER ,
-    Fecha_actuacion   DATE NOT NULL ,
-    Id_orden          NUMBER NOT NULL
-  ) ;
-ALTER TABLE REPARACION ADD CONSTRAINT REPARACION_PK PRIMARY KEY ( Id_reparacion ) ;
-
-
-CREATE TABLE REPUESTO
-  (
-    Id_repuesto NUMBER NOT NULL ,
-    Nombre      VARCHAR2 (40) NOT NULL ,
-    Descripción VARCHAR2 (200)
-  ) ;
-ALTER TABLE REPUESTO ADD CONSTRAINT REPUESTO_PK PRIMARY KEY ( Id_repuesto ) ;
-
-
 CREATE TABLE VISITAS
   (
     Fecha_visita        DATE NOT NULL ,
@@ -153,15 +120,11 @@ ALTER TABLE VISITAS ADD CONSTRAINT VISITAS_PK PRIMARY KEY ( Fecha_visita ) ;
 
 ALTER TABLE ACTUACIONES ADD CONSTRAINT ACTUACIONES_ORD_TRABAJO_FK FOREIGN KEY ( Id_orden ) REFERENCES ORD_TRABAJO ( Id_orden ) ;
 
-ALTER TABLE AVISO ADD CONSTRAINT AVISO_AVISO_FK FOREIGN KEY ( Relacionada ) REFERENCES AVISO ( Id_aviso ) ;
+ALTER TABLE AVISO ADD CONSTRAINT AVISO_AVISO_FK FOREIGN KEY ( Relacionado ) REFERENCES AVISO ( Id_aviso ) ;
 
-ALTER TABLE AVISO ADD CONSTRAINT AVISO_CLIENTE_FK FOREIGN KEY ( CLIENTE_DNI ) REFERENCES CLIENTE ( DNI ) ;
+ALTER TABLE AVISO ADD CONSTRAINT AVISO_CLIENTE_FK FOREIGN KEY ( DNI ) REFERENCES CLIENTE ( DNI ) ;
 
 ALTER TABLE AVISO ADD CONSTRAINT AVISO_EMPLEADO_FK FOREIGN KEY ( Id_empleado ) REFERENCES EMPLEADO ( Id_empleado ) ;
-
-ALTER TABLE CANTIDAD ADD CONSTRAINT CANTIDAD_ACTUACIONES_FK FOREIGN KEY ( Fecha_actuacion, Id_orden ) REFERENCES ACTUACIONES ( Fecha_actuacion, Id_orden ) ;
-
-ALTER TABLE CANTIDAD ADD CONSTRAINT CANTIDAD_REPUESTO_FK FOREIGN KEY ( Id_repuesto ) REFERENCES REPUESTO ( Id_repuesto ) ;
 
 ALTER TABLE EMPLEADO ADD CONSTRAINT EMPLEADO_BRIGADA_FK FOREIGN KEY ( Num_Brigada ) REFERENCES BRIGADA ( Num_Brigada ) ;
 
@@ -171,8 +134,6 @@ ALTER TABLE HISTORICO ADD CONSTRAINT HISTORICO_EMPLEADO_FK FOREIGN KEY ( Id_empl
 
 ALTER TABLE ORD_TRABAJO ADD CONSTRAINT ORD_TRABAJO_HISTORICO_FK FOREIGN KEY ( Id_aviso, Fecha_actualizacion, Supervisor ) REFERENCES HISTORICO ( Id_aviso, Fecha_actualizacion, Supervisor ) ;
 
-ALTER TABLE REPARACION ADD CONSTRAINT REPARACION_ACTUACIONES_FK FOREIGN KEY ( Fecha_actuacion, Id_orden ) REFERENCES ACTUACIONES ( Fecha_actuacion, Id_orden ) ;
-
 ALTER TABLE VISITAS ADD CONSTRAINT VISITAS_EMPLEADO_FK FOREIGN KEY ( Id_empleado ) REFERENCES EMPLEADO ( Id_empleado ) ;
 
 ALTER TABLE VISITAS ADD CONSTRAINT VISITAS_HISTORICO_FK FOREIGN KEY ( Id_aviso, Fecha_actualizacion, Supervisor ) REFERENCES HISTORICO ( Id_aviso, Fecha_actualizacion, Supervisor ) ;
@@ -180,9 +141,9 @@ ALTER TABLE VISITAS ADD CONSTRAINT VISITAS_HISTORICO_FK FOREIGN KEY ( Id_aviso, 
 
 -- Informe de Resumen de Oracle SQL Developer Data Modeler: 
 -- 
--- CREATE TABLE                            11
+-- CREATE TABLE                             8
 -- CREATE INDEX                             1
--- ALTER TABLE                             24
+-- ALTER TABLE                             18
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0

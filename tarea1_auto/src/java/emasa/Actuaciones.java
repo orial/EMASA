@@ -3,23 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tarea1_auto;
+package emasa;
 
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,26 +17,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "ACTUACIONES")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Actuaciones.findAll", query = "SELECT a FROM Actuaciones a"),
-    @NamedQuery(name = "Actuaciones.findByFechaActuacion", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.fechaActuacion = :fechaActuacion"),
-    @NamedQuery(name = "Actuaciones.findByOperRealizadas", query = "SELECT a FROM Actuaciones a WHERE a.operRealizadas = :operRealizadas"),
-    @NamedQuery(name = "Actuaciones.findByObservaciones", query = "SELECT a FROM Actuaciones a WHERE a.observaciones = :observaciones"),
-    @NamedQuery(name = "Actuaciones.findByIdOrden", query = "SELECT a FROM Actuaciones a WHERE a.actuacionesPK.idOrden = :idOrden")})
 public class Actuaciones implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
     protected ActuacionesPK actuacionesPK;
+    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
     @Column(name = "OPER_REALIZADAS")
     private String operRealizadas;
-    @Size(max = 200)
+    
     @Column(name = "OBSERVACIONES")
     private String observaciones;
+    
     @JoinColumn(name = "ID_ORDEN", referencedColumnName = "ID_ORDEN", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private OrdTrabajo ordTrabajo;
@@ -121,7 +106,6 @@ public class Actuaciones implements Serializable {
 
     @Override
     public String toString() {
-        return "tarea1_auto.Actuaciones[ actuacionesPK=" + actuacionesPK + " ]";
-    }
-    
+        return "Actuaciones{" + "fecha_actuacion=" + actuacionesPK.getFechaActuacion() + ", Orden=" + actuacionesPK.getIdOrden() + ", operRealizadas=" + operRealizadas + ", observaciones=" + observaciones + ", ordTrabajo=" + ordTrabajo + '}';
+    }   
 }

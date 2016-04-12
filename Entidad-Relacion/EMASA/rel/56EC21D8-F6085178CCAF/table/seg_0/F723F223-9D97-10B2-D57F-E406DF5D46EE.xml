@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F723F223-9D97-10B2-D57F-E406DF5D46EE" name="AVISO">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>71E780DF-17B0-1C3A-F56C-542F39B5A7C2</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_aviso" id="FFCD02FF-5C4D-7B1D-72A6-5F7C128A0AAC">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>097A1C10-2182-CDB4-20BC-75BFA44A9DE1</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_Entrada" id="0746B8A1-A061-E80A-1F18-08CF3B84935E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>51612370-9B75-4390-BF56-D87A85980F44</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Origen" id="CE7E94FD-019D-25FC-9A7A-03FBBFC42BB5">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>F6932E88-4846-875A-CBE6-8A6B9D748491</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Relacionado" id="02AC3C1D-6DCF-B4E1-5C66-B1EED3AFF584">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>C653B8FA-CFB5-F4F0-4FED-9C14FAEB5E60</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E829B7FB-42E9-D81F-B0A4-CEBBFBEA9C54" referredColumn="FFCD02FF-5C4D-7B1D-72A6-5F7C128A0AAC"/>
+</associations>
+</Column>
+<Column name="Id_empleado" id="618C211A-6AA0-FAAF-5F8B-0E9B67336C1B">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>4277F245-3B7A-F412-5577-5C9EA057C239</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4B36407C-B6FB-6F03-30B2-BBEFB7C9AD12" referredColumn="A7A7F0C7-496E-8905-212A-B07419183A3C"/>
+</associations>
+</Column>
+<Column name="DNI" id="323F8F2B-22DE-4D3F-570F-CE740875AD9E">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>58CC47B4-0C56-03A5-1A34-E6FB1F690AD1</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FC1451EF-8C00-4F69-FC1D-FC0F786CE91D" referredColumn="B7865C3C-49AE-733B-0979-530B816AE132"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B2728309-FF70-6CCE-BEA0-5F7110240A39" name="AVISO_PK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>E1E28A2C-C0F7-B09D-9D3F-F4C943D9B4DC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FFCD02FF-5C4D-7B1D-72A6-5F7C128A0AAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09BDB05A-29DC-5364-EDAC-29EE07B7AA76" name="AVISO_AVISO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>AEC37E20-441E-D3C9-3F57-9C2A2DD96124</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02AC3C1D-6DCF-B4E1-5C66-B1EED3AFF584"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B5D2253-1AE7-AFDF-5D48-F66EAAF6AEE9" name="AVISO_CLIENTE_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>29069B5F-D38E-EC9C-0883-E35A18D5EDBC</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="323F8F2B-22DE-4D3F-570F-CE740875AD9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="176962F1-2777-ACEC-BC8F-7090569C181A" name="AVISO_EMPLEADO_FK">
+<createdBy>Lupi</createdBy>
+<createdTime>2016-04-12 15:58:51 UTC</createdTime>
+<generatorID>07450B3F-E661-B156-BC48-8F972EC0F959</generatorID>
+<ownerDesignName>EMASA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="618C211A-6AA0-FAAF-5F8B-0E9B67336C1B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
