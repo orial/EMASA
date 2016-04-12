@@ -4,5 +4,11 @@
 =======
 /tarea1_auto/build/
 >>>>>>> origin/master
+<<<<<<< HEAD
 /EMASA/build/
 /EMASA/dist/
+=======
+tarea1_auto/src/conf/persistence.xml
+/EMASA/build/
+EMASA/web/WEB-INF/glassfish-resources.xml
+>>>>>>> origin/master
