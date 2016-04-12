@@ -50,7 +50,7 @@ public class Brigada implements Serializable {
     @NotNull
     @Column(name = "CONTRATA")
     private Character contrata;
-    @OneToMany(mappedBy = "brigadaNumBrigada")
+    @OneToMany(mappedBy = "numBrigada")
     private Collection<Empleado> empleadoCollection;
 
     public Brigada() {

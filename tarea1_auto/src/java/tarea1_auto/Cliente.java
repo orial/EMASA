@@ -57,7 +57,7 @@ public class Cliente implements Serializable {
     @Size(max = 40)
     @Column(name = "e-mail")
     private String eMail;
-    @OneToMany(mappedBy = "dni")
+    @OneToMany(mappedBy = "clienteDni")
     private Collection<Aviso> avisoCollection;
 
     public Cliente() {

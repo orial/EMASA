@@ -60,14 +60,14 @@ public class Aviso implements Serializable {
     private String origen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aviso")
     private Collection<Historico> historicoCollection;
-    @OneToMany(mappedBy = "relacionado")
+    @OneToMany(mappedBy = "relacionada")
     private Collection<Aviso> avisoCollection;
-    @JoinColumn(name = "RELACIONADO", referencedColumnName = "ID_AVISO")
+    @JoinColumn(name = "RELACIONADA", referencedColumnName = "ID_AVISO")
     @ManyToOne
-    private Aviso relacionado;
-    @JoinColumn(name = "DNI", referencedColumnName = "DNI")
+    private Aviso relacionada;
+    @JoinColumn(name = "CLIENTE_DNI", referencedColumnName = "DNI")
     @ManyToOne
-    private Cliente dni;
+    private Cliente clienteDni;
     @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
     @ManyToOne
     private Empleado idEmpleado;
@@ -127,20 +127,20 @@ public class Aviso implements Serializable {
         this.avisoCollection = avisoCollection;
     }
 
-    public Aviso getRelacionado() {
-        return relacionado;
+    public Aviso getRelacionada() {
+        return relacionada;
     }
 
-    public void setRelacionado(Aviso relacionado) {
-        this.relacionado = relacionado;
+    public void setRelacionada(Aviso relacionada) {
+        this.relacionada = relacionada;
     }
 
-    public Cliente getDni() {
-        return dni;
+    public Cliente getClienteDni() {
+        return clienteDni;
     }
 
-    public void setDni(Cliente dni) {
-        this.dni = dni;
+    public void setClienteDni(Cliente clienteDni) {
+        this.clienteDni = clienteDni;
     }
 
     public Empleado getIdEmpleado() {

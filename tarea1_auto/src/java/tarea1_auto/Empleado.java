@@ -35,9 +35,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
     @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado"),
-    @NamedQuery(name = "Empleado.findByDni", query = "SELECT e FROM Empleado e WHERE e.dni = :dni"),
     @NamedQuery(name = "Empleado.findByNombre", query = "SELECT e FROM Empleado e WHERE e.nombre = :nombre"),
     @NamedQuery(name = "Empleado.findByApellidos", query = "SELECT e FROM Empleado e WHERE e.apellidos = :apellidos"),
+    @NamedQuery(name = "Empleado.findByDni", query = "SELECT e FROM Empleado e WHERE e.dni = :dni"),
+    @NamedQuery(name = "Empleado.findByEMail", query = "SELECT e FROM Empleado e WHERE e.eMail = :eMail"),
+    @NamedQuery(name = "Empleado.findByPassword", query = "SELECT e FROM Empleado e WHERE e.password = :password"),
     @NamedQuery(name = "Empleado.findByDepartamento", query = "SELECT e FROM Empleado e WHERE e.departamento = :departamento"),
     @NamedQuery(name = "Empleado.findByCargo", query = "SELECT e FROM Empleado e WHERE e.cargo = :cargo"),
     @NamedQuery(name = "Empleado.findByTurno", query = "SELECT e FROM Empleado e WHERE e.turno = :turno"),
@@ -54,11 +56,6 @@ public class Empleado implements Serializable {
     private BigDecimal idEmpleado;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 12)
-    @Column(name = "DNI")
-    private String dni;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "NOMBRE")
     private String nombre;
@@ -67,6 +64,22 @@ public class Empleado implements Serializable {
     @Size(min = 1, max = 30)
     @Column(name = "APELLIDOS")
     private String apellidos;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 12)
+    @Column(name = "DNI")
+    private String dni;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "E_MAIL")
+    private String eMail;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 6)
+    @Column(name = "PASSWORD")
+    private String password;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
@@ -91,9 +104,9 @@ public class Empleado implements Serializable {
     private Collection<Historico> historicoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
     private Collection<Visitas> visitasCollection;
-    @JoinColumn(name = "BRIGADA_NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
+    @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
     @ManyToOne
-    private Brigada brigadaNumBrigada;
+    private Brigada numBrigada;
     @OneToMany(mappedBy = "idEmpleado")
     private Collection<Aviso> avisoCollection;
 
@@ -104,11 +117,13 @@ public class Empleado implements Serializable {
         this.idEmpleado = idEmpleado;
     }
 
-    public Empleado(BigDecimal idEmpleado, String dni, String nombre, String apellidos, String departamento, String cargo, BigInteger turno) {
+    public Empleado(BigDecimal idEmpleado, String nombre, String apellidos, String dni, String eMail, String password, String departamento, String cargo, BigInteger turno) {
         this.idEmpleado = idEmpleado;
-        this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.dni = dni;
+        this.eMail = eMail;
+        this.password = password;
         this.departamento = departamento;
         this.cargo = cargo;
         this.turno = turno;
@@ -120,14 +135,6 @@ public class Empleado implements Serializable {
 
     public void setIdEmpleado(BigDecimal idEmpleado) {
         this.idEmpleado = idEmpleado;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 
     public String getNombre() {
@@ -144,6 +151,30 @@ public class Empleado implements Serializable {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getEMail() {
+        return eMail;
+    }
+
+    public void setEMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getDepartamento() {
@@ -204,12 +235,12 @@ public class Empleado implements Serializable {
         this.visitasCollection = visitasCollection;
     }
 
-    public Brigada getBrigadaNumBrigada() {
-        return brigadaNumBrigada;
+    public Brigada getNumBrigada() {
+        return numBrigada;
     }
 
-    public void setBrigadaNumBrigada(Brigada brigadaNumBrigada) {
-        this.brigadaNumBrigada = brigadaNumBrigada;
+    public void setNumBrigada(Brigada numBrigada) {
+        this.numBrigada = numBrigada;
     }
 
     @XmlTransient
