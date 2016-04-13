@@ -6,7 +6,6 @@
 package emasa;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
@@ -31,10 +30,10 @@ public class Cliente implements Serializable {
     private String nombre;
     
     @Column(name = "POLIZA")
-    private BigInteger poliza;
+    private Integer poliza;
     
     @Column(name = "TELEFONO")
-    private BigInteger telefono;
+    private Integer telefono;
     
     @Column(name = "EMAIL")
     private String eMail;
@@ -70,19 +69,19 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
     }
 
-    public BigInteger getPoliza() {
+    public Integer getPoliza() {
         return poliza;
     }
 
-    public void setPoliza(BigInteger poliza) {
+    public void setPoliza(Integer poliza) {
         this.poliza = poliza;
     }
 
-    public BigInteger getTelefono() {
+    public Integer getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(BigInteger telefono) {
+    public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
 

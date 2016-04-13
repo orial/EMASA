@@ -6,7 +6,6 @@
 package emasa;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -24,12 +23,12 @@ public class ActuacionesPK implements Serializable {
     
     @Basic(optional = false)
     @Column(name = "ID_ORDEN")
-    private BigInteger idOrden;
+    private Integer idOrden;
 
     public ActuacionesPK() {
     }
 
-    public ActuacionesPK(Date fechaActuacion, BigInteger idOrden) {
+    public ActuacionesPK(Date fechaActuacion, Integer idOrden) {
         this.fechaActuacion = fechaActuacion;
         this.idOrden = idOrden;
     }
@@ -42,11 +41,11 @@ public class ActuacionesPK implements Serializable {
         this.fechaActuacion = fechaActuacion;
     }
 
-    public BigInteger getIdOrden() {
+    public Integer getIdOrden() {
         return idOrden;
     }
 
-    public void setIdOrden(BigInteger idOrden) {
+    public void setIdOrden(Integer idOrden) {
         this.idOrden = idOrden;
     }
 

@@ -6,7 +6,6 @@
 package emasa;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -46,7 +45,7 @@ public class Actuaciones implements Serializable {
         this.operRealizadas = operRealizadas;
     }
 
-    public Actuaciones(Date fechaActuacion, BigInteger idOrden) {
+    public Actuaciones(Date fechaActuacion, Integer idOrden) {
         this.actuacionesPK = new ActuacionesPK(fechaActuacion, idOrden);
     }
 

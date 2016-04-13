@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -215,7 +214,6 @@ public class Historico implements Serializable {
         this.visitas = visitas;
     }
 
-    @XmlTransient
     public Collection<OrdTrabajo> getOrdTrabajoCollection() {
         return ordenesTrabajo;
     }

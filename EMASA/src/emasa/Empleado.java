@@ -8,7 +8,6 @@ package emasa;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -184,7 +183,6 @@ public class Empleado implements Serializable {
         this.especialidad = especialidad;
     }
 
-    @XmlTransient
     public Collection<Historico> getHistoricoCollection() {
         return historico;
     }
@@ -193,7 +191,6 @@ public class Empleado implements Serializable {
         this.historico = historicoCollection;
     }
 
-    @XmlTransient
     public Collection<Visitas> getVisitasCollection() {
         return visitas;
     }
@@ -210,7 +207,7 @@ public class Empleado implements Serializable {
         this.numBrigada = numBrigada;
     }
 
-    @XmlTransient
+
     public Collection<Aviso> getAvisoCollection() {
         return avisos;
     }

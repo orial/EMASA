@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="EMASAPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="EMASAPU2" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>emasa.Actuaciones</class>
     <class>emasa.Aviso</class>
@@ -10,15 +10,12 @@
     <class>emasa.Historico</class>
     <class>emasa.OrdTrabajo</class>
     <class>emasa.Visitas</class>
-    <class>emasa.prueba</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@//localhost:1521/ABBDD"/>
-      <property name="javax.persistence.jdbc.user" value="EMASA"/>
-      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/EMASA"/>
+      <property name="javax.persistence.jdbc.user" value="emasa"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="emasa"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-      <property name="javax.persistence.schema-generation.scripts.action" value="create"/>
-      <property name="javax.persistence.schema-generation.scripts.create-target" value="emasa.sql"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>

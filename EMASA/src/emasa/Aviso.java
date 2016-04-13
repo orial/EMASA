@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -91,7 +90,6 @@ public class Aviso implements Serializable {
         this.origen = origen;
     }
 
-    @XmlTransient
     public Collection<Historico> getHistoricoCollection() {
         return historico;
     }
@@ -100,7 +98,6 @@ public class Aviso implements Serializable {
         this.historico = historicoCollection;
     }
 
-    @XmlTransient
     public Collection<Aviso> getAvisoCollection() {
         return avisosRelacionados;
     }

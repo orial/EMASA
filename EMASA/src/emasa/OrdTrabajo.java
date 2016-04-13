@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -121,7 +120,6 @@ public class OrdTrabajo implements Serializable {
         this.fechaFinalizacion = fechaFinalizacion;
     }
 
-    @XmlTransient
     public Collection<Actuaciones> getActuacionesCollection() {
         return actuaciones;
     }
