@@ -12,3 +12,6 @@ tarea1_auto/src/conf/persistence.xml
 /EMASA/build/
 EMASA/web/WEB-INF/glassfish-resources.xml
 >>>>>>> origin/master
+/EMASA_WEB/nbproject/private/
+/EMASA_WEB/build/
+/tarea1_auto/dist/
