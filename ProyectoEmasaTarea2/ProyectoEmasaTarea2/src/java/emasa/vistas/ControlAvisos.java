@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -29,7 +30,7 @@ import org.primefaces.event.UnselectEvent;
  */
 
 @Named(value="controlAvisos")
-@SessionScoped
+@RequestScoped
 public class ControlAvisos implements Serializable{
 
     @Inject
