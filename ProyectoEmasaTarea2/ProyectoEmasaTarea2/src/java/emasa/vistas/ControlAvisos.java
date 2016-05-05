@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -51,7 +52,7 @@ public class ControlAvisos implements Serializable{
         List<Aviso> res=new ArrayList<>();
         for(Aviso av: avisos){
             for (Historico h:av.getHistoricoCollection()){
-                if(h.getHistoricoPK().getSupervisor()==empleado.getIdEmpleado()){
+                if(h.getHistoricoPK().getSupervisor()==empleado.getIdEmpleado() && (!res.contains(av))){
                     res.add(av);
                 }
             } 
