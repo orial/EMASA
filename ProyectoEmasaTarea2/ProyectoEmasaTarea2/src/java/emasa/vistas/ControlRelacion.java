@@ -48,7 +48,9 @@ public class ControlRelacion {
     
     public void onRowSelect(SelectEvent event) {
        aviso.getAviso().setRelacionado((Aviso) event.getObject());
+       
         FacesMessage msg = new FacesMessage("Aviso Seleccionado", String.valueOf(((Aviso) event.getObject()).getIdAviso()));  
+   FacesContext.getCurrentInstance().addMessage(null, msg);
     }
  
     public void onRowUnselect(UnselectEvent event) {

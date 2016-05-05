@@ -27,7 +27,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 @Named(value = "opcionesAviso")
-@SessionScoped
+@RequestScoped
 public class OpcionesAviso implements Serializable {
 
     @Inject
