@@ -30,7 +30,7 @@ import org.primefaces.event.UnselectEvent;
  */
 
 @Named(value="controlAvisos")
-@RequestScoped
+@SessionScoped
 public class ControlAvisos implements Serializable{
 
     @Inject
@@ -52,7 +52,7 @@ public class ControlAvisos implements Serializable{
         List<Aviso> res=new ArrayList<>();
         for(Aviso av: avisos){
             for (Historico h:av.getHistoricoCollection()){
-                if(h.getHistoricoPK().getSupervisor()==empleado.getIdEmpleado()){
+                if(h.getHistoricoPK().getSupervisor()==empleado.getIdEmpleado() && (!res.contains(av))){
                     res.add(av);
                 }
             } 
