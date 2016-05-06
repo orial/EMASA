@@ -7,19 +7,11 @@ package emasa.vistas;
 
 import emasa.modelo.Aviso;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import emasa.modelo.Cliente;
-import emasa.modelo.Datos;
-import emasa.modelo.Empleado;
 import emasa.modelo.Historico;
 import emasa.modelo.HistoricoPK;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-/**
- *
- * @author malex
- */
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -50,6 +42,30 @@ public class OpcionesAviso implements Serializable {
         this.aviso = aviso;
     }
     private Aviso aviso;
+    private String fechaEntrada;
+    private String ultimoHist;
+
+    public String getUltimoHist() {
+        Date fechLast = his.getHistoricoPK().getFechaActualizacion();
+        SimpleDateFormat dmyFormat = new SimpleDateFormat("dd-MM-yyyy");
+        ultimoHist = dmyFormat.format(fechLast);
+        return ultimoHist;
+    }
+
+    public void setUltimoHist(String ultimoHist) {
+        this.ultimoHist = ultimoHist;
+    }
+
+    public String getFechaEntrada() {
+        Date fech = new Date();
+        SimpleDateFormat dmyFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String mdy = dmyFormat.format(fech);
+        return mdy;
+    }
+
+    public void setFechaEntrada(String fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
 
     public Historico getHis() {
         return his;
@@ -207,14 +223,21 @@ public class OpcionesAviso implements Serializable {
 
     }
 
-    public String getrelacionado() {
+    public String getRelacionado() {
 
         if (aviso.getRelacionado() == null) {
-            return "No está relacionado con ningún  aviso";
+            return "No está relacionado con ningún aviso ";
         } else {
             return aviso.getRelacionado().getIdAviso().toString();
         }
 
     }
+    private String relacionado;
+
+    
+    public void setRelacionado(String relacionado) {
+        this.relacionado = relacionado;
+    }
+
 
 }

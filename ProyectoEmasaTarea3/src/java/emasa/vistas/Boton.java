@@ -39,7 +39,7 @@ public class Boton implements Serializable {
 
     public String reasignarAviso() {
 
-        return "reasignarAviso.xhtml";
+        return "reasignarAvisoClient.xhtml";
     }
 
     public String avisosRelacionados() {
@@ -49,12 +49,12 @@ public class Boton implements Serializable {
 
     public String opcionesAvisos() {
 
-        return "aviso.xhtml";
+        return "avisoClient.xhtml";
     }
     
     public String volverBandeja()
     {
-        return "bandejaAvisos.xhtml";
+        return "bandejaAvisosClient.xhtml";
     }
 
   

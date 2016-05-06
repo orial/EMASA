@@ -104,7 +104,7 @@ public class SeleccionarSupervisor implements Serializable {
 
         //supervisor.getAvisoCollection().add(aviso);
 
-        return "bandejaAvisos.xhtml"; // tiene q ir a la de jose además tiene que hacer un remove a la lista de jose.
+        return "bandejaAvisosClient.xhtml"; // tiene q ir a la de jose además tiene que hacer un remove a la lista de jose.
 
     }
 
@@ -115,7 +115,7 @@ public class SeleccionarSupervisor implements Serializable {
     public String b_cancelar() {
 
        
-        return "aviso.xhtml";
+        return "avisoClient.xhtml";
     }
 
 }
