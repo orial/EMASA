@@ -21,7 +21,7 @@
             <p:commandButton value="Print" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
                 <p:printer target="avisoImpreso" />
             </p:commandButton>   
-                <h:panelGrid id="avisoImpreso" columns="4" >
+            <p:panelGrid id="avisoImpreso" columns="4">
                     <p:outputLabel value="ID aviso: " /> <p:outputLabel id="id_aviso" value=" #{opcionesAviso.aviso.idAviso}" /> 
                     <p:outputLabel value="Supervisor asignado: " /> <p:outputLabel id="ID_supervisor" value=" #{opcionesAviso.supervisor}" />      
                     <p:outputLabel value="Fecha de entrada: " />
@@ -77,7 +77,7 @@
                     <p:inplace editor="true">
                         <h:inputTextarea value="#{opcionesAviso.his.docAdjunto}"  /> 
                     </p:inplace>       
-                </h:panelGrid>   
+                </p:panelGrid>   
         </h:form>
     </ui:define>
 </ui:composition>

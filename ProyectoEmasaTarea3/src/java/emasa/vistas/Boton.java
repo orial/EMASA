@@ -23,18 +23,16 @@ public class Boton implements Serializable {
      * Creates a new instance of Boton
      */
     public Boton() {
-    }
-
-    
+    }    
 
     public String ot() {
 
-        return "ordenTrabajo.xhtml";
+        return "ordenTrabajoClient.xhtml";
     }
 
     public String asignarVisita() {
 
-        return "asignarVisita.xhtml";
+        return "asignarVisitaClient.xhtml";
     }
 
     public String reasignarAviso() {

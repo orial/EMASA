@@ -10,20 +10,13 @@
     </ui:define>
     <ui:define name="aviso">
         <h:form>
-            <table>
-                <tr>
-                    <td id="tabla"> 
-                        <h3> Reasignar aviso id:
-                            <p:outputLabel value="#{opcionesAviso.aviso.idAviso}" />
-                        </h3> 
-                    </td>
-                </tr>
-                <tr>
-                    <td><b><h:outputText value="Nuevo Supervisor: " /></b></td>
-                    <td><h:inputText value="#{seleccionarSupervisor.idSupervisor}" /></td>               
-                </tr>
-                <p:separator />
-            </table>  
+            <p:panelGrid id="reasignar" columns="2">
+                <p:outputLabel value="Reasignar aviso id: " />
+                <p:outputLabel value="#{opcionesAviso.aviso.idAviso}" />
+                <p:outputLabel value="Nuevo Supervisor: " />
+                <p:inputText  value="#{seleccionarSupervisor.idSupervisor}" /> 
+            </p:panelGrid>
+                <p:separator /> 
         </h:form>
         <h:form>
             <h:commandButton value="Cambiar Asignación"   id="Cambiar_asig"  action="#{seleccionarSupervisor.cambiarAsignacion()}" />
