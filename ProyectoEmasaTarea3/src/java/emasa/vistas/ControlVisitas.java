@@ -6,19 +6,13 @@
 package emasa.vistas;
 
 import emasa.modelo.Empleado;
-import emasa.modelo.Historico;
-import emasa.modelo.HistoricoPK;
 import emasa.modelo.Visitas;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;

@@ -5,11 +5,7 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Aviso;
-import emasa.modelo.Cliente;
-import emasa.modelo.Empleado;
-import emasa.modelo.Historico;
-import emasa.modelo.HistoricoPK;
+import emasa.modelo.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

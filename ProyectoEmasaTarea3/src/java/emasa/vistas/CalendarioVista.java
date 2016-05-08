@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -30,14 +29,16 @@ public class CalendarioVista implements Serializable {
      */
     private Date date1;
 
-    public Date getFecha_actual() {
-        return fecha_actual;
+    public String getFecha_actual() {
+        SimpleDateFormat dmyFormat = new SimpleDateFormat("dd-MM-yyyy");
+        fechaActual = dmyFormat.format(new Date());
+        return fechaActual;
     }
 
-    public void setFecha_actual(Date fecha_actual) {
-        this.fecha_actual = fecha_actual;
+    public void setFecha_actual(String fecha_actual) {
+        this.fechaActual = fecha_actual;
     }
-    private Date fecha_actual;
+    private String fechaActual;
 
     public CalendarioVista() {
 
@@ -46,7 +47,7 @@ public class CalendarioVista implements Serializable {
     @PostConstruct
 
     public void init() {
-        fecha_actual = new Date();
+        
     }
 
     public Date getDate1() {

@@ -111,7 +111,7 @@ public class LoginBean implements Serializable {
             context.addCallbackParam("view", "bandejaVisitas.xhtml");
         }
         else if (logeado && cargoUsuario.equals("Supervisor")){
-            context.addCallbackParam("view", "bandejaAvisos.xhtml");
+            context.addCallbackParam("view", "bandejaAvisosClient.xhtml");
         }
     }
 

@@ -7,8 +7,12 @@ package emasa.vistas;
 
 import emasa.modelo.OrdTrabajo;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -109,7 +113,12 @@ public class OrdenTrabajo implements Serializable {
     }
 
     public String crearOT() {
-        ord = new OrdTrabajo(ID_aviso, calendario.getFecha_actual(), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+        } catch (ParseException ex) {
+            Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         ord.setFechaCreacion(calendario.getDate1());
 
