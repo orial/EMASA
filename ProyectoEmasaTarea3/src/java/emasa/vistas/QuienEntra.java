@@ -49,7 +49,7 @@ public class QuienEntra implements Serializable {
     public String cliente(){
         opmov=false;
         entraComoCliente=true;
-        return "crearAvisos.xhtml";
+        return "crearAvisosClient.xhtml";
     }
     public static void sat(){
         opmov=false;
@@ -59,7 +59,7 @@ public class QuienEntra implements Serializable {
     public String OPmov(){
         opmov=true;
         entraComoCliente=false;
-        return "crearAvisos.xhtml";
+        return "crearAvisosClient.xhtml";
     }
 
     public void setEntraComoCliente(boolean entraComoCliente) {

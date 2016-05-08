@@ -105,10 +105,10 @@ public class LoginBean implements Serializable {
         context.addCallbackParam("estaLogeado", logeado);
         if (logeado && cargoUsuario.equals("SAT")) {
             QuienEntra.sat();
-            context.addCallbackParam("view", "crearAvisos.xhtml");
+            context.addCallbackParam("view", "crearAvisosClient.xhtml");
         }
         else if (logeado && cargoUsuario.equals("OPmov")){
-            context.addCallbackParam("view", "bandejaVisitas.xhtml");
+            context.addCallbackParam("view", "bandejaVisitasClient.xhtml");
         }
         else if (logeado && cargoUsuario.equals("Supervisor")){
             context.addCallbackParam("view", "bandejaAvisosClient.xhtml");

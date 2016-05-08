@@ -206,7 +206,7 @@ public class CrearAvisos implements Serializable {
     public CrearAvisos() {
     }
     public String botonVolver(){
-        return "bandejaVisitas.xhtml";
+        return "bandejaVisitasClient.xhtml";
     }
     
     public String crearAvisoNuevo(){
@@ -303,7 +303,7 @@ public class CrearAvisos implements Serializable {
         adjunto="";
         
         
-        return "crearAvisos.xhtml";
+        return "crearAvisosClient.xhtml";
     }
     
 }
