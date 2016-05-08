@@ -42,7 +42,7 @@ public class Boton implements Serializable {
 
     public String avisosRelacionados() {
 
-        return "asignarRelacion.xhtml";
+        return "asignarRelacionClient.xhtml";
     }
 
     public String opcionesAvisos() {
