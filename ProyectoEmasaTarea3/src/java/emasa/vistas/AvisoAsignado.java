@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,7 +20,7 @@ import javax.inject.Named;
  * @author malex
  */
 @Named(value = "avisoAsignado")
-@SessionScoped
+@RequestScoped
 public class AvisoAsignado implements Serializable {
 
   

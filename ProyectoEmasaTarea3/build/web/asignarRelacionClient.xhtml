@@ -17,8 +17,8 @@
                 <f:facet name="header" >
                     Avisos
                 </f:facet>                     
-                <p:ajax event="rowSelect" oncomplete="location.href='avisoClient.xhtml';" listener="#{controlAvisos.onRowSelect}" update=":form:msgs" />
-                <p:ajax event="rowUnselect" listener="#{controlAvisos.onRowUnselect}" update=":form:msgs" />
+                <p:ajax event="rowSelect" oncomplete="location.href='avisoClient.xhtml';" listener="#{controlRelacion.onRowSelect}" update=":form:msgs" />
+                <p:ajax event="rowUnselect" listener="#{controlRelacion.onRowUnselect}" update=":form:msgs" />
                 <p:column headerText="fecha" sortBy="#{avisos.fechaEntrada}">
                     <h:outputText value="#{controlAvisos.getFechaReciente(avisos.fechaEntrada)}" />
                 </p:column>

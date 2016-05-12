@@ -12,15 +12,16 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/LoginBean.java</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/bandejaVisitasClient.xhtml</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/ordenTrabajoClient.xhtml</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/QuienEntra.java</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/crearAvisosClient.xhtml</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/index.xhtml</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/CrearAvisos.java</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/avisoClient.xhtml</file>
-            <file>file:/C:/Users/Lupi/Documents/Repositorios/GitHub/EMASA/ProyectoEmasaTarea3/web/avisoAsignadoClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/reasignarAvisoClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/avisoAsignadoClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/bandejaAvisosClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/bandejaVisitasClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/ControlRelacion.java</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/asignarRelacionClient.xhtml</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/AvisoAsignado.java</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/src/java/emasa/vistas/ControlAvisos.java</file>
+            <file>file:/C:/Users/malex/OneDrive/Tercer%20año/SII/EMASAGIT/EMASA/ProyectoEmasaTarea3/web/asignarVisitaClient.xhtml</file>
         </group>
     </open-files>
 </project-private>
