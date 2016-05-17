@@ -17,7 +17,7 @@
                 <f:facet name="header" >
                    Asignar Visitas
                 </f:facet> 
-                   <p:ajax event="rowSelect" oncomplete="location.href='aviso.xhtml';" listener="#{controlAsignacion.onRowSelect}" update=":form:msgs" />
+                   <p:ajax event="rowSelect" oncomplete="location.href='avisoClient.xhtml';" listener="#{controlAsignacion.onRowSelect}" update=":form:msgs" />
                 <p:ajax event="rowUnselect" listener="#{controlAsignacion.onRowUnselect}" update=":form:msgs" />
 
                 <p:column headerText="Nombre">

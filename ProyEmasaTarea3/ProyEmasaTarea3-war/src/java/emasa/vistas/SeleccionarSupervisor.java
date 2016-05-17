@@ -50,12 +50,7 @@ public class SeleccionarSupervisor implements Serializable {
         this.idSupervisor = idSupervisor;
     }
 
-    
-
-    
-
     private Integer idSupervisor;
-    
 
     public InicializarSupervisores getService() {
         return service;
@@ -88,22 +83,14 @@ public class SeleccionarSupervisor implements Serializable {
     public String cambiarAsignacion() {
         aviso = opciones_aviso.getAviso();
 
-        
-
-        
-
         //supervisor = service.getSupervisores().get(id_num_supervisor);
         opciones_aviso.getHistoricoReciente().getHistoricoPK().setSupervisor(idSupervisor);
 
         //aviso.getIdEmpleado().setIdEmpleado(supervisor.getIdEmpleado());
-
         //aviso.getIdEmpleado().setNombre(supervisor.getNombre());
         //aviso.getIdEmpleado().setApellidos(supervisor.getApellidos());
-
         //supervisor_anterior.getAvisoCollection().remove(aviso);
-
         //supervisor.getAvisoCollection().add(aviso);
-
         return "bandejaAvisosClient.xhtml"; // tiene q ir a la de jose además tiene que hacer un remove a la lista de jose.
 
     }
@@ -114,7 +101,6 @@ public class SeleccionarSupervisor implements Serializable {
 
     public String b_cancelar() {
 
-       
         return "avisoClient.xhtml";
     }
 
