@@ -5,8 +5,8 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Datos;
-import emasa.modelo.Empleado;
+import emasa.entidades.Datos;
+import emasa.entidades.Empleado;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

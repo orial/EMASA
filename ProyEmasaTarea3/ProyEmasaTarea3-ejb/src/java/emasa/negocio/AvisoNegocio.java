@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package emasa.modelo;
+package emasa.negocio;
 
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;

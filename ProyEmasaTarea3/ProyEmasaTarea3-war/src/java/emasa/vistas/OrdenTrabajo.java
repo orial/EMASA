@@ -5,7 +5,7 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.OrdTrabajo;
+import emasa.entidades.OrdTrabajo;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

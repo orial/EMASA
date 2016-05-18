@@ -5,11 +5,11 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Aviso;
+import emasa.entidades.Aviso;
 import javax.inject.Named;
-import emasa.modelo.Cliente;
-import emasa.modelo.Historico;
-import emasa.modelo.HistoricoPK;
+import emasa.entidades.Cliente;
+import emasa.entidades.Historico;
+import emasa.entidades.HistoricoPK;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;

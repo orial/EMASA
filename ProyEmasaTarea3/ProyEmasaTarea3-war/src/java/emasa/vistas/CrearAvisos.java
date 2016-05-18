@@ -6,11 +6,11 @@ package emasa.vistas;
  * and open the template in the editor.
  */
 
-import emasa.modelo.Aviso;
-import emasa.modelo.Cliente;
-import emasa.modelo.Datos;
-import emasa.modelo.Historico;
-import emasa.modelo.HistoricoPK;
+import emasa.entidades.Aviso;
+import emasa.entidades.Cliente;
+import emasa.entidades.Datos;
+import emasa.entidades.Historico;
+import emasa.entidades.HistoricoPK;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

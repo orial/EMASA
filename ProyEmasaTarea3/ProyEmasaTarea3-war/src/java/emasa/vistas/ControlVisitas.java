@@ -5,8 +5,8 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Empleado;
-import emasa.modelo.Visitas;
+import emasa.entidades.Empleado;
+import emasa.entidades.Visitas;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

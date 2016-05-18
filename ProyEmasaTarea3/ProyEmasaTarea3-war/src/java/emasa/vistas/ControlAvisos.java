@@ -5,10 +5,10 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Aviso;
-import emasa.modelo.Datos;
-import emasa.modelo.Empleado;
-import emasa.modelo.Historico;
+import emasa.entidades.Aviso;
+import emasa.entidades.Datos;
+import emasa.entidades.Empleado;
+import emasa.entidades.Historico;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

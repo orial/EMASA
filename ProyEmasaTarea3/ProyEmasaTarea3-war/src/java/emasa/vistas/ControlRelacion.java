@@ -5,8 +5,8 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Aviso;
-import emasa.modelo.Datos;
+import emasa.entidades.Aviso;
+import emasa.entidades.Datos;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;

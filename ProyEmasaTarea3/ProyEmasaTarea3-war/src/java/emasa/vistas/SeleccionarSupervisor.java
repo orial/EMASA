@@ -5,8 +5,8 @@
  */
 package emasa.vistas;
 
-import emasa.modelo.Aviso;
-import emasa.modelo.Empleado;
+import emasa.entidades.Aviso;
+import emasa.entidades.Empleado;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
