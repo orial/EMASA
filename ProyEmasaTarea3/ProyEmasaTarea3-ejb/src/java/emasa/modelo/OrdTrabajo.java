@@ -16,6 +16,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ORD_TRABAJO")
+@NamedQueries({
+    
+    @NamedQuery(name="OrdTrabajo.buscarPorNombre",
+                query="SELECT c FROM OrdTrabajo c WHERE c.idOrden = :idOrden"),
+}) 
 public class OrdTrabajo implements Serializable {
 
     private static final long serialVersionUID = 1L;

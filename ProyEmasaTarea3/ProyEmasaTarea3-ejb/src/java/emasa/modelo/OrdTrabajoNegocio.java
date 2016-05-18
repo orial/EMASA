@@ -7,6 +7,8 @@ package emasa.modelo;
 
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -16,6 +18,18 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class OrdTrabajoNegocio {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
+    private EntityManager em;
+
+   
+    
+   public void anadirOrden(OrdTrabajo t)
+   {
+        em.persist(t);
+   }
+
+    public void persist(Object object) {
+        em.persist(object);
+    }
+    
 }

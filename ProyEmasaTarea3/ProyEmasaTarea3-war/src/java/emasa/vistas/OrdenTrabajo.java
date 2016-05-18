@@ -24,6 +24,8 @@ import javax.inject.Inject;
  */
 @Named(value = "ordenTrabajo")
 @SessionScoped
+@EJB OrdTrabajoNegocio ordTrabajoNegocio;
+
 public class OrdenTrabajo implements Serializable {
 
     @Inject
@@ -121,6 +123,9 @@ public class OrdenTrabajo implements Serializable {
         }
 
         ord.setFechaCreacion(calendario.getDate1());
+        
+        ordTrabajoNegocio.anadirOrden(ord);
+        
 
         return "ordenTrabajo.xhtml";
 
