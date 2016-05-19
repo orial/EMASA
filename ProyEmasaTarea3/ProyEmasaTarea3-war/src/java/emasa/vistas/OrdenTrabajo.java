@@ -6,6 +6,7 @@
 package emasa.vistas;
 
 import emasa.entidades.OrdTrabajo;
+import emasa.negocio.OrdTrabajoNegocio;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -24,9 +26,11 @@ import javax.inject.Inject;
  */
 @Named(value = "ordenTrabajo")
 @SessionScoped
-@EJB OrdTrabajoNegocio ordTrabajoNegocio;
+
 
 public class OrdenTrabajo implements Serializable {
+    
+    @EJB OrdTrabajoNegocio ordTrabajoNegocio;
 
     @Inject
     private CalendarioVista calendario;
