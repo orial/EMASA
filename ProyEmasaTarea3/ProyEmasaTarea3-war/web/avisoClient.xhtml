@@ -28,11 +28,14 @@
 
     <ui:define name="aviso">
         <h:form id="formulario">
-            <p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
-            <h:outputText value="Fecha inicio" />
-            <h:inputText />
-            <h:outputText value="Fecha fin" />
-            <h:inputText />
+            <p:dialog header="Seleccione el rango de fecha" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+            
+            <p:outputLabel for="button" value="Desde" />
+            <p:calendar id="button2" value="#{calendarioVista.date2}" showOn="button" />
+            
+            <p:outputLabel for="button" value="Hasta" />
+            <p:calendar id="button3" value="#{calendarioVista.date3}" showOn="button" />
+            
             <h:commandButton value="Confirmar" type="button" />
             </p:dialog>
             <p:commandButton value="Print" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">

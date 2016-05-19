@@ -98,6 +98,26 @@ public class OpcionesAviso implements Serializable {
 
     @Inject
     private CalendarioVista calendario;
+    
+    
+    public ControlAvisos getDatos() {
+        return datos;
+    }
+
+    public void setDatos(ControlAvisos datos) {
+        this.datos = datos;
+    }
+
+
+
+    public Historico getHis_nuevo() {
+        return his_nuevo;
+    }
+
+    public void setHis_nuevo(Historico his_nuevo) {
+        this.his_nuevo = his_nuevo;
+    }
+  
 
     public CalendarioVista getCalendario() {
         return calendario;
