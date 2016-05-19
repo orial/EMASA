@@ -15,6 +15,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "BRIGADA")
+@NamedQueries({
+    
+    @NamedQuery(name="brigada.buscartodas",
+                query="SELECT c FROM Brigada c"),
+}) 
 public class Brigada implements Serializable {
 
     private static final long serialVersionUID = 1L;

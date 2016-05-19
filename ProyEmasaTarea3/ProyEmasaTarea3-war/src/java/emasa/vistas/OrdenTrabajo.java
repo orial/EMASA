@@ -5,7 +5,12 @@
  */
 package emasa.vistas;
 
+import emasa.entidades.Brigada;
 import emasa.entidades.OrdTrabajo;
+<<<<<<< HEAD
+=======
+import emasa.negocio.BrigadaNegocio;
+>>>>>>> origin/Developer
 import emasa.negocio.OrdTrabajoNegocio;
 import java.io.Serializable;
 import java.text.ParseException;
@@ -36,6 +41,8 @@ public class OrdenTrabajo implements Serializable {
     private CalendarioVista calendario;
     @Inject
     private OpcionesAviso aviso;
+    @EJB OrdTrabajoNegocio ordTrabajoNegocio;
+    @EJB BrigadaNegocio brigadaNegocio;
 
     public CalendarioVista getCalendario() {
         return calendario;
@@ -71,7 +78,41 @@ public class OrdenTrabajo implements Serializable {
     }
 
     private int Num_Brigada;
+    
+    private List<Brigada> brigadas;
 
+    public BrigadaNegocio getBrigadaNegocio() {
+        return brigadaNegocio;
+    }
+
+    public void setBrigadaNegocio(BrigadaNegocio brigadaNegocio) {
+        this.brigadaNegocio = brigadaNegocio;
+    }
+
+    public Brigada getBrigada() {
+        return brigada;
+    }
+
+    public void setBrigada(Brigada brigada) {
+        this.brigada = brigada;
+    }
+    private Brigada brigada;
+    public OrdTrabajoNegocio getOrdTrabajoNegocio() {
+        return ordTrabajoNegocio;
+    }
+
+    public void setOrdTrabajoNegocio(OrdTrabajoNegocio ordTrabajoNegocio) {
+        this.ordTrabajoNegocio = ordTrabajoNegocio;
+    }
+
+    public List<Brigada> getBrigadas() {
+        return brigadas;
+    }
+
+    public void setBrigadas(List<Brigada> brigadas) {
+        this.brigadas = brigadas;
+    }
+    
     List<OrdTrabajo> orden_trabajo;
 
     public List<OrdTrabajo> getOrden_trabajo() {
@@ -114,7 +155,8 @@ public class OrdenTrabajo implements Serializable {
         orden_trabajo = new ArrayList<>();
 
         ID_aviso = (int) (Math.random() * 10 + 1);
-
+        
+        //brigadas=brigadaNegocio.buscarBrigadas();
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
     }
 
