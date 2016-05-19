@@ -5,8 +5,13 @@
  */
 package emasa.negocio;
 
+import emasa.entidades.Brigada;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -16,6 +21,22 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class BrigadaNegocio {
 
+    @PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
+    private EntityManager em;
+
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    
+    
+    public List<Brigada> buscarBrigadas()
+    {
+        TypedQuery<Brigada> query=em.createQuery("brigada.buscartodas",Brigada.class);
+    
+        
+        return query.getResultList();
+    }
+
+    public void persist(Object object) {
+        em.persist(object);
+    }
 }
