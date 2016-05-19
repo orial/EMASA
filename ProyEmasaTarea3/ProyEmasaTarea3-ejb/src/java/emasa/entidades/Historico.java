@@ -62,17 +62,17 @@ public class Historico implements Serializable {
     private String docAdjunto;
     
     @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY)
     private Aviso aviso;
     
     @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY)
     private Empleado idEmpleado;
     
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "historico")
     private Visitas visitas;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "historico")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "historico") //cambiado
     private Collection<OrdTrabajo> ordenesTrabajo;
 
     public Historico() {

@@ -6,6 +6,7 @@
 package emasa.vistas;
 
 import emasa.entidades.Brigada;
+import emasa.entidades.Empleado;
 import emasa.entidades.OrdTrabajo;
 import emasa.negocio.BrigadaNegocio;
 import emasa.negocio.OrdTrabajoNegocio;
@@ -149,9 +150,9 @@ public class OrdenTrabajo implements Serializable {
     public void init() {
         orden_trabajo = new ArrayList<>();
 
-        ID_aviso = (int) (Math.random() * 10 + 1);
+        ID_aviso = (int) (Math.random() * 1000 + 1);
         
-        //brigadas=brigadaNegocio.buscarBrigadas();
+        brigadas=brigadaNegocio.buscarBrigadas();
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
     }
 
@@ -159,12 +160,21 @@ public class OrdenTrabajo implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+            
         } catch (ParseException ex) {
             Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ord.setFechaCreacion(calendario.getDate1());
         
+ 
+        
+        
+        
+        
+        ord.setHistorico(aviso.getHistoricoReciente());
+      
+   
         ordTrabajoNegocio.anadirOrden(ord);
         
 
