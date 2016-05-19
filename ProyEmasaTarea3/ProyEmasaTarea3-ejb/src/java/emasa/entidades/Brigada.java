@@ -17,8 +17,9 @@ import javax.persistence.*;
 @Table(name = "BRIGADA")
 @NamedQueries({
     
+    
     @NamedQuery(name="brigada.buscartodas",
-                query="SELECT c FROM Brigada c"),
+                query="SELECT c FROM Brigada c")
 }) 
 public class Brigada implements Serializable {
 

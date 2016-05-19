@@ -31,13 +31,13 @@
                 <p:inputTextarea rows="6" cols="33" value="#{ordenTrabajo.trabajo_realizar}" />
                 <p:outputLabel value="Num_brigada" />
                 <p:inputText value="#{ordenTrabajo.num_Brigada}"/>
-                
-                <p:outputLabel for="car" value="Brigadas " />
+                  <p:outputLabel for="car" value="Brigadas " />
                 <p:selectOneMenu id="car" value="#{ordenTrabajo.brigada}">
             <f:selectItem itemLabel="Selecciona una brigada a asignar" itemValue="" />
             <f:selectItems value="#{ordenTrabajo.brigadas}" />
         </p:selectOneMenu>
                 
+              
                 <p:outputLabel value="Estado" />
                 <p:outputLabel value="#{opcionesAviso.historicoReciente.estado}"/>
                 <p:outputLabel for="inline" value="Fecha prevista finalización:" />

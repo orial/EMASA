@@ -30,7 +30,7 @@ public class BrigadaNegocio {
     
     public List<Brigada> buscarBrigadas()
     {
-        TypedQuery<Brigada> query=em.createQuery("brigada.buscartodas",Brigada.class);
+        TypedQuery<Brigada> query=em.createNamedQuery("brigada.buscartodas", Brigada.class);
     
         
         return query.getResultList();

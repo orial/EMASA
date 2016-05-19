@@ -43,6 +43,15 @@ public class OrdenTrabajo implements Serializable {
     private OpcionesAviso aviso;
     @EJB OrdTrabajoNegocio ordTrabajoNegocio;
     @EJB BrigadaNegocio brigadaNegocio;
+    private int ID_orden;
+
+    public int getID_orden() {
+        return ID_orden;
+    }
+
+    public void setID_orden(int ID_orden) {
+        this.ID_orden = ID_orden;
+    }
 
     public CalendarioVista getCalendario() {
         return calendario;
@@ -106,6 +115,9 @@ public class OrdenTrabajo implements Serializable {
     }
 
     public List<Brigada> getBrigadas() {
+        
+       brigadas=brigadaNegocio.buscarBrigadas();
+        
         return brigadas;
     }
 
@@ -132,15 +144,9 @@ public class OrdenTrabajo implements Serializable {
     }
     private OrdTrabajo ord;
 
-    public int getID_aviso() {
-        return ID_aviso;
-    }
+    
 
-    public void setID_aviso(int ID_aviso) {
-        this.ID_aviso = ID_aviso;
-    }
-
-    private int ID_aviso;
+    
 
     /**
      * Creates a new instance of Orden_trabajo
@@ -154,22 +160,24 @@ public class OrdenTrabajo implements Serializable {
     public void init() {
         orden_trabajo = new ArrayList<>();
 
-        ID_aviso = (int) (Math.random() * 10 + 1);
         
-        //brigadas=brigadaNegocio.buscarBrigadas();
+        ID_orden = (int) (Math.random() * 10 + 1);
+        
+        
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
     }
 
     public String crearOT() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+            ord = new OrdTrabajo(ID_orden, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+            
+            
         } catch (ParseException ex) {
             Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ord.setFechaCreacion(calendario.getDate1());
-        
         ordTrabajoNegocio.anadirOrden(ord);
         
 
