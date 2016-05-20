@@ -45,7 +45,7 @@ public class Datos implements Serializable {
         
         avisos =new ArrayList<>();
         Aviso a1 =new Aviso(1,new Date(),"SAT");
-        Historico h1 = new Historico(new HistoricoPK(1, new Date(), 2), "se fuga el agua", "Calle Guatemala", "abierto", 0);
+        Historico h1 = new Historico(new HistoricoPK(1, new Date(), 2), "se fuga el agua", "Calle Guatemala", "abierto", Boolean.FALSE);
         h1.setUrgencia("Prioritario");
         h1.setAviso(a1);
         List<Historico> h1list = new ArrayList<>();
@@ -53,17 +53,15 @@ public class Datos implements Serializable {
         a1.setHistoricoCollection(h1list);
         avisos.add(a1);
       
-        
-        visita=new Visitas(new Date());
+        visita = new Visitas(new Date(), e1);
         visita.setHistorico(h1);
-        visita.setIdEmpleado(e1);
         List<Visitas> visitas=new ArrayList<>();
         visitas.add(visita);
         e1.setVisitasCollection(visitas);
         
         
         Aviso a2 =new Aviso(2,new Date(),"SAT");
-        Historico h2 = new Historico(new HistoricoPK(2, new Date(), 2), "Ha explotado una tuberia", "Calle Paris", "en cola", 0);
+        Historico h2 = new Historico(new HistoricoPK(2, new Date(), 2), "Ha explotado una tuberia", "Calle Paris", "en cola", Boolean.FALSE);
         h2.setUrgencia("Planificable");
         List<Historico> h2list = new ArrayList<>();
         h2list.add(h2);

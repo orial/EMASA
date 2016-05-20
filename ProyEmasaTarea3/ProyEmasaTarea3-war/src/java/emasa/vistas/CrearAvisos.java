@@ -260,7 +260,7 @@ public class CrearAvisos implements Serializable {
         historico.setDescripcion(descripcion);
         historico.setDireccion(direccion);
         historico.setDocAdjunto(adjunto);
-        historico.setDuplicado(0);
+        historico.setDuplicado(false);
         historico.setEstado("Abierto");
         
         //historico pk

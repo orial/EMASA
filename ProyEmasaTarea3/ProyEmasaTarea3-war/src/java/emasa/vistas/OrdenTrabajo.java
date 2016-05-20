@@ -159,7 +159,7 @@ public class OrdenTrabajo implements Serializable {
     public String crearOT() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, Num_Brigada, aviso.getHistoricoReciente().getEstado());
+            ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, brigada, aviso.getHistoricoReciente().getEstado());
             
         } catch (ParseException ex) {
             Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);

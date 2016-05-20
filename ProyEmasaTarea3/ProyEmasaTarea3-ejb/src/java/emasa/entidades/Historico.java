@@ -37,7 +37,7 @@ public class Historico implements Serializable {
     
     @Basic(optional = false)
     @Column(name = "DUPLICADO")
-    private Integer duplicado;
+    private Boolean duplicado;
     
     @Column(name = "FECHA_CIERRE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -62,12 +62,16 @@ public class Historico implements Serializable {
     private String docAdjunto;
     
     @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO", insertable = false, updatable = false)
-    @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY)
+     @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY) //cambiado
     private Aviso aviso;
     
     @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
-    @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY)
+    @ManyToOne(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY) //cambiado
     private Empleado idEmpleado;
+    
+    @JoinColumn(name = "SUPERVISOR", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Empleado idSupervisor;
     
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "historico")
     private Visitas visitas;
@@ -82,7 +86,7 @@ public class Historico implements Serializable {
         this.historicoPK = historicoPK;
     }
 
-    public Historico(HistoricoPK historicoPK, String descripcion, String direccion, String estado, Integer duplicado) {
+    public Historico(HistoricoPK historicoPK, String descripcion, String direccion, String estado, Boolean duplicado) {
         this.historicoPK = historicoPK;
         this.descripcion = descripcion;
         this.direccion = direccion;
@@ -126,11 +130,11 @@ public class Historico implements Serializable {
         this.estado = estado;
     }
 
-    public Integer getDuplicado() {
+    public Boolean getDuplicado() {
         return duplicado;
     }
 
-    public void setDuplicado(Integer duplicado) {
+    public void setDuplicado(Boolean duplicado) {
         this.duplicado = duplicado;
     }
 
@@ -222,6 +226,15 @@ public class Historico implements Serializable {
         this.ordenesTrabajo = ordTrabajoCollection;
     }
 
+    public Empleado getIdSupervisor() {
+        return idSupervisor;
+    }
+
+    public void setIdSupervisor(Empleado idSupervisor) {
+        this.idSupervisor = idSupervisor;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

@@ -7,6 +7,7 @@ package emasa.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.*;
 import javax.persistence.Column;
 
@@ -22,11 +23,16 @@ public class Visitas implements Serializable {
     
     @Id
     @Basic(optional = false)
+    @Column(name = "ID_VISITA")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idVisita;
+    
+    @Basic(optional = false)
     @Column(name = "FECHA_VISITA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaVisita;
     
-    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO")
+    @JoinColumn(name = "ID_EMPLEADO", referencedColumnName = "ID_EMPLEADO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Empleado idEmpleado;
     
@@ -45,20 +51,9 @@ public class Visitas implements Serializable {
         this.fechaVisita = fechaVisita;
     }
 
-    public Date getFechaVisita() {
-        return fechaVisita;
-    }
-
-    public void setFechaVisita(Date fechaVisita) {
+    public Visitas(Date fechaVisita, Empleado empleado) {
         this.fechaVisita = fechaVisita;
-    }
-
-    public Empleado getIdEmpleado() {
-        return idEmpleado;
-    }
-
-    public void setIdEmpleado(Empleado idEmpleado) {
-        this.idEmpleado = idEmpleado;
+        this.idEmpleado = empleado;
     }
 
     public Historico getHistorico() {
@@ -69,21 +64,62 @@ public class Visitas implements Serializable {
         this.historico = historico;
     }
 
+    public Integer getIdVisita() {
+        return idVisita;
+    }
+
+    public void setIdVisita(Integer idVisita) {
+        this.idVisita = idVisita;
+    }
+
+    public Date getFechaVisita() {
+        return fechaVisita;
+    }
+
+    public void setFechaVisita(Date fechaVisita) {
+        this.fechaVisita = fechaVisita;
+    }
+
+    public Empleado getEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.idEmpleado = empleado;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (fechaVisita != null ? fechaVisita.hashCode() : 0);
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.idVisita);
+        hash = 17 * hash + Objects.hashCode(this.fechaVisita);
+        hash = 17 * hash + Objects.hashCode(this.idEmpleado);
+        hash = 17 * hash + Objects.hashCode(this.historico);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Visitas)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Visitas other = (Visitas) object;
-        if ((this.fechaVisita == null && other.fechaVisita != null) || (this.fechaVisita != null && !this.fechaVisita.equals(other.fechaVisita))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Visitas other = (Visitas) obj;
+        if (!Objects.equals(this.idVisita, other.idVisita)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaVisita, other.fechaVisita)) {
+            return false;
+        }
+        if (!Objects.equals(this.idEmpleado, other.idEmpleado)) {
+            return false;
+        }
+        if (!Objects.equals(this.historico, other.historico)) {
             return false;
         }
         return true;
@@ -91,6 +127,6 @@ public class Visitas implements Serializable {
 
     @Override
     public String toString() {
-        return "Visitas{" + "fechaVisita=" + fechaVisita + ", idEmpleado=" + idEmpleado + '}';
-    }  
+        return "Visitas{" + "idVisita=" + idVisita + ", fechaVisita=" + fechaVisita + ", empleado=" + idEmpleado + ", historico=" + historico + '}';
+    }
 }

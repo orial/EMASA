@@ -40,9 +40,9 @@ public class OrdTrabajo implements Serializable {
     @Column(name = "TRABAJO_A_REALIZAR")
     private String trabajoARealizar;
     
-    @Basic(optional = false)
-    @Column(name = "NUM_BRIGADA")
-    private Integer numBrigada;
+    @JoinColumn(name = "NUM_BRIGADA", referencedColumnName = "NUM_BRIGADA")
+    @ManyToOne
+    private Brigada numBrigada;
     
     @Basic(optional = false)
     @Column(name = "ESTADO")
@@ -69,7 +69,7 @@ public class OrdTrabajo implements Serializable {
         this.idOrden = idOrden;
     }
 
-    public OrdTrabajo(Integer idOrden, Date fechaCreacion, String trabajoARealizar, Integer numBrigada, String estado) {
+    public OrdTrabajo(Integer idOrden, Date fechaCreacion, String trabajoARealizar, Brigada numBrigada, String estado) {
         this.idOrden = idOrden;
         this.fechaCreacion = fechaCreacion;
         this.trabajoARealizar = trabajoARealizar;
@@ -101,11 +101,11 @@ public class OrdTrabajo implements Serializable {
         this.trabajoARealizar = trabajoARealizar;
     }
 
-    public Integer getNumBrigada() {
+    public Brigada getNumBrigada() {
         return numBrigada;
     }
 
-    public void setNumBrigada(Integer numBrigada) {
+    public void setNumBrigada(Brigada numBrigada) {
         this.numBrigada = numBrigada;
     }
 
