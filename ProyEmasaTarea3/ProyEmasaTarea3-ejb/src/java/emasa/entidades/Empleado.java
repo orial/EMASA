@@ -15,6 +15,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "EMPLEADO")
+@NamedQueries({
+    
+    @NamedQuery(name="lista.Supervisores",
+                query="SELECT l FROM Empleado l WHERE l.cargo='Supervisor' order by l.idEmpleado")
+        
+})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;

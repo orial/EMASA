@@ -7,12 +7,18 @@ package emasa.vistas;
 
 import emasa.entidades.Aviso;
 import emasa.entidades.Empleado;
+import emasa.negocio.EmpleadoNegocio;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 /**
  *
@@ -21,7 +27,74 @@ import javax.inject.Inject;
 @Named(value = "seleccionarSupervisor")
 @SessionScoped
 public class SeleccionarSupervisor implements Serializable {
+    private Empleado e = new Empleado();
+    private List<Empleado> supervisoresList;
+    private String idSup;
 
+    
+    @EJB
+    EmpleadoNegocio supervisorEJB;
+    
+    public List<Empleado> getSupervisoresList() {
+        return supervisoresList;
+    }
+    
+    public String getIdSup() {
+        return idSup;
+    }
+
+    public void setIdSup(String idSup) {
+        this.idSup = idSup;
+    }
+    
+    public void setSupervisoresList(List<Empleado> supervisoresList) {
+        this.supervisoresList = supervisoresList;
+    }
+    
+    public Empleado getE() {
+        return e;
+    }
+
+    public void setE(Empleado e) {
+        this.e = e;
+    }
+   
+    public String add(){
+        this.supervisorEJB.crearSupervisor(this.e);
+        supervisoresList.add(this.e);
+        this.e = new Empleado();
+        
+        return "reasignarAvisoClient.xhtml";
+    } 
+    public String createSupervisor(){
+        return "crearSupervisor.xhtml";
+    }
+   
+    
+    public List<Empleado> verSupervisores(){
+       return this.supervisorEJB.listaSupervisores();
+    }
+    
+    @PostConstruct
+    public void init(){
+        supervisoresList = verSupervisores();
+              
+    }
+    
+   
+    
+    
+    
+    
+    
+    //<----Hasta---
+
+    
+    
+    
+    
+    
+    
     public void setSupervisores(List<Empleado> supervisores) {
         this.supervisores = supervisores;
     }
@@ -72,19 +145,13 @@ public class SeleccionarSupervisor implements Serializable {
 
     }
 
-    @PostConstruct
-
-    public void init() {
-        //supervisores = service.getSupervisores();
-        //supervisor_anterior = opciones_aviso.getSupervisor();
-
-    }
+    
 
     public String cambiarAsignacion() {
         aviso = opciones_aviso.getAviso();
 
         //supervisor = service.getSupervisores().get(id_num_supervisor);
-        opciones_aviso.getHistoricoReciente().getHistoricoPK().setSupervisor(idSupervisor);
+        opciones_aviso.getHistoricoReciente().getHistoricoPK().setSupervisor(Integer.parseInt(idSup));
 
         //aviso.getIdEmpleado().setIdEmpleado(supervisor.getIdEmpleado());
         //aviso.getIdEmpleado().setNombre(supervisor.getNombre());
