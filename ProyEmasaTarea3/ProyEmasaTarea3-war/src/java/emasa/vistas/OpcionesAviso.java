@@ -190,10 +190,7 @@ public class OpcionesAviso implements Serializable {
 
     private String his_descripcion;
 
-    public String B_avisoAsignado() {
-
-        return "prueba.xhtml";
-    }
+  
 
     public Historico getHistoricoReciente() {
         Historico reciente;

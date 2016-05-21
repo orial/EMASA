@@ -12,8 +12,10 @@
 
     <ui:define name="aviso">
         <h:form id="form">
-            <h:commandButton value="Crear Orden de Trabajo" action="#{ordenTrabajo.crearOT()}"/>                
-            <h:commandButton value="Cancelar" action="#{boton.opcionesAvisos()}"/>
+            <h:commandButton value="Crear Orden de Trabajo" action="#{ordenTrabajo.crearOT()}"/>                   
+            <h:commandButton value="Cancelar" action="#{ordenTrabajo.volver}"/> <!-- cambiar a la lista de OT.xhtml -->
+            
+           
             <p:commandButton value="Print" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
                 <p:printer target="ot" />
             </p:commandButton>
@@ -36,11 +38,14 @@
             <f:selectItem itemLabel="Selecciona una brigada a asignar" itemValue="" />
             <f:selectItems value="#{ordenTrabajo.brigadasList}" />
         </p:selectOneMenu>
+                <p:outputLabel value="Brigada" />
+                <p:outputLabel value="#{ordenTrabajo.brigadaSelect}"/>
                 
                 <p:outputLabel value="Estado" />
-                <p:outputLabel value="#{opcionesAviso.historicoReciente.estado}"/>
-                <p:outputLabel for="inline" value="Fecha prevista finalización:" />
-                <p:calendar id="inline" value="#{calendarioVista.date1}" showOn="button" />                                  
+                <p:outputLabel value="#{ordenTrabajo.estado}"/>
+                   
+                
+                
             </p:panelGrid>     
         </h:form>
     </ui:define>

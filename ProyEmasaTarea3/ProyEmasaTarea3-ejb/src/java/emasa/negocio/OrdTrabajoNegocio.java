@@ -29,11 +29,12 @@ public class OrdTrabajoNegocio {
    {
         em.persist(t);
    }
+   public void actualizarOrden(OrdTrabajo t)
+   {
+        em.merge(t);
+   }
 
-    public void persist(Object object) {
-        em.persist(object);
-    }
-
+    
     
     
 }

@@ -27,7 +27,7 @@ public class Boton implements Serializable {
 
     public String ot() {
 
-        return "ordenTrabajoClient.xhtml";
+        return "bandejaOrdenTrabajo.xhtml";
     }
 
     public String asignarVisita() {
