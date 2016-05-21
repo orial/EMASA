@@ -268,6 +268,8 @@ public class OrdenTrabajo implements Serializable {
    
         ordTrabajoNegocio.anadirOrden(ord);
         
+        aviso.getHistoricoReciente().getOrdTrabajoCollection().add(ord);
+        
 
         return "ordenTrabajo.xhtml";
 
