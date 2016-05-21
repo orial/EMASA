@@ -6,6 +6,7 @@
 package emasa.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
@@ -77,7 +78,7 @@ public class Historico implements Serializable {
     private Visitas visitas;
     
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "historico") //cambiado
-    private Collection<OrdTrabajo> ordenesTrabajo;
+    private Collection<OrdTrabajo> ordenesTrabajo = new ArrayList<>(); //cambiado
 
     public Historico() {
     }

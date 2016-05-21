@@ -54,7 +54,11 @@ public class Boton implements Serializable {
     {
         return "bandejaAvisosClient.xhtml";
     }
-
+    
+    public String crearOT()
+    {
+        return "crearOrdenTrabajoClient.xhtml";
+    }
   
     
 }
