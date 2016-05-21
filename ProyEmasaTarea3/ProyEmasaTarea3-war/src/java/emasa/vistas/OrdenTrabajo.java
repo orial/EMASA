@@ -39,6 +39,27 @@ public class OrdenTrabajo implements Serializable {
     private OpcionesAviso aviso;
     @EJB OrdTrabajoNegocio ordTrabajoNegocio;
     @EJB BrigadaNegocio brigadaNegocio;
+    private Integer brigadaSelect;
+
+    private List<Integer> brigadasList;
+
+    public List<Integer> getBrigadasList() {
+        return brigadasList;
+    }
+
+    public void setBrigadasList(List<Integer> brigadasList) {
+        this.brigadasList = brigadasList;
+    }
+    
+    
+    
+    public Integer getBrigadaSelect() {
+        return brigadaSelect;
+    }
+
+    public void setBrigadaSelect(Integer brigadaSelect) {
+        this.brigadaSelect = brigadaSelect;
+    }
 
     public CalendarioVista getCalendario() {
         return calendario;
@@ -154,11 +175,22 @@ public class OrdenTrabajo implements Serializable {
         
         brigadas=brigadaNegocio.buscarBrigadas();
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
+        
+        for (int i=0;i<brigadas.size();i++)
+        {
+            brigadasList.add(brigadas.get(i).getNumBrigada());
+        }
+        
+        
+        
+        
+        
     }
 
     public String crearOT() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
+            brigada=brigadaNegocio.buscarBrigada(brigadaSelect);
             ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, brigada, aviso.getHistoricoReciente().getEstado());
             
         } catch (ParseException ex) {

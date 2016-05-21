@@ -32,10 +32,10 @@
                 <p:outputLabel value="Num_brigada" />
                 <p:inputText value="#{ordenTrabajo.num_Brigada}"/>
                 
-                <p:outputLabel for="car" value="Brigadas " />
-                <p:selectOneMenu id="car" value="#{ordenTrabajo.brigada}">
+                <p:outputLabel for="brigadaList" value="Brigadas " />
+                <p:selectOneMenu id="brigadaList" value="#{ordenTrabajo.brigadaSelect}">
             <f:selectItem itemLabel="Selecciona una brigada a asignar" itemValue="" />
-            <f:selectItems value="#{ordenTrabajo.brigadas}" />
+            <f:selectItems value="#{ordenTrabajo.brigadasList}" />
         </p:selectOneMenu>
                 
                 <p:outputLabel value="Estado" />

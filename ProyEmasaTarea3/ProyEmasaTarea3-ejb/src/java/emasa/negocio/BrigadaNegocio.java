@@ -39,4 +39,9 @@ public class BrigadaNegocio {
     public void persist(Object object) {
         em.persist(object);
     }
+    public Brigada buscarBrigada(Integer idBrigada) {
+       
+        Brigada brigada=em.find(Brigada.class, idBrigada);
+        return brigada;
+    }
 }

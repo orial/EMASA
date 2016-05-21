@@ -5,6 +5,7 @@
  */
 package emasa.negocio;
 
+import emasa.entidades.Brigada;
 import emasa.entidades.OrdTrabajo;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
@@ -32,5 +33,7 @@ public class OrdTrabajoNegocio {
     public void persist(Object object) {
         em.persist(object);
     }
+
+    
     
 }
