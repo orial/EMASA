@@ -17,53 +17,46 @@
                 <h:form>
                    
                     <h1><h:outputText value="Lista de Supervisores"/></h1>
-                    <h:dataTable value="#{seleccionarSupervisor.supervisoresList}" var="item" border="1" cellpadding="2" cellspacing="2">
-                        
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="IdEmpleado"/>
-                            </f:facet>
+                    <p:dataTable value="#{seleccionarSupervisor.supervisoresList}" var="item" >
+                       <!-- <p:ajax event="rowSelect" oncomplete="location.href='avisoClient.xhtml';" listener="#{controlAvisos.onRowSelect}" update=":form:msgs" />
+                        <p:ajax event="rowUnselect" listener="#{controlAvisos.onRowUnselect}" update=":form:msgs" /> -->
+                        <p:column headerText="Id">
+                            
                             <h:outputText value="#{item.idEmpleado}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nombre"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            
                             <h:outputText value="#{item.nombre}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Apellidos"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="Apellidos">
+                            
                             <h:outputText value="#{item.apellidos}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Dni"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="Dni">
+                            
                             <h:outputText value="#{item.dni}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Turno"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="Turno">
+                            
                             <h:outputText value="#{item.turno}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Especialidad"/>
-                            </f:facet>
+                        <p:column headerText="Especialidad">
+                            
                             <h:outputText value="#{item.especialidad}"/>
-                        </h:column>
-                    </h:dataTable>
-                    <h:outputLabel value="Id del Supervisor" ></h:outputLabel>
+                        </p:column>
+                    </p:dataTable>
+                    <p:outputLabel value="Id del Supervisor: " ></p:outputLabel>
             <h:inputText value="#{seleccionarSupervisor.idSup}" ></h:inputText>        
-            <h:commandButton value="Cambiar Asignación"   id="Cambiar_asig"  action="#{seleccionarSupervisor.cambiarAsignacion()}" />
+            <p:commandButton value="Cambiar Asignación"   id="Cambiar_asig"  action="#{seleccionarSupervisor.cambiarAsignacion()}" />
             <br/>
-            <h:commandButton value="Cancelar"  id="cancelar" action="#{seleccionarSupervisor.b_cancelar()}"  />
-            <h:commandButton value="añadir" action="#{seleccionarSupervisor.createSupervisor()}"/>
+            <p:commandButton value="Cancelar"  id="cancelar" action="#{seleccionarSupervisor.b_cancelar()}"  />
+            <p:commandButton value="añadir" action="#{seleccionarSupervisor.createSupervisor()}"/>
            
+            
+          
+            
+            
                 </h:form>
             </f:view>
 

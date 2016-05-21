@@ -11,11 +11,13 @@ import emasa.entidades.Cliente;
 import emasa.entidades.Datos;
 import emasa.entidades.Historico;
 import emasa.entidades.HistoricoPK;
+import emasa.negocio.ClienteNegocio;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -54,6 +56,8 @@ public class CrearAvisos implements Serializable {
     private Datos datos;
     private List<Cliente> clients;
     private List<Aviso> avisos;
+    @EJB
+    private ClienteNegocio clientEJB;
 
     public String getUrgencia() {
         return urgencia;
@@ -214,29 +218,52 @@ public class CrearAvisos implements Serializable {
         
         
         
-        //creo el aviso y lo meto en una lista
-        //borro todos los campos
-        //llamo a crarAvisoNuevo de nuevo
+        //----Adri------incluir cliente en historial----->
+        //comprobar que si ponemos un set null, no pete
+        
+         //Datos del cliente
+        Cliente newClient=new Cliente();
+        newClient.setDni(dni);
+        newClient.setEMail(email);
+        newClient.setNombre(nombre);
+        
+       if(poliza != null){
+          int pol=Integer.parseInt(poliza);
+          newClient.setPoliza(pol);
+       }
+       else{
+           newClient.setPoliza(null);
+       }
+        
+       
+       if(telefono != null){
+           int tlf=Integer.parseInt(telefono);
+            newClient.setTelefono(tlf);
+       }else{
+           newClient.setTelefono(null);
+           
+       }
+       clientEJB.addClient(newClient);
+        
+       
+       
+        
+       //---hasta aqui Adri----   
         
         
         
-        //Datos del cliente
-        Cliente client=new Cliente();
-        client.setDni(dni);
-        client.setEMail(email);
-        client.setNombre(nombre);
         
-        int pol=Integer.parseInt(poliza);
-        client.setPoliza(pol);
-        //convierto el String telefono a int
-        int tlf=Integer.parseInt(telefono);
-        client.setTelefono(tlf);
         
-        clients.add(client);
+        
+        
+        
+        
+       
+      
         
         nuevoAviso=new Aviso();
         
-        nuevoAviso.setDni(client);
+        nuevoAviso.setDni(newClient);
         //aqui pongo el empleado
         nuevoAviso.setIdEmpleado(login.getUsr());
         //fecha

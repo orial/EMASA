@@ -5,8 +5,11 @@
  */
 package emasa.negocio;
 
+import emasa.entidades.Cliente;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -18,4 +21,11 @@ public class ClienteNegocio {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    
+    @PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
+    EntityManager em;
+    
+     public void addClient(Cliente c) {
+        em.persist(c);
+    }
 }

@@ -5,8 +5,11 @@
  */
 package emasa.negocio;
 
+import emasa.entidades.Historico;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,6 +18,13 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class HistoricoNegocio {
+
+    @PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
+    private EntityManager em;
+
+    public void persist(Historico h) {
+        em.persist(h);
+    }
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

@@ -7,8 +7,12 @@ package emasa.vistas;
 
 import emasa.entidades.Aviso;
 import emasa.entidades.Empleado;
+import emasa.entidades.Historico;
+import emasa.negocio.AvisoNegocio;
 import emasa.negocio.EmpleadoNegocio;
+import emasa.negocio.HistoricoNegocio;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -30,11 +34,23 @@ public class SeleccionarSupervisor implements Serializable {
     private Empleado e = new Empleado();
     private List<Empleado> supervisoresList;
     private String idSup;
+    private Integer idAviso;
+     @EJB
+    private EmpleadoNegocio supervisorEJB;
+     @EJB
+    private AvisoNegocio avisoEJB;
+      @EJB
+    private HistoricoNegocio historicoEJB;
+    
+ //----Adri desde aqui---
+    public Integer getIdAviso() {
+        return idAviso;
+    }
 
-    
-    @EJB
-    EmpleadoNegocio supervisorEJB;
-    
+    public void setIdAviso(Integer idAviso) {
+        this.idAviso = idAviso;
+    }
+
     public List<Empleado> getSupervisoresList() {
         return supervisoresList;
     }
@@ -61,10 +77,10 @@ public class SeleccionarSupervisor implements Serializable {
    
     public String add(){
         this.supervisorEJB.crearSupervisor(this.e);
-        supervisoresList.add(this.e);
+      
+       //supervisoresList.add(this.e);   //esto es para que salga inmediatamente el supervisor creado, borrar mas adelante
         this.e = new Empleado();
-        
-        return "reasignarAvisoClient.xhtml";
+        return "avisoClient.xhtml";
     } 
     public String createSupervisor(){
         return "crearSupervisor.xhtml";
@@ -148,16 +164,33 @@ public class SeleccionarSupervisor implements Serializable {
     
 
     public String cambiarAsignacion() {
+        if(idSup==null){
+            return "reasignarAvisoClient.xhtml";
+        }
+        int index=0;
+        
+        for(int i=0;i<verSupervisores().size();i++){
+            if(verSupervisores().get(i).getIdEmpleado()==Integer.parseInt(idSup)){
+                index=i;
+            }
+        }
+        Empleado empl = verSupervisores().get(index);
         aviso = opciones_aviso.getAviso();
-
-        //supervisor = service.getSupervisores().get(id_num_supervisor);
-        opciones_aviso.getHistoricoReciente().getHistoricoPK().setSupervisor(Integer.parseInt(idSup));
-
-        //aviso.getIdEmpleado().setIdEmpleado(supervisor.getIdEmpleado());
-        //aviso.getIdEmpleado().setNombre(supervisor.getNombre());
-        //aviso.getIdEmpleado().setApellidos(supervisor.getApellidos());
-        //supervisor_anterior.getAvisoCollection().remove(aviso);
-        //supervisor.getAvisoCollection().add(aviso);
+        aviso.setIdEmpleado(empl);
+        avisoEJB.actualizarAviso(aviso); //merge
+            
+        
+        
+        Historico hist = opciones_aviso.getHistoricoReciente();
+        hist.getHistoricoPK().setSupervisor(Integer.parseInt(idSup));
+        hist.getHistoricoPK().setFechaActualizacion(new Date());
+        historicoEJB.persist(hist);    // persist al historico
+        
+        
+        
+        
+        
+        
         return "bandejaAvisosClient.xhtml"; // tiene q ir a la de jose además tiene que hacer un remove a la lista de jose.
 
     }

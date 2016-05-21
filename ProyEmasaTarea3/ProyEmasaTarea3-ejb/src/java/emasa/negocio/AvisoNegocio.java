@@ -5,8 +5,12 @@
  */
 package emasa.negocio;
 
+
+import emasa.entidades.Aviso;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,7 +19,12 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class AvisoNegocio {
-
+@PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
+    EntityManager em;
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+public void actualizarAviso(Aviso a) {
+        em.merge(a);
+    }
 }
