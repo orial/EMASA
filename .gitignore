@@ -41,3 +41,5 @@ EMASA/web/WEB-INF/glassfish-resources.xml
 /ProyEmasaTarea3/build/
 /ProyEmasaTarea3/dist/
 *.xml
+*.xml
+*.xml

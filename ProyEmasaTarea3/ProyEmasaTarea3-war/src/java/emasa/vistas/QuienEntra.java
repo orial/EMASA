@@ -41,7 +41,15 @@ public class QuienEntra implements Serializable {
     }
     
     
-   
+   public String volver(){
+       //si es Sat
+       if(opmov==false){
+           return "crearAvisosClient.xhtml";
+       }
+       //si es OPmov
+       
+       return "bandejaVisitasClient.xhtml";
+   }
     public boolean isEntraComoCliente() {
         return entraComoCliente;
     }
@@ -53,10 +61,11 @@ public class QuienEntra implements Serializable {
     }
     public static void sat(){
         opmov=false;
-        entraComoCliente = false;      
+        entraComoCliente = false;  
+        
     }
     
-    public String OPmov(){
+    public static String OPmov(){
         opmov=true;
         entraComoCliente=false;
         return "crearAvisosClient.xhtml";

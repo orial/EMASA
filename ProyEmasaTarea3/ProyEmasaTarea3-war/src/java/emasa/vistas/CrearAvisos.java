@@ -204,8 +204,13 @@ public class CrearAvisos implements Serializable {
     public void setNuevoAviso(Aviso nuevoAviso) {
         this.nuevoAviso = nuevoAviso;
     }
-
     
+    public String volverOp(){
+        return "bandejaVisitasClient.xhtml";
+    }
+     public String volverSat(){
+        return "index.xhtml";
+    }
     
     public CrearAvisos() {
     }
