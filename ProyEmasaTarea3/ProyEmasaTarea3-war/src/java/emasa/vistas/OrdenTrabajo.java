@@ -150,14 +150,14 @@ public class OrdenTrabajo implements Serializable {
     private OrdTrabajo ord;
 
     public int getID_aviso() {
-        return ID_aviso;
+        return ID_Orden;
     }
 
     public void setID_aviso(int ID_aviso) {
-        this.ID_aviso = ID_aviso;
+        this.ID_Orden = ID_aviso;
     }
 
-    private int ID_aviso;
+    private int ID_Orden;
 
     /**
      * Creates a new instance of Orden_trabajo
@@ -170,17 +170,21 @@ public class OrdenTrabajo implements Serializable {
 
     public void init() {
         orden_trabajo = new ArrayList<>();
+        brigadasList= new ArrayList<>();
 
-        ID_aviso = (int) (Math.random() * 1000 + 1);
+        ID_Orden = (int) (Math.random() * 1000 + 1);
         
         brigadas=brigadaNegocio.buscarBrigadas();
+        
+        
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
         
-        for (int i=0;i<brigadas.size();i++)
-        {
-            brigadasList.add(brigadas.get(i).getNumBrigada());
-        }
-        
+      for (Brigada b: brigadas)
+      {
+          
+          brigadasList.add(b.getNumBrigada());
+          
+      }
         
         
         
@@ -191,7 +195,10 @@ public class OrdenTrabajo implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             brigada=brigadaNegocio.buscarBrigada(brigadaSelect);
-            ord = new OrdTrabajo(ID_aviso, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, brigada, aviso.getHistoricoReciente().getEstado());
+            
+            System.out.println(brigada);
+            
+            ord = new OrdTrabajo(ID_Orden, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, brigada, aviso.getHistoricoReciente().getEstado());
             
         } catch (ParseException ex) {
             Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
