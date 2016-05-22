@@ -13,18 +13,18 @@
     <ui:define name="aviso">
         <h:form id="form">
                          
-            <h:commandButton value="Cancelar" action="#{ordenTrabajo.volver}"/> 
-            <h:commandButton value="Modificar orden de trabajo" action="#{modificarOrdTrabajo.modificarActuacion()})"/>
-            <h:commandButton value="Cerrar orden de trabajo" action="#{modificarOrdTrabajo.cerrarOT()})"/>  
+            <h:commandButton value="Cancelar" action="#{ordenTrabajo.volver()}"/> 
+            <h:commandButton value="Modificar orden de trabajo" action="#{modificarOrdTrabajo.modificarActuacion()}"/>
+            <h:commandButton value="Cerrar orden de trabajo" action="#{modificarOrdTrabajo.cerrarOT()}"/>  
             <p:commandButton value="Print" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
                 <p:printer target="ot" />
             </p:commandButton>
             <p:growl id="msgs" showDetail="true" />
             <p:panelGrid id="ot" columns="4">
                 <p:outputLabel value="Id_Orden: " />
-                <p:outputLabel value="#{modificarOrdTrabajo.ord.ordSelected.idOrden}" />
+                <p:outputLabel value="#{modificarOrdTrabajo.idOrd}" />
                 <p:outputLabel value="Id Aviso: " />  
-                <p:outputLabel value="#{modificarOrdTrabajo.ord.ordSelected.historico.historicoPK.idAviso}" />
+                <p:outputLabel value="#{modificarOrdTrabajo.idAviso}" />
                 <p:outputLabel value="Supervisor: " />  
                 <p:outputLabel value="#{modificarOrdTrabajo.ord.ordSelected.historico.historicoPK.supervisor}" />
                 <p:outputLabel value="fecha_creacion" />

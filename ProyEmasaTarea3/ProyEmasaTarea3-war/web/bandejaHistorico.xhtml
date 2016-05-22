@@ -15,7 +15,10 @@
         
                 <h:form id="form">
                     <p:growl id="msgs" showDetail="true" />
-                    <p:dataTable id="eventsDT" var="Historico" value="#{controlHistoricos.historicos}" resizableColumns="true" selectionMode="single" selection="#{controlHistoricos.historicoSelected}" rowKey="Historico">
+                    <p:dataTable id="eventsDT" var="Historico" value="#{controlHistoricos.historicos}" resizableColumns="true" selectionMode="single" selection="#{controlHistoricos.historicoSelected}" rowKey="#{Historico}">
+                        
+                        <p:ajax event="rowSelect" oncomplete="location.href='HistDetalles.xhtml';" listener="#{controlHistoricos.onRowSelect}" update=":form:msgs" />
+                        <p:ajax event="rowUnselect" listener="#{controlHistoricos.onRowUnselect}" update=":form:msgs" />
                         
                         <p:column headerText="Fechar Inicio" >
                             <h:outputText value="#{Historico.historicoPK.fechaActualizacion}" />

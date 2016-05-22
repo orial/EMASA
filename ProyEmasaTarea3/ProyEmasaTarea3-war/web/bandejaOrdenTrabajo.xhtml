@@ -31,8 +31,8 @@
                                 <p:column headerText="ID Orden trabajo" sortBy="#{listOrd.idOrden}">
                                     <h:outputText value="#{listOrd.idOrden}" />
                                 </p:column>
-                                <p:column headerText="ID Orden Aviso" sortBy="#{listOrd.historico.historicoPK.idAviso}">
-                                    <h:outputText value="#{listOrd.historico.historicoPK.idAviso}" />
+                                <p:column headerText="ID Orden Aviso" sortBy="#{controlOrdenTrabajo.idAviso}">
+                                    <h:outputText value="#{controlOrdenTrabajo.idAviso}" />
                                 </p:column>
 
                                 <p:column headerText="Estado" sortBy="#{listOrd.estado}">

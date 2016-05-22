@@ -11,6 +11,7 @@ import emasa.negocio.BrigadaNegocio;
 import emasa.negocio.OrdTrabajoNegocio;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -28,6 +29,7 @@ public class ModificarOrdTrabajo implements Serializable {
 
     @Inject
     private ControlOrdenTrabajo ord;
+    
 
     @EJB
     OrdTrabajoNegocio ordTrabajoNegocio;
@@ -36,6 +38,24 @@ public class ModificarOrdTrabajo implements Serializable {
     private String estado = "";
     private String actuacionesRealizadas = "";
     private String actuacionesObservaciones = "";
+    private Integer idAviso;
+     private Integer idOrd;
+
+    public Integer getIdAviso() {
+        return idAviso;
+    }
+
+    public void setIdAviso(Integer idAviso) {
+        this.idAviso = idAviso;
+    }
+
+    public Integer getIdOrd() {
+        return idOrd;
+    }
+
+    public void setIdOrd(Integer idOrd) {
+        this.idOrd = idOrd;
+    }
 
     public ControlOrdenTrabajo getOrd() {
         return ord;
@@ -105,7 +125,22 @@ public class ModificarOrdTrabajo implements Serializable {
     @PostConstruct
 
     public void init() {
-
+        
+        idAviso = ord.getIdAviso();
+        
+       
+           
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
         if (estado.equals("")) {
             estado = "---------";
