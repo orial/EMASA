@@ -27,8 +27,10 @@ import org.primefaces.event.UnselectEvent;
 @Named(value = "controlAsignacion")
 @SessionScoped
 public class ControlAsignacion implements Serializable {
-
-    private Aviso aviso;
+    
+    
+    @Inject
+    private OpcionesAviso aviso;
     private  Empleado empleado;
     private Empleado SupervisorSelected;
     @Inject
@@ -61,6 +63,7 @@ public class ControlAsignacion implements Serializable {
     public void onRowSelect(SelectEvent event) {
         FacesMessage msg = new FacesMessage("Supervisor Seleccionado", ((Empleado) event.getObject()).getNombre());
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        aviso.getHistoricoReciente().setIdEmpleado(SupervisorSelected);
     }
  
     public void onRowUnselect(UnselectEvent event) {

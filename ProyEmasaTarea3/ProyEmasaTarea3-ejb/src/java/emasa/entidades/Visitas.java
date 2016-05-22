@@ -15,6 +15,11 @@ import javax.persistence.Column;
  *
  * @author Lupi
  */
+@NamedQueries({
+    
+    @NamedQuery(name="visitas.buscartodas",
+                query="SELECT c FROM Visitas c"),
+}) 
 @Entity
 @Table(name = "VISITAS")
 public class Visitas implements Serializable {
