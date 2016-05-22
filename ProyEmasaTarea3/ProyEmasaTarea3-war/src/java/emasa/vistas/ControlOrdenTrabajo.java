@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import javax.faces.application.FacesMessage;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -29,13 +29,16 @@ import org.primefaces.event.UnselectEvent;
  * @author malex
  */
 @Named(value = "controlOrdenTrabajo")
-@RequestScoped
+@SessionScoped
 public class ControlOrdenTrabajo implements Serializable{
 
-    /**
-     * Creates a new instance of ControlOrdenTrabajo
-     */
     
+
+    
+    private Integer idAviso;
+    private Integer sup;
+
+   
     
     private List<OrdTrabajo> listOrd;
     private OrdTrabajo ordSelected;
@@ -47,11 +50,42 @@ public class ControlOrdenTrabajo implements Serializable{
         return ordSelected;
     }
 
+     public Integer getSup() {
+        return sup;
+    }
+
+    public void setSup(Integer sup) {
+        this.sup = sup;
+    }
+    
     public void setOrdSelected(OrdTrabajo ordSelected) {
         this.ordSelected = ordSelected;
     }
 
-  
+  public Integer getIdAviso() {
+        return idAviso;
+    }
+
+    public void setIdAviso(Integer idAviso) {
+        this.idAviso = idAviso;
+    }
+
+    public OrdTrabajo getOrdHelper() {
+        return ordHelper;
+    }
+
+    public void setOrdHelper(OrdTrabajo ordHelper) {
+        this.ordHelper = ordHelper;
+    }
+
+    public OpcionesAviso getAviso() {
+        return aviso;
+    }
+
+   
+    public void setAviso(OpcionesAviso aviso) {
+        this.aviso = aviso;
+    }
     public ControlOrdenTrabajo() {
     }
     
@@ -66,30 +100,49 @@ public class ControlOrdenTrabajo implements Serializable{
     }
     
     public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Orden de trabajo Seleccionada", String.valueOf(((Aviso) event.getObject()).getIdAviso()));  
+        FacesMessage msg = new FacesMessage("Orden de trabajo Seleccionada", String.valueOf(((OrdTrabajo) event.getObject()).getIdOrden())); 
+        
+        
     }
  
     public void onRowUnselect(UnselectEvent event) {
-        FacesMessage msg = new FacesMessage("Orden de trabajo Seleccionada", String.valueOf(((Aviso) event.getObject()).getIdAviso()));
+        FacesMessage msg = new FacesMessage("Orden de trabajo no Seleccionada", String.valueOf(((OrdTrabajo) event.getObject()).getIdOrden()));
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
+    
+   
     
     @PostConstruct
     
     public void init()
     {
-        listOrd=new ArrayList<>();
+        List<OrdTrabajo> listOrden=new ArrayList<OrdTrabajo>();
+        listOrd= new ArrayList<>();
         ordHelper = new OrdTrabajo();
-        ordHelper.setEstado("Abierta");
+        ordHelper.setEstado("abierto");
         Date sys =new Date();
         ordHelper.setFechaCreacion(sys);
         ordHelper.setIdOrden(1);
         ordHelper.setNumBrigada(new Brigada(2));
         aviso.getHistoricoReciente().getOrdTrabajoCollection().add(ordHelper);
         
-        listOrd=(List<OrdTrabajo>) aviso.getHistoricoReciente().getOrdTrabajoCollection();
+        listOrden=(List<OrdTrabajo>) aviso.getHistoricoReciente().getOrdTrabajoCollection();
+        
+        for (OrdTrabajo t:  listOrden)
+        {
+            if (t.getEstado().equals("abierto"))
+            {
+                listOrd.add(t);
+            }
+        }
+        
+        idAviso=aviso.getAviso().getIdAviso();
+        sup=aviso.getSupervisor();
+        
         
     }
+    
+   
     
     
 }

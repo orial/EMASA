@@ -6,6 +6,7 @@
 package emasa.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
@@ -53,7 +54,7 @@ public class OrdTrabajo implements Serializable {
     private Date fechaFinalizacion;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordTrabajo")
-    private Collection<Actuaciones> actuaciones;
+    private Collection<Actuaciones> actuaciones = new ArrayList<>(); ;
     
     @JoinColumns({
         @JoinColumn(name = "ID_AVISO", referencedColumnName = "ID_AVISO"),

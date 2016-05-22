@@ -6,7 +6,9 @@
 package emasa.vistas;
 
 import emasa.entidades.Actuaciones;
+import emasa.entidades.ActuacionesPK;
 import emasa.entidades.Brigada;
+import emasa.negocio.ActuacionesNegocio;
 import emasa.negocio.BrigadaNegocio;
 import emasa.negocio.OrdTrabajoNegocio;
 import java.io.Serializable;
@@ -31,11 +33,30 @@ public class ModificarOrdTrabajo implements Serializable {
 
     @EJB
     OrdTrabajoNegocio ordTrabajoNegocio;
+    @EJB 
+    ActuacionesNegocio actuacionesNegocio;
     @EJB
     BrigadaNegocio brigadaNegocio;
-    private String estado = "";
     private String actuacionesRealizadas = "";
     private String actuacionesObservaciones = "";
+    private Integer idAviso;
+    private Integer supervisor;
+
+    public Integer getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(Integer supervisor) {
+        this.supervisor = supervisor;
+    }
+
+    public Integer getIdAviso() {
+        return idAviso;
+    }
+
+    public void setIdAviso(Integer idAviso) {
+        this.idAviso = idAviso;
+    }
 
     public ControlOrdenTrabajo getOrd() {
         return ord;
@@ -61,14 +82,7 @@ public class ModificarOrdTrabajo implements Serializable {
         this.actuacionesRealizadas = actuacionesRealizadas;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+   
     public String getTrabajo_realizar() {
         return trabajo_realizar;
     }
@@ -106,13 +120,19 @@ public class ModificarOrdTrabajo implements Serializable {
 
     public void init() {
 
+       idAviso=ord.getIdAviso();
+       supervisor=ord.getSup();
+        
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
-        if (estado.equals("")) {
-            estado = "---------";
+        if (ord.getOrdSelected().getEstado().equals("")) {
+            ord.getOrdSelected().setEstado("---------");
         }
 
         if (actuacionesRealizadas.equals("")) {
             actuacionesRealizadas = "Vacio";
+        }
+        if (actuacionesObservaciones.equals("")) {
+            actuacionesObservaciones = "Vacio";
         }
 
     }
@@ -124,14 +144,20 @@ public class ModificarOrdTrabajo implements Serializable {
 
         actuacion.setOperRealizadas(actuacionesRealizadas);
         actuacion.setObservaciones(actuacionesObservaciones);
+        
+        actuacion.setActuacionesPK(new ActuacionesPK(new Date(),ord.getOrdSelected().getIdOrden()));
+        
+        
 
-        actuacion.getActuacionesPK().setFechaActuacion(new Date());
+        
 
         ord.getOrdSelected().getActuacionesCollection().add(actuacion);
 
         ordTrabajoNegocio.actualizarOrden(ord.getOrdSelected());
+        
+       // actuacionesNegocio.persist(actuacion);
 
-        return "ordenTrabajoClient.xhtml";
+        return "modificarOrdenTrabajoClient.xhtml";
 
     }
 
@@ -141,7 +167,7 @@ public class ModificarOrdTrabajo implements Serializable {
 
     public String cerrarOT() {
 
-        if (estado.equals("abierto")) {
+        if (ord.getOrdSelected().getEstado().equals("abierto")) {
             ord.getOrdSelected().setEstado("cerrado");
 
             ordTrabajoNegocio.actualizarOrden(ord.getOrdSelected());
@@ -150,6 +176,10 @@ public class ModificarOrdTrabajo implements Serializable {
 
         return null;
 
+    }
+    public String listaActuaciones()
+    {
+        return "historicoOTClient.xhtml";
     }
 
 }

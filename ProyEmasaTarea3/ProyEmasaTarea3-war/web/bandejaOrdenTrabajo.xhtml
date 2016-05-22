@@ -10,6 +10,8 @@
     <ui:define name="empleado">
         <h:form>
             <p:commandLink value="Crear orden de trabajo"  action="#{boton.crearOT()}" />  
+            <p:commandLink value="Volver"  action="#{boton.opcionesAvisos()}" />  
+            
         
         </h:form>
     </ui:define>
@@ -31,8 +33,8 @@
                                 <p:column headerText="ID Orden trabajo" sortBy="#{listOrd.idOrden}">
                                     <h:outputText value="#{listOrd.idOrden}" />
                                 </p:column>
-                                <p:column headerText="ID Orden Aviso" sortBy="#{listOrd.historico.historicoPK.idAviso}">
-                                    <h:outputText value="#{listOrd.historico.historicoPK.idAviso}" />
+                                <p:column headerText="ID Orden Aviso" sortBy="#{controlOrdenTrabajo.idAviso}">
+                                    <h:outputText value="#{controlOrdenTrabajo.idAviso}" />
                                 </p:column>
 
                                 <p:column headerText="Estado" sortBy="#{listOrd.estado}">
@@ -40,7 +42,7 @@
                                 </p:column>
                                 
                                  <p:column headerText="Brigada asignada" >
-                                    <h:outputText value="#{listOrd.numBrigada}"  />
+                                     <h:outputText value="#{listOrd.numBrigada.numBrigada}"  />
                                 </p:column>
                                 
                                 <p:column headerText="Fecha creacion" >

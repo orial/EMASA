@@ -6,12 +6,11 @@
 package emasa.vistas;
 
 import emasa.entidades.Actuaciones;
-import emasa.entidades.Historico;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
@@ -19,8 +18,8 @@ import javax.inject.Inject;
  * @author malex
  */
 @Named(value = "controlActuaciones")
-@Dependent
-public class ControlActuaciones {
+@SessionScoped
+public class ControlActuaciones implements Serializable {
 
     /**
      * Creates a new instance of ControlActuaciones
@@ -28,7 +27,15 @@ public class ControlActuaciones {
    
     private Actuaciones actuacionSelected; 
     @Inject 
-    private OrdenTrabajo  ordenTrabajo;
+    private ModificarOrdTrabajo ordenTrabajo;
+
+    public ModificarOrdTrabajo getOrdenTrabajo() {
+        return ordenTrabajo;
+    }
+
+    public void setOrdenTrabajo(ModificarOrdTrabajo ordenTrabajo) {
+        this.ordenTrabajo = ordenTrabajo;
+    }
     
      public Actuaciones getActuacionSelected() {
         return actuacionSelected;
@@ -39,13 +46,7 @@ public class ControlActuaciones {
     }
     
 
-    public OrdenTrabajo getOrdenTrabajo() {
-        return ordenTrabajo;
-    }
-
-    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
-        this.ordenTrabajo = ordenTrabajo;
-    }
+   
     
     public ControlActuaciones() {
     }
@@ -53,7 +54,9 @@ public class ControlActuaciones {
     public List<Actuaciones> getActuaciones(){
         List<Actuaciones> res=new ArrayList<>();
         
-        res=(List<Actuaciones>)ordenTrabajo.getOrd().getActuacionesCollection();
+        
+        
+        res=(List<Actuaciones>)ordenTrabajo.getOrd().getOrdSelected().getActuacionesCollection();
         
         
         return res;
@@ -61,5 +64,10 @@ public class ControlActuaciones {
         
        
         
+    }
+    
+    public String volver()
+    {
+        return "modificarOrdenTrabajoClient.xhtml";
     }
 }
