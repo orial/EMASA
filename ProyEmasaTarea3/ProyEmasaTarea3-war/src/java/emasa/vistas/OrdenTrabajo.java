@@ -5,10 +5,7 @@
  */
 package emasa.vistas;
 
-import emasa.entidades.Actuaciones;
 import emasa.entidades.Brigada;
-import emasa.entidades.Empleado;
-import emasa.entidades.Historico;
 import emasa.entidades.OrdTrabajo;
 import emasa.negocio.BrigadaNegocio;
 import emasa.negocio.OrdTrabajoNegocio;
@@ -16,7 +13,6 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,35 +29,21 @@ import javax.inject.Inject;
 @Named(value = "ordenTrabajo")
 @SessionScoped
 
-
 public class OrdenTrabajo implements Serializable {
 
     @Inject
     private CalendarioVista calendario;
     @Inject
     private OpcionesAviso aviso;
-    @EJB OrdTrabajoNegocio ordTrabajoNegocio;
-    @EJB BrigadaNegocio brigadaNegocio;
+    @EJB
+    OrdTrabajoNegocio ordTrabajoNegocio;
+    @EJB
+    BrigadaNegocio brigadaNegocio;
     private Integer brigadaSelect;
-    private String estado="";
-    private String actuacionesRealizadas="";
-    private String actuacionesObservaciones="";
-
-    public String getActuacionesObservaciones() {
-        return actuacionesObservaciones;
-    }
-
-    public void setActuacionesObservaciones(String actuacionesObservaciones) {
-        this.actuacionesObservaciones = actuacionesObservaciones;
-    }
-
-    public String getActuacionesRealizadas() {
-        return actuacionesRealizadas;
-    }
-
-    public void setActuacionesRealizadas(String actuacionesRealizadas) {
-        this.actuacionesRealizadas = actuacionesRealizadas;
-    }
+    private String estado = "";
+    private String trabajo_realizar;
+    private List<Brigada> brigadas;
+    private Brigada brigada;
 
     public String getEstado() {
         return estado;
@@ -87,9 +69,7 @@ public class OrdenTrabajo implements Serializable {
     public void setBrigadasList(List<Integer> brigadasList) {
         this.brigadasList = brigadasList;
     }
-    
-    
-    
+
     public Integer getBrigadaSelect() {
         return brigadaSelect;
     }
@@ -121,19 +101,6 @@ public class OrdenTrabajo implements Serializable {
     public void setTrabajo_realizar(String trabajo_realizar) {
         this.trabajo_realizar = trabajo_realizar;
     }
-    private String trabajo_realizar;
-
-    public int getNum_Brigada() {
-        return Num_Brigada;
-    }
-
-    public void setNum_Brigada(int Num_Brigada) {
-        this.Num_Brigada = Num_Brigada;
-    }
-
-    private int Num_Brigada;
-    
-    private List<Brigada> brigadas;
 
     public BrigadaNegocio getBrigadaNegocio() {
         return brigadaNegocio;
@@ -150,7 +117,7 @@ public class OrdenTrabajo implements Serializable {
     public void setBrigada(Brigada brigada) {
         this.brigada = brigada;
     }
-    private Brigada brigada;
+
     public OrdTrabajoNegocio getOrdTrabajoNegocio() {
         return ordTrabajoNegocio;
     }
@@ -166,7 +133,7 @@ public class OrdenTrabajo implements Serializable {
     public void setBrigadas(List<Brigada> brigadas) {
         this.brigadas = brigadas;
     }
-    
+
     List<OrdTrabajo> orden_trabajo;
 
     public List<OrdTrabajo> getOrden_trabajo() {
@@ -202,8 +169,8 @@ public class OrdenTrabajo implements Serializable {
     public OrdenTrabajo() {
 
     }
-    public String volver()
-    {
+
+    public String volver() {
         return "bandejaOrdenTrabajo.xhtml";
     }
 
@@ -211,72 +178,48 @@ public class OrdenTrabajo implements Serializable {
 
     public void init() {
         orden_trabajo = new ArrayList<>();
-        brigadasList= new ArrayList<>();
+        brigadasList = new ArrayList<>();
 
         ID_Orden = (int) (Math.random() * 1000 + 1);
-        
-        brigadas=brigadaNegocio.buscarBrigadas();
-        
-        
+
+        brigadas = brigadaNegocio.buscarBrigadas();
+
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
-        
-      for (Brigada b: brigadas)
-      {
-          
-          brigadasList.add(b.getNumBrigada());
-          
-      }
-        
-      if (estado.equals(""))
-      {
-          estado="---------";
-      }
-      
-      if(actuacionesRealizadas.equals(""))
-      {
-          actuacionesRealizadas="Vacio";
-      }
-        
-        
-        
+        for (Brigada b : brigadas) {
+
+            brigadasList.add(b.getNumBrigada());
+
+        }
+
+        if (estado.equals("")) {
+            estado = "---------";
+        }
+
     }
 
     public String crearOT() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            brigada=brigadaNegocio.buscarBrigada(brigadaSelect);
-            
+            brigada = brigadaNegocio.buscarBrigada(brigadaSelect);
+
             System.out.println(brigada);
-            
+
             ord = new OrdTrabajo(ID_Orden, sdf.parse(calendario.getFecha_actual()), trabajo_realizar, brigada, aviso.getHistoricoReciente().getEstado());
-            
+
         } catch (ParseException ex) {
             Logger.getLogger(OrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-            
-      ord.setEstado("abierto");
-        
- 
-        
-        
-        
-        
+
+        ord.setEstado("abierto");
+
         ord.setHistorico(aviso.getHistoricoReciente());
-      
-   
+
         ordTrabajoNegocio.anadirOrden(ord);
-        
+
         aviso.getHistoricoReciente().getOrdTrabajoCollection().add(ord);
-        
 
         return "ordenTrabajo.xhtml";
 
     }
-    
- 
-    
-     
 
 }

@@ -25,7 +25,7 @@
                                 <f:facet name="header" >
                                     Ordenes de trabajo
                                 </f:facet>                     
-                                <p:ajax event="rowSelect" oncomplete="location.href='avisoClient.xhtml';" listener="#{controlOrdenTrabajo.onRowSelect}" update=":form:msgs" />
+                                <p:ajax event="rowSelect" oncomplete="location.href='modificarOrdenTrabajoClient.xhtml';" listener="#{controlOrdenTrabajo.onRowSelect}" update=":form:msgs" />
                                 <p:ajax event="rowUnselect" listener="#{controlOrdenTrabajo.onRowUnselect}" update=":form:msgs" />
 
                                 <p:column headerText="ID Orden trabajo" sortBy="#{listOrd.idOrden}">

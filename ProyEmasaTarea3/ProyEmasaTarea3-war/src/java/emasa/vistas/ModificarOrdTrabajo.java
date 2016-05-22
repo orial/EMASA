@@ -7,19 +7,10 @@ package emasa.vistas;
 
 import emasa.entidades.Actuaciones;
 import emasa.entidades.Brigada;
-import emasa.entidades.Empleado;
-import emasa.entidades.Historico;
-import emasa.entidades.OrdTrabajo;
 import emasa.negocio.BrigadaNegocio;
 import emasa.negocio.OrdTrabajoNegocio;
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -37,16 +28,14 @@ public class ModificarOrdTrabajo implements Serializable {
 
     @Inject
     private ControlOrdenTrabajo ord;
-    
+
     @EJB
     OrdTrabajoNegocio ordTrabajoNegocio;
     @EJB
     BrigadaNegocio brigadaNegocio;
-    private Integer brigadaSelect;
     private String estado = "";
     private String actuacionesRealizadas = "";
     private String actuacionesObservaciones = "";
-    private int Num_Brigada;
 
     public ControlOrdenTrabajo getOrd() {
         return ord;
@@ -80,22 +69,6 @@ public class ModificarOrdTrabajo implements Serializable {
         this.estado = estado;
     }
 
-    public int getID_Orden() {
-        return ID_Orden;
-    }
-
-    public void setID_Orden(int ID_Orden) {
-        this.ID_Orden = ID_Orden;
-    }
-
-    public Integer getBrigadaSelect() {
-        return brigadaSelect;
-    }
-
-    public void setBrigadaSelect(Integer brigadaSelect) {
-        this.brigadaSelect = brigadaSelect;
-    }
-
     public String getTrabajo_realizar() {
         return trabajo_realizar;
     }
@@ -105,14 +78,6 @@ public class ModificarOrdTrabajo implements Serializable {
     }
     private String trabajo_realizar;
 
-    public int getNum_Brigada() {
-        return Num_Brigada;
-    }
-
-    public void setNum_Brigada(int Num_Brigada) {
-        this.Num_Brigada = Num_Brigada;
-    }
-
     public BrigadaNegocio getBrigadaNegocio() {
         return brigadaNegocio;
     }
@@ -120,15 +85,6 @@ public class ModificarOrdTrabajo implements Serializable {
     public void setBrigadaNegocio(BrigadaNegocio brigadaNegocio) {
         this.brigadaNegocio = brigadaNegocio;
     }
-
-    public Brigada getBrigada() {
-        return brigada;
-    }
-
-    public void setBrigada(Brigada brigada) {
-        this.brigada = brigada;
-    }
-    private Brigada brigada;
 
     public OrdTrabajoNegocio getOrdTrabajoNegocio() {
         return ordTrabajoNegocio;
@@ -138,22 +94,7 @@ public class ModificarOrdTrabajo implements Serializable {
         this.ordTrabajoNegocio = ordTrabajoNegocio;
     }
 
-   
-
-    
-   
-
     // private OrdTrabajo ord;
-    public int getID_aviso() {
-        return ID_Orden;
-    }
-
-    public void setID_aviso(int ID_aviso) {
-        this.ID_Orden = ID_aviso;
-    }
-
-    private int ID_Orden;
-
     /**
      * Creates a new instance of Orden_trabajo
      */
@@ -164,11 +105,6 @@ public class ModificarOrdTrabajo implements Serializable {
     @PostConstruct
 
     public void init() {
-        
-
-        
-
-       
 
         //orden_trabajo.add(new OrdTrabajo((integer)*10+1));
         if (estado.equals("")) {
@@ -180,7 +116,6 @@ public class ModificarOrdTrabajo implements Serializable {
         }
 
     }
-    
 
     public String modificarActuacion() {
         //id_aviso,fecha_entrada,supervisor_asignado,descripcion,direccion,estado,duplicado,fechacierre,tipodeaviso,urgencia,ubicacion_gps,red_agua
