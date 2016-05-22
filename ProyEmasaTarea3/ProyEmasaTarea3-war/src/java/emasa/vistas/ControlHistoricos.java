@@ -7,11 +7,13 @@ package emasa.vistas;
 
 import emasa.entidades.Historico;
 import emasa.entidades.Visitas;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -20,13 +22,14 @@ import org.primefaces.event.UnselectEvent;
 
 /**
  *
- * @author Rocco
+ * @author Jose
  */
 @Named(value = "controlHistoricos")
-@Dependent
-public class ControlHistoricos {
+@SessionScoped
+public class ControlHistoricos implements Serializable {
 
     private Historico HistoricoSelected;
+    
     @Inject
     private OpcionesAviso aviso;
     @Inject
@@ -35,7 +38,8 @@ public class ControlHistoricos {
     public ControlHistoricos() {
     }
      public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Historico Seleccionado", String.valueOf(((Visitas) event.getObject()).getFechaVisita()));
+    
+        FacesMessage msg = new FacesMessage("Historico Seleccionado", String.valueOf(((Historico) event.getObject()).getDireccion()));
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
  
@@ -48,6 +52,7 @@ public class ControlHistoricos {
     }
 
     public void setHistoricoSelected(Historico HistoricoSelected) {
+        
         this.HistoricoSelected = HistoricoSelected;
     }
     public List<Historico> getHistoricos(){
