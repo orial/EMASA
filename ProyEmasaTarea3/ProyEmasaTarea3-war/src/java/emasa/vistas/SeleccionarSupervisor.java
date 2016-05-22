@@ -18,11 +18,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import org.primefaces.event.SelectEvent;
-import org.primefaces.event.UnselectEvent;
+
 
 /**
  *
@@ -167,31 +164,15 @@ public class SeleccionarSupervisor implements Serializable {
         if(idSup==null){
             return "reasignarAvisoClient.xhtml";
         }
-        int index=0;
+       
+        aviso = opciones_aviso.getAviso(); //cojo el aviso
         
-        for(int i=0;i<verSupervisores().size();i++){
-            if(verSupervisores().get(i).getIdEmpleado()==Integer.parseInt(idSup)){
-                index=i;
-            }
-        }
-        Empleado empl = verSupervisores().get(index);
-        aviso = opciones_aviso.getAviso();
-        aviso.setIdEmpleado(empl);
-        avisoEJB.actualizarAviso(aviso); //merge
-            
-        
-        
+        //actualizo el supervisor del aviso
         Historico hist = opciones_aviso.getHistoricoReciente();
         hist.getHistoricoPK().setSupervisor(Integer.parseInt(idSup));
         hist.getHistoricoPK().setFechaActualizacion(new Date());
         historicoEJB.persist(hist);    // persist al historico
-        
-        
-        
-        
-        
-        
-        return "bandejaAvisosClient.xhtml"; // tiene q ir a la de jose además tiene que hacer un remove a la lista de jose.
+        return "bandejaAvisosClient.xhtml"; 
 
     }
 

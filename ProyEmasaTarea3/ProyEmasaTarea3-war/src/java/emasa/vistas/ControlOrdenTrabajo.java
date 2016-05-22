@@ -7,9 +7,11 @@ package emasa.vistas;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import emasa.entidades.Aviso;
+import emasa.entidades.Brigada;
 import emasa.entidades.OrdTrabajo;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
@@ -37,6 +39,7 @@ public class ControlOrdenTrabajo implements Serializable{
     
     private List<OrdTrabajo> listOrd;
     private OrdTrabajo ordSelected;
+    private OrdTrabajo ordHelper;
     @Inject
     private OpcionesAviso aviso;
 
@@ -76,10 +79,15 @@ public class ControlOrdenTrabajo implements Serializable{
     public void init()
     {
         listOrd=new ArrayList<>();
+        ordHelper = new OrdTrabajo();
+        ordHelper.setEstado("Abierta");
+        Date sys =new Date();
+        ordHelper.setFechaCreacion(sys);
+        ordHelper.setIdOrden(1);
+        ordHelper.setNumBrigada(new Brigada(2));
+        aviso.getHistoricoReciente().getOrdTrabajoCollection().add(ordHelper);
         
-      
-        
-    listOrd=(List<OrdTrabajo>) aviso.getHistoricoReciente().getOrdTrabajoCollection();
+        listOrd=(List<OrdTrabajo>) aviso.getHistoricoReciente().getOrdTrabajoCollection();
         
     }
     
