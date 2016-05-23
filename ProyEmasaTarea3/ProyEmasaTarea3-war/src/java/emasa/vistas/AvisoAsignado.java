@@ -23,7 +23,7 @@ import javax.inject.Named;
  * @author malex
  */
 @Named(value = "avisoAsignado")
-@RequestScoped
+@SessionScoped
 public class AvisoAsignado implements Serializable {
 
   
