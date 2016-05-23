@@ -20,6 +20,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 @LocalBean
 public class EmpleadoNegocio {
+    
     @PersistenceContext(unitName = "ProyEmasaTarea3-ejbPU")
     EntityManager em;
 
@@ -30,7 +31,18 @@ public class EmpleadoNegocio {
         TypedQuery<Empleado> query=em.createNamedQuery("lista.Supervisores",Empleado.class);
         return query.getResultList();
     }
-
+    public List<Empleado> listaEmpleados(){
+        TypedQuery<Empleado> query=em.createNamedQuery("lista.Empleados",Empleado.class);
+        return query.getResultList();
+    }
+    public Empleado findEmployee(String usuario, String password){
+        TypedQuery<Empleado> query=em.createNamedQuery("lista.Empleados",Empleado.class);
+        query.setParameter("eMail", usuario );
+        query.setParameter("password", password);
+        return query.getSingleResult();
+        
+        
+    }
     public void crearSupervisor(Empleado e) {
         em.persist(e);
     }

@@ -7,11 +7,13 @@ package emasa.vistas;
 
 import emasa.entidades.Datos;
 import emasa.entidades.Empleado;
+import emasa.negocio.EmpleadoNegocio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -32,15 +34,18 @@ public class LoginBean implements Serializable {
     private String cargoUsuario;
     private boolean logeado = false;
     private Empleado usr;
-    @Inject
-    private Datos employee;
+    //@Inject
+   // private Datos employee;
     private List<Empleado> empleados;
+    @EJB
+    private EmpleadoNegocio empleadoEJB;
 
     public LoginBean() {
     }
     @PostConstruct
     public void init(){
-        empleados = employee.getEmpleados();
+       // empleados = employee.getEmpleados();
+       empleados=empleadoEJB.listaEmpleados();
     }
 
     public Empleado getUsr() {
@@ -83,6 +88,34 @@ public class LoginBean implements Serializable {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage msg = null;
         
+        
+        Empleado empl=empleadoEJB.findEmployee(usuario, clave);
+        if(empl==null){
+            msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error","Credenciales no válidas");
+        }else{
+            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenid@", usuario);
+            
+        if ( empl.getCargo().equals("SAT")) {
+            QuienEntra.sat();
+            context.addCallbackParam("view", "crearAvisosClient.xhtml");
+        }
+        else if (empl.getCargo().equals("OPmov")){
+           
+            context.addCallbackParam("view", "bandejaVisitasClient.xhtml");
+        }
+        else if (empl.getCargo().equals("Supervisor")){
+            context.addCallbackParam("view", "bandejaAvisosClient.xhtml");
+        }
+        }
+        
+        
+        
+        
+        
+        
+       /* RequestContext context = RequestContext.getCurrentInstance();
+        FacesMessage msg = null;
+        
         if(usuario != null && clave != null){
             for(Empleado e : empleados){
                 if(usuario.equals(e.getEMail()) && clave.equals(e.getPassword())){
@@ -113,13 +146,14 @@ public class LoginBean implements Serializable {
         }
         else if (logeado && cargoUsuario.equals("Supervisor")){
             context.addCallbackParam("view", "bandejaAvisosClient.xhtml");
-        }
+        }*/
     }
 
     public void logout() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         session.invalidate();
-        logeado = false;
+        //logeado = false;
+
     }
 
 }

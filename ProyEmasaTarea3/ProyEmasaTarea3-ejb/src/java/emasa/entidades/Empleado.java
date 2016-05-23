@@ -18,7 +18,11 @@ import javax.persistence.*;
 @NamedQueries({
     
     @NamedQuery(name="lista.Supervisores",
-                query="SELECT l FROM Empleado l WHERE l.cargo='Supervisor' order by l.idEmpleado")
+                query="SELECT l FROM Empleado l WHERE l.cargo='Supervisor' order by l.idEmpleado"),
+    @NamedQuery(name="lista.Empleados",
+                query="SELECT l FROM Empleado l order by l.idEmpleado"),
+        @NamedQuery(name="lista.Login",
+                query="SELECT l FROM Empleado l WHERE l.eMail = :eMail and l.password = :password")
         
 })
 public class Empleado implements Serializable {
